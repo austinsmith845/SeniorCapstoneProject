@@ -10,30 +10,30 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 
 namespace SeniorCapstoneProject
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for SelectionScreen.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SelectionScreen : Window
     {
-       
-        public MainWindow()
+        #region Properties
+        private MainWindow _main;
+        #endregion
+      
+
+        public SelectionScreen(MainWindow win)
         {
             InitializeComponent();
+            _main = win;
+
         }
 
-      
-        private void EnterClicked(Object sender, RoutedEventArgs e )
+        private void Window_Closed(object sender, EventArgs e)
         {
-            SelectionScreen window = new SelectionScreen(this);
-            this.Hide();
-            window.Show();
+            _main.Show();
         }
-
     }
 }

@@ -19,9 +19,11 @@ namespace SeniorCapstoneProject
     /// </summary>
     public partial class Creator : Window
     {
+        IRoom room;
         public Creator()
         {
             InitializeComponent();
+            room = new Room("Room1", (int)this.Width, (int)this.Height);
         }
     }
 }

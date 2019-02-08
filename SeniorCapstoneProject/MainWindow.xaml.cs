@@ -21,8 +21,6 @@ namespace SeniorCapstoneProject
     /// </summary>
     public partial class MainWindow : Window
     {
-       //Kelli was here
-       //0walker was here
         public MainWindow()
         {
             InitializeComponent();

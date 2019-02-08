@@ -32,6 +32,8 @@ namespace SeniorCapstoneProject
             set { _name = value; }
         }
 
+        List<IFurniture> _furniture;
+
         #endregion
 
         #region Constructors

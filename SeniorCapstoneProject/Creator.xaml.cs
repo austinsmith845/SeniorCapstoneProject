@@ -23,7 +23,25 @@ namespace SeniorCapstoneProject
         public Creator()
         {
             InitializeComponent();
-            room = new Room("Room1", (int)this.Width, (int)this.Height);
+            
+           
         }
+
+        #region Methods
+        public void CreateRoom()
+        {
+           
+            room = new Room("Room1", (int)this.Width, (int)this.Height); //Will add name setter in now.
+        }
+
+        private void MenuClick(object sender, RoutedEventArgs args)
+        {
+            MenuItem menu = (MenuItem)sender;
+           if((string)menu.Tag == "Recliner")
+            {
+
+            }
+        }
+        #endregion 
     }
 }

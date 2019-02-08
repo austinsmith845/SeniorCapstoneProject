@@ -35,5 +35,25 @@ namespace SeniorCapstoneProject
         {
             _main.Show();
         }
+
+        private void ButtonClicked(object sender, RoutedEventArgs args)
+        {
+            Button btn = (Button)sender;
+            if((string)btn.Tag == "Load")
+            {
+                MessageBox.Show("Load functionality has not yet been implemented.");
+            }
+             
+            else if ((string)btn.Tag == "Create")
+            {
+                Creator creator = new Creator();
+                creator.Show();
+            }
+            
+            else if ((string)btn.Tag == "Algorithm")
+            {
+                MessageBox.Show("Algorithm functionality has not yet been implemented.");
+            }
+        }
     }
 }

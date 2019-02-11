@@ -43,12 +43,23 @@ namespace SeniorCapstoneProject
             this.Name = name;
             this.Width = width;
             this.Length = length;
+            _furniture = new List<IFurniture>();
            
         }
 
-        public void Insert(IFurniture furniture, int x, int y)
+        /// <summary>
+        /// This function handles inserting furniture into the room
+        /// </summary>
+        /// <param name="furniture">The piece of furniture to insert</param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="callBack">The function to call once the insert is complete.</param>
+        public void Insert(IFurniture furniture, int x, int y, AddItemToUI callBack)
         {
-            throw new NotImplementedException();
+            furniture.X = x;
+            furniture.Y = y;
+            this._furniture.Add(furniture);
+            callBack(); //This will call back to the UI that it needs to update the view
         }
 
         public void Remove(IFurniture selected)

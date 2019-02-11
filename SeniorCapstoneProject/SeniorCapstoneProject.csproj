@@ -59,6 +59,7 @@
     <Compile Include="Creator.xaml.cs">
       <DependentUpon>Creator.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FurnitureFactory.cs" />
     <Compile Include="Furniture\Recliner.cs" />
     <Compile Include="IFurniture.cs" />
     <Compile Include="IRoom.cs" />

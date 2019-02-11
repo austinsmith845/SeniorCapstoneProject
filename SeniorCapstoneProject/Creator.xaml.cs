@@ -39,8 +39,13 @@ namespace SeniorCapstoneProject
             MenuItem menu = (MenuItem)sender;
            if((string)menu.Tag == "Recliner")
             {
-
+                room.Insert(new FurnitureFactory().InsertFurniture("recliner"),20,20,UpdateUI);
             }
+        }
+
+        public void UpdateUI()
+        {
+            throw new NotImplementedException();
         }
         #endregion 
     }

@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace SeniorCapstoneProject
 {
-    interface IFurniture
+    public interface IFurniture
     {
         float Height { get;  }
         float Width { get;  }
+        int X { get; set; }
+        int Y { get; set; }
+        bool Selected { get; set; }
         bool CanPassUnder();
         void Select();
     }

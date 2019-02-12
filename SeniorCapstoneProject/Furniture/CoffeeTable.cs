@@ -80,10 +80,10 @@ namespace SeniorCapstoneProject.Furniture
         {
             this.Type = type;
             _grid = grid;
-            DialogBox box = new DialogBox("Enter a height.");
+            DialogBox box = new DialogBox("Enter a height (cm).");
             while((bool)box.ShowDialog(GetDialogResult));
 
-            box = new DialogBox("Enter a width.");
+            box = new DialogBox("Enter a width (cm).");
             while((bool)box.ShowDialog(GetDialogResult));
 
         }

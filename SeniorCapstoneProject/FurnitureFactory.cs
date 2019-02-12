@@ -10,6 +10,12 @@ namespace SeniorCapstoneProject
 {
     public class FurnitureFactory
     {
+        /// <summary>
+        /// This method creates the furntiture objects and returns them.
+        /// </summary>
+        /// <param name="whatToInsert"></param>
+        /// <param name="grid"></param>
+        /// <returns></returns>
         public IFurniture InsertFurniture(string whatToInsert, Grid grid)
         {
             whatToInsert = whatToInsert.ToLower();

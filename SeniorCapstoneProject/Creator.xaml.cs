@@ -59,6 +59,11 @@ namespace SeniorCapstoneProject
 
         }
 
+        /// <summary>
+        /// handles a click on the menu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void MenuClick(object sender, RoutedEventArgs args)
         {
             MenuItem menu = (MenuItem)sender;
@@ -81,7 +86,11 @@ namespace SeniorCapstoneProject
         #endregion
 
    
-
+        /// <summary>
+        /// Handles the key presses and executes the appropriate action on the selected objects.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.Key == Key.Right)

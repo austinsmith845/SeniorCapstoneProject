@@ -9,6 +9,9 @@ using System.Windows.Media;
 
 namespace SeniorCapstoneProject.Furniture
 {
+    /// <summary>
+    /// This class represents the Recliner object.
+    /// </summary>
     public class Recliner : IFurniture
     {
         #region Attributes / Properties
@@ -77,6 +80,11 @@ namespace SeniorCapstoneProject.Furniture
 
         #region Support Methods
 
+        /// <summary>
+        /// This method is called when the piece of furniture is clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void Select(Object sender, MouseButtonEventArgs args)
         {
 

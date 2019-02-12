@@ -25,6 +25,8 @@ namespace SeniorCapstoneProject
         void MoveLeft();
         void RotateRight();
         void RotateLeft();
+        void SetGrid(Grid grid);
+        void SetRotation();
 
     }
 }

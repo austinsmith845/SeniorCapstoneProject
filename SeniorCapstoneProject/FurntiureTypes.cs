@@ -2,4 +2,5 @@
 {
     chair,
     recliner,
+    CoffeeTable,
 }

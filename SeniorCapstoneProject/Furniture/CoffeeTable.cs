@@ -9,23 +9,19 @@ using System.Windows.Media;
 
 namespace SeniorCapstoneProject.Furniture
 {
-    /// <summary>
-    /// This class represents the Recliner object.
-    /// </summary>
-    [Serializable]
-    public class Recliner : IFurniture
+    public class CoffeeTable :  IFurniture
     {
         #region Attributes / Properties
 
-        private float _height = 50.8f; //this is the average height of a recliner in cm.
+        private float _height =0; //this is the average height of a recliner in cm.
         public float Height
         {
             get { return _height; }
 
         }
 
-        private float _width = 91.44f; //this is the average width in cm.
-        public  float Width
+        private float _width = 0; //this is the average width in cm.
+        public float Width
         {
             get { return _width; }
         }
@@ -40,14 +36,14 @@ namespace SeniorCapstoneProject.Furniture
         public int X
         {
             get { return _x; }
-            set { _x = value;  }
+            set { _x = value; }
         }
 
         private int _y;
         public int Y
         {
             get { return _y; }
-            set { _y = value;  }
+            set { _y = value; }
         }
 
         private int _rotation = 0;
@@ -80,11 +76,30 @@ namespace SeniorCapstoneProject.Furniture
         #endregion
 
         #region Constructors
-        public Recliner(FurnitureTypes type, Grid grid)
+        public CoffeeTable(FurnitureTypes type, Grid grid)
         {
             this.Type = type;
             _grid = grid;
-            
+            DialogBox box = new DialogBox("Enter a height.");
+            while((bool)box.ShowDialog(GetDialogResult));
+
+            box = new DialogBox("Enter a width.");
+            while((bool)box.ShowDialog(GetDialogResult));
+
+        }
+
+      
+        private void GetDialogResult(string value)
+        {
+            if(this.Height == 0)
+            {
+                _height = float.Parse(value);
+
+            }
+            else if(this .Width == 0)
+            {
+                _width = float.Parse(value);
+            }
         }
 
         #endregion
@@ -104,7 +119,7 @@ namespace SeniorCapstoneProject.Furniture
         /// <param name="args"></param>
         public void Select(Object sender, MouseButtonEventArgs args)
         {
-             if(!Selected)
+            if (!Selected)
             {
                 Selected = true;
             }
@@ -121,7 +136,7 @@ namespace SeniorCapstoneProject.Furniture
                 this.Y -= 5;
                 Img.Margin = new System.Windows.Thickness(X, Y, 0, 0);
             }
-            
+
         }
 
         public void MoveDown()
@@ -178,7 +193,7 @@ namespace SeniorCapstoneProject.Furniture
         public bool CanPassUnder()
         {
             RobotVacuum vacuum = RobotVacuum.Vacuum;
-            if(this.Height > vacuum.Height)
+            if (this.Height > vacuum.Height)
             {
                 return true;
             }
@@ -192,7 +207,7 @@ namespace SeniorCapstoneProject.Furniture
         {
             _grid = grid;
         }
-
         #endregion
+
     }
 }

@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Reflection;
+using Microsoft.Win32;
+using System.Runtime.Serialization.Formatters.Binary;
+using io = System.IO;
 
 namespace SeniorCapstoneProject
 {
@@ -22,13 +25,21 @@ namespace SeniorCapstoneProject
     {
         IRoom room;
         List<IFurniture> objects;
-        public Creator()
+        public Creator(bool loading)
         {
             InitializeComponent();
-            CreateRoom();
-            objects = new List<IFurniture>();
+            if (!loading)
+            {
+                CreateRoom();
+                objects = new List<IFurniture>();
+            }
+            else
+            {
+                LoadRoom();
+            }
            
         }
+
 
         #region Methods
         public void CreateRoom()
@@ -47,16 +58,106 @@ namespace SeniorCapstoneProject
             furniture.Img = img;
 
 
-            objects.Add(furniture);
+            objects = room.GetFurniture();
 
             switch (furnitureType)
             {
                 case FurnitureTypes.recliner:
                     img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Recliner.jpg"));
                     break;
+                case FurnitureTypes.CoffeeTable:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\CoffeeTable.jpg"));
+                    break;
             }
             this.Grid.Children.Add(furniture.Img);
 
+        }
+
+        public void LoadUI(IFurniture furniture, FurnitureTypes furnitureType)
+        {
+            furniture.SetGrid(this.Grid);
+            Image img = new Image();
+            img.Width = furniture.Width;
+            img.Height = furniture.Height;
+            img.Visibility = Visibility.Visible;
+            img.Margin = new Thickness(furniture.X, furniture.Y, 0, 0);
+            furniture.Img = img;
+           
+
+            objects = room.GetFurniture();
+            
+
+            switch (furnitureType)
+            {
+                case FurnitureTypes.recliner:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Recliner.jpg"));
+                    break;
+                case FurnitureTypes.CoffeeTable:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\CoffeeTable.jpg"));
+                    break;
+            }
+            furniture.SetRotation();
+            this.Grid.Children.Add(furniture.Img);
+
+        }
+
+        /// <summary>
+        /// Loads a room into the editor.
+        /// </summary>
+        private void LoadRoom()
+        {
+            OpenFileDialog opener = new OpenFileDialog();
+            opener.DefaultExt = ".rvs";
+            opener.InitialDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase);
+            bool? result = opener.ShowDialog();
+            string fileName = opener.FileName;
+            room = DeserializeRoom(fileName);
+        
+
+            foreach(IFurniture furn in room.GetFurniture())
+            {
+             
+                LoadUI(furn, furn.Type);
+                
+            }
+        }
+
+        private IRoom DeserializeRoom(string path)
+        {
+       
+            io.Stream inputStream = io.File.OpenRead(path);
+            IRoom r = null;
+            try
+            {
+                BinaryFormatter reader = new BinaryFormatter();
+                r = (IRoom)reader.Deserialize(inputStream);
+            }
+
+            catch (ArgumentNullException n)
+            {
+                MessageBox.Show("The file passed is either empty, corrupted, or doesn't exist");
+             
+                
+            }
+
+            catch (System.Runtime.Serialization.SerializationException s)
+            {
+                MessageBox.Show("An error occurred while reading the file");
+                
+                
+            }
+
+            catch (System.Security.SecurityException s)
+            {
+                MessageBox.Show("You do not have the appropriate permission to access this file.");
+               
+            
+            }
+            finally
+            {
+                inputStream.Close();
+            }
+            return r;
         }
 
         /// <summary>
@@ -76,9 +177,28 @@ namespace SeniorCapstoneProject
                 room.Insert(furnToInsert,0,0,UpdateUI);
             }
 
+            if ((string)menu.Tag == "CoffeeTable")
+            {
+                furnToInsert = factory.InsertFurniture("coffeetable", this.Grid);
+                room.Insert(furnToInsert, 0, 0, UpdateUI);
+            }
             else if ((string)menu.Tag == "Controls")
             {
                 MessageBox.Show("How to use the editor\n1) Use the menu to add items.\n2)Click an item to select it.\n3)Use the arrow keys to reposition.\n4)Use a and d keys to rotate.");
+            }
+
+            else if ((string)menu.Tag == "Save")
+            {
+                SaveDialog dialog = new SaveDialog();
+                dialog.ShowDialog(room.SaveDialogReturnedHandler);
+            
+            }
+
+            else if ((string)menu.Tag == "Load")
+            {
+                Creator creator = new Creator(true);
+                creator.Show();
+
             }
         }
 

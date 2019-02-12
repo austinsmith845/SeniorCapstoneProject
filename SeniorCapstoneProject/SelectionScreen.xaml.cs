@@ -46,7 +46,7 @@ namespace SeniorCapstoneProject
              
             else if ((string)btn.Tag == "Create")
             {
-                Creator creator = new Creator();
+                Creator creator = new Creator(false);
                 creator.Show();
             }
             

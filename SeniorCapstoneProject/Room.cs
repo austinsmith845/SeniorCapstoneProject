@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Runtime.Serialization;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace SeniorCapstoneProject
 {
+    [Serializable]
     internal class Room : IRoom
     {
         #region Properties
@@ -68,9 +71,57 @@ namespace SeniorCapstoneProject
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// This method will save the room out so that it can be loaded by the simulator or editor later.
+        /// </summary>
         public void Save()
         {
-            throw new NotImplementedException();
+            string fileName = Name + ".rvs";// System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase) + "\\"+ Name+".rvs";
+
+            Stream room = File.Create(fileName);
+            try
+            {
+               
+                BinaryFormatter writer = new BinaryFormatter();
+                writer.Serialize(room, this);
+            }
+            catch(ArgumentNullException i)
+            {
+                System.Windows.MessageBox.Show("An output error occuerd when saving the room.");
+            }
+            catch (SerializationException e)
+            {
+                System.Windows.MessageBox.Show("An error occuerd when saving the room.");
+            }
+
+            catch(System.Security.SecurityException s)
+            {
+                System.Windows.MessageBox.Show("Error\nYou do not have the appropriate permission to access the save directory.");
+            }
+            finally
+            {
+                room.Close();
+            }
+           
+
+        }
+        
+        private void DeleteImagesForSave()
+        {
+            foreach(IFurniture furn in _furniture)
+            {
+                furn.Img = null;
+            }
+        }
+        public List<IFurniture> GetFurniture()
+        {
+            return _furniture;
+        }
+
+        public void SaveDialogReturnedHandler(string name)
+        {
+            this.Name = name;
+            Save();
         }
 
         #endregion

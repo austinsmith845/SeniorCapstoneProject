@@ -11,8 +11,8 @@
 
         <Label Content="Select an option."  HorizontalAlignment="Center" HorizontalContentAlignment="Center"  FontSize="32" Margin="193,10,214.8,0" VerticalAlignment="Top" Width="465" FontWeight="Bold"/>
         <Image x:Name="imgLogo" HorizontalAlignment="Left"   Height="100" Margin="747,0,0,0" VerticalAlignment="Top" Width="100" Source="Images/Logo.png"/>
-        <Button x:Name="btnLoad" Content="Load Scene" FontSize="24" HorizontalAlignment="Left" Margin="193,100,0,0" VerticalAlignment="Top" Width="465" Height="60" Tag="Load" Click="ButtonClicked"/>
-        <Button x:Name="btnCreate" Content="Create Scene" FontSize="24" HorizontalAlignment="Left" Margin="193,198,0,0" VerticalAlignment="Top" Width="465" Height="60" Tag="Create" Click="ButtonClicked"/>
+        <Button x:Name="btnLoad" Content="Enter Simulator" FontSize="24" HorizontalAlignment="Left" Margin="193,100,0,0" VerticalAlignment="Top" Width="465" Height="60" Tag="Load" Click="ButtonClicked"/>
+        <Button x:Name="btnCreate" Content="Edit Scenes" FontSize="24" HorizontalAlignment="Left" Margin="193,198,0,0" VerticalAlignment="Top" Width="465" Height="60" Tag="Create" Click="ButtonClicked"/>
         <Button x:Name="btnEditor" Content="Algorithm Editor" FontSize="24" HorizontalAlignment="Left" Margin="193,294,0,0" VerticalAlignment="Top" Width="465" Height="60" Tag="Algorithm" Click="ButtonClicked"/>
 
     </Grid>

@@ -59,7 +59,11 @@
     <Compile Include="Creator.xaml.cs">
       <DependentUpon>Creator.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DialogBox.xaml.cs">
+      <DependentUpon>DialogBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FurnitureFactory.cs" />
+    <Compile Include="Furniture\CoffeeTable.cs" />
     <Compile Include="Furniture\Recliner.cs" />
     <Compile Include="FurntiureTypes.cs" />
     <Compile Include="IFurniture.cs" />
@@ -69,7 +73,14 @@
     <Compile Include="SelectionScreen.xaml.cs">
       <DependentUpon>SelectionScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SaveDialog.xaml.cs">
+      <DependentUpon>SaveDialog.xaml</DependentUpon>
+    </Compile>
     <Page Include="Creator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -86,6 +97,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="SelectionScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SaveDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -120,6 +135,9 @@
     <Resource Include="Images\Logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\CoffeeTable.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Recliner.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

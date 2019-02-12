@@ -5,11 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SeniorCapstoneProject"
         mc:Ignorable="d"
-        Title="Creator" Height="800" Width="1200" ResizeMode="NoResize"  KeyDown="Window_KeyDown" >
-    <Grid x:Name="Grid" HorizontalAlignment="Left" Height="790" VerticalAlignment="Top" Width="1200" Margin="0,0,-15,-19.6" ClipToBounds="True" SnapsToDevicePixels="True">
-        <Menu HorizontalAlignment="Right" Height="29" VerticalAlignment="Top" Width="1200">
-            <MenuItem x:Name="Insert" Header="  Insert">
+        Title="Creator" Height="591.2" Width="1002" ResizeMode="NoResize"  KeyDown="Window_KeyDown" >
+    <Grid x:Name="Grid" HorizontalAlignment="Left" Height="581" VerticalAlignment="Top" Width="1002" Margin="0,0,-6.8,-19.4" ClipToBounds="True" SnapsToDevicePixels="True">
+        <Menu HorizontalAlignment="Right" Height="29" VerticalAlignment="Top" Width="992" Margin="0,0,10,0">
+            <MenuItem x:Name="File" Header="  File">
+                <MenuItem x:Name="Save" Header="Save" Tag="Save" Click="MenuClick"/>
+                <MenuItem x:Name="Load" Header="Load" Tag="Load" Click="MenuClick"/>
+            </MenuItem>
+            <MenuItem x:Name="Insert" Header="Insert">
                 <MenuItem x:Name="Recliner" Header="Recliner" Tag="Recliner" Click="MenuClick"/>
+                <MenuItem x:Name="CoffeeTable" Header="Coffee Table" Tag="CoffeeTable" Click="MenuClick"/>
             </MenuItem>
             <MenuItem x:Name="Help" Header="Help">
                 <MenuItem x:Name="Controls" Header="Controls" Tag="Controls" Click="MenuClick"/>

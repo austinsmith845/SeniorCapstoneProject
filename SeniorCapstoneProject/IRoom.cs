@@ -15,7 +15,9 @@ namespace SeniorCapstoneProject
 
         void Insert(IFurniture furniture, int x, int y,AddItemToUI callBack);
         void Remove(IFurniture selected);
+        List<IFurniture> GetFurniture();
         void Save();
+        void SaveDialogReturnedHandler(string name);
 
     }
 }

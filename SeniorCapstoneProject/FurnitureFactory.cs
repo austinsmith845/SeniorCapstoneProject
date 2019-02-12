@@ -23,6 +23,11 @@ namespace SeniorCapstoneProject
             {
                 return new Recliner(FurnitureTypes.recliner,grid);
             }
+
+            if (whatToInsert == "coffeetable")
+            {
+                return new CoffeeTable(FurnitureTypes.CoffeeTable, grid);
+            }
             return null;
         }
 

@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="FurnitureFactory.cs" />
     <Compile Include="Furniture\Recliner.cs" />
+    <Compile Include="FurntiureTypes.cs" />
     <Compile Include="IFurniture.cs" />
     <Compile Include="IRoom.cs" />
     <Compile Include="RobotVacuum.cs" />
@@ -117,6 +118,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\Recliner.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

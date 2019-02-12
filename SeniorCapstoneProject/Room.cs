@@ -10,6 +10,7 @@ namespace SeniorCapstoneProject
     internal class Room : IRoom
     {
         #region Properties
+     
 
         private float _length;
         public float Length
@@ -59,7 +60,7 @@ namespace SeniorCapstoneProject
             furniture.X = x;
             furniture.Y = y;
             this._furniture.Add(furniture);
-            callBack(); //This will call back to the UI that it needs to update the view
+            callBack(furniture, furniture.Type); //This will call back to the UI that it needs to update the view
         }
 
         public void Remove(IFurniture selected)

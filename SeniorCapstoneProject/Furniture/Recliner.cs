@@ -64,7 +64,7 @@ namespace SeniorCapstoneProject.Furniture
         public Image Img
         {
             get { return _img; }
-            set { _img = value; Img.MouseDown += Select; Img.Width = this.Width; Img.Height = this.Height; }
+            set { _img = value; Img.MouseDown += Select; Img.Width = this.Width; Img.Height = this.Width; }
         }
 
         [NonSerialized]

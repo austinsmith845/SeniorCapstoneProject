@@ -3,4 +3,6 @@
     chair,
     recliner,
     CoffeeTable,
+    Couch,
+    Counter,
 }

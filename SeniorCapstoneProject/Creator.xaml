@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SeniorCapstoneProject"
         mc:Ignorable="d"
-        Title="Creator" Height="591.2" Width="1002" ResizeMode="NoResize"  KeyDown="Window_KeyDown" >
+        Title="Creator" Height="591.2" Width="1002" ResizeMode="NoResize"  KeyDown="Window_KeyDown" Background="LightGray" >
     <Grid x:Name="Grid" HorizontalAlignment="Left" Height="581" VerticalAlignment="Top" Width="1002" Margin="0,0,-6.8,-19.4" ClipToBounds="True" SnapsToDevicePixels="True">
         <Menu HorizontalAlignment="Right" Height="29" VerticalAlignment="Top" Width="992" Margin="0,0,10,0">
             <MenuItem x:Name="File" Header="  File">
@@ -14,7 +14,10 @@
             </MenuItem>
             <MenuItem x:Name="Insert" Header="Insert">
                 <MenuItem x:Name="Recliner" Header="Recliner" Tag="Recliner" Click="MenuClick"/>
-                <MenuItem x:Name="CoffeeTable" Header="Coffee Table" Tag="CoffeeTable" Click="MenuClick"/>
+                <MenuItem x:Name="Chair" Header="Chair" Tag="Chair" Click="MenuClick"/>
+                <MenuItem x:Name="CoffeeTable" Header="Table" Tag="CoffeeTable" Click="MenuClick"/>
+                <MenuItem x:Name="Couch" Header="Couch" Tag="Couch" Click="MenuClick"/>
+                <MenuItem x:Name="Counter" Header="Counter" Tag="Counter" Click="MenuClick"/>
             </MenuItem>
             <MenuItem x:Name="Help" Header="Help">
                 <MenuItem x:Name="Controls" Header="Controls" Tag="Controls" Click="MenuClick"/>

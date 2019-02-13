@@ -68,6 +68,15 @@ namespace SeniorCapstoneProject
                 case FurnitureTypes.CoffeeTable:
                     img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\CoffeeTable.jpg"));
                     break;
+                case FurnitureTypes.Couch:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Couch.jpg"));
+                    break;
+                case FurnitureTypes.chair:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Chair.png"));
+                    break;
+                case FurnitureTypes.Counter:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Counter.jpg"));
+                    break;
             }
             this.Grid.Children.Add(furniture.Img);
 
@@ -95,7 +104,19 @@ namespace SeniorCapstoneProject
                 case FurnitureTypes.CoffeeTable:
                     img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\CoffeeTable.jpg"));
                     break;
+                case FurnitureTypes.Couch:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Couch.jpg"));
+                    break;
+                case FurnitureTypes.chair:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Chair.png"));
+                    break;
+
+                case FurnitureTypes.Counter:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Counter.jpg"));
+                    break;
             }
+
+        
             furniture.SetRotation();
             this.Grid.Children.Add(furniture.Img);
 
@@ -177,11 +198,28 @@ namespace SeniorCapstoneProject
                 room.Insert(furnToInsert,0,0,UpdateUI);
             }
 
-            if ((string)menu.Tag == "CoffeeTable")
+            else if ((string)menu.Tag == "CoffeeTable")
             {
                 furnToInsert = factory.InsertFurniture("coffeetable", this.Grid);
                 room.Insert(furnToInsert, 0, 0, UpdateUI);
             }
+            else if ((string)menu.Tag == "Couch")
+            {
+                furnToInsert = factory.InsertFurniture("couch", this.Grid);
+                room.Insert(furnToInsert, 0, 0, UpdateUI);
+            }
+            else if ((string)menu.Tag == "Chair")
+            {
+                furnToInsert = factory.InsertFurniture("chair", this.Grid);
+                room.Insert(furnToInsert, 0, 0, UpdateUI);
+            }
+
+            else if ((string)menu.Tag == "Counter")
+            {
+                furnToInsert = factory.InsertFurniture("counter", this.Grid);
+                room.Insert(furnToInsert, 0, 0, UpdateUI);
+            }
+
             else if ((string)menu.Tag == "Controls")
             {
                 MessageBox.Show("How to use the editor\n1) Use the menu to add items.\n2)Click an item to select it.\n3)Use the arrow keys to reposition.\n4)Use a and d keys to rotate.");

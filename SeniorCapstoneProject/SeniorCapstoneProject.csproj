@@ -63,7 +63,10 @@
       <DependentUpon>DialogBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="FurnitureFactory.cs" />
+    <Compile Include="Furniture\Chair.cs" />
     <Compile Include="Furniture\CoffeeTable.cs" />
+    <Compile Include="Furniture\Couch.cs" />
+    <Compile Include="Furniture\Counter.cs" />
     <Compile Include="Furniture\Recliner.cs" />
     <Compile Include="FurntiureTypes.cs" />
     <Compile Include="IAlgorithm.cs" />
@@ -136,7 +139,16 @@
     <Resource Include="Images\Logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\Chair.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\CoffeeTable.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Couch.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Counter.JPG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Recliner.jpg">

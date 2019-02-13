@@ -27,6 +27,13 @@ namespace SeniorCapstoneProject.Furniture
             get { return _width; }
         }
 
+
+        private float _length = 0;
+        public float Length
+        {
+            get { return _length; }
+        }
+
         public bool Selected
         {
             get;
@@ -61,7 +68,7 @@ namespace SeniorCapstoneProject.Furniture
         public Image Img
         {
             get { return _img; }
-            set { _img = value; Img.MouseDown += Select; Img.Width = this.Width; Img.Height = this.Height; }
+            set { _img = value; Img.MouseDown += Select; Img.Width = this.Width; Img.Height = this.Length; }
         }
 
         [NonSerialized]
@@ -87,6 +94,9 @@ namespace SeniorCapstoneProject.Furniture
             box = new DialogBox("Enter a width (cm).");
             while((bool)box.ShowDialog(GetDialogResult));
 
+            box = new DialogBox("Enter a length (cm).");
+            while ((bool)box.ShowDialog(GetDialogResult)) ;
+
         }
 
       
@@ -100,6 +110,11 @@ namespace SeniorCapstoneProject.Furniture
             else if(this .Width == 0)
             {
                 _width = float.Parse(value);
+            }
+
+            else if (this.Length == 0)
+            {
+                _length = float.Parse(value);
             }
         }
 

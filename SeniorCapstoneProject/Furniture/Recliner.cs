@@ -24,11 +24,18 @@ namespace SeniorCapstoneProject.Furniture
 
         }
 
+        public float Length
+        {
+            get { return this.Width; }
+        }
+
         private float _width = 91.44f; //this is the average width in cm.
         public  float Width
         {
             get { return _width; }
         }
+
+        
 
         public bool Selected
         {

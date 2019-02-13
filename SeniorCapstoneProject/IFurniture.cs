@@ -12,6 +12,7 @@ namespace SeniorCapstoneProject
     {
         float Height { get;  }
         float Width { get;  }
+        float Length { get; }
         FurnitureTypes Type { get; set; }
         Image Img { get; set; }
         int X { get; set; }

@@ -77,6 +77,9 @@ namespace SeniorCapstoneProject
                 case FurnitureTypes.Counter:
                     img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Counter.jpg"));
                     break;
+                case FurnitureTypes.Bed:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Bed.jpg"));
+                    break;
             }
             this.Grid.Children.Add(furniture.Img);
 
@@ -113,6 +116,10 @@ namespace SeniorCapstoneProject
 
                 case FurnitureTypes.Counter:
                     img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Counter.jpg"));
+                    break;
+
+                case FurnitureTypes.Bed:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Bed.jpg"));
                     break;
             }
 
@@ -220,10 +227,17 @@ namespace SeniorCapstoneProject
                 room.Insert(furnToInsert, 0, 0, UpdateUI);
             }
 
+            else if ((string)menu.Tag == "Bed")
+            {
+                furnToInsert = factory.InsertFurniture("bed", this.Grid);
+                room.Insert(furnToInsert, 0, 0, UpdateUI);
+            }
+
             else if ((string)menu.Tag == "Controls")
             {
                 MessageBox.Show("How to use the editor\n1) Use the menu to add items.\n2)Click an item to select it.\n3)Use the arrow keys to reposition.\n4)Use a and d keys to rotate.");
             }
+
 
             else if ((string)menu.Tag == "Save")
             {

@@ -63,6 +63,7 @@
       <DependentUpon>DialogBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="FurnitureFactory.cs" />
+    <Compile Include="Furniture\Bed.cs" />
     <Compile Include="Furniture\Chair.cs" />
     <Compile Include="Furniture\CoffeeTable.cs" />
     <Compile Include="Furniture\Couch.cs" />
@@ -139,6 +140,9 @@
     <Resource Include="Images\Logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\Bed.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Chair.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

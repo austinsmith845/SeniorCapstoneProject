@@ -5,4 +5,5 @@
     CoffeeTable,
     Couch,
     Counter,
+    Bed,
 }

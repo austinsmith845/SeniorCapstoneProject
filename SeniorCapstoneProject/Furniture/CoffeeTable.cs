@@ -9,6 +9,7 @@ using System.Windows.Media;
 
 namespace SeniorCapstoneProject.Furniture
 {
+    [Serializable]
     public class CoffeeTable :  IFurniture
     {
         #region Attributes / Properties

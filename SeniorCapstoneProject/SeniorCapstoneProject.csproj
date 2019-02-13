@@ -66,6 +66,7 @@
     <Compile Include="Furniture\CoffeeTable.cs" />
     <Compile Include="Furniture\Recliner.cs" />
     <Compile Include="FurntiureTypes.cs" />
+    <Compile Include="IAlgorithm.cs" />
     <Compile Include="IFurniture.cs" />
     <Compile Include="IRoom.cs" />
     <Compile Include="RobotVacuum.cs" />

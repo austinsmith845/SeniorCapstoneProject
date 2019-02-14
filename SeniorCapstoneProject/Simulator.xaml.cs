@@ -32,6 +32,8 @@ namespace SeniorCapstoneProject
             objects = new List<IFurniture>();
             InitializeComponent();
             LoadRoom();
+            SimulationSetupScreen setup = new SimulationSetupScreen();
+            setup.ShowDialog();
         }
 
         private void LoadRoom()

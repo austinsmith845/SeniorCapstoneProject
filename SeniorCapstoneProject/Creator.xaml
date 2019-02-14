@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SeniorCapstoneProject"
         mc:Ignorable="d"
-        Title="Creator" Height="591.2" Width="1002" ResizeMode="NoResize"  KeyDown="Window_KeyDown" Background="LightGray" >
-    <Grid x:Name="Grid" HorizontalAlignment="Left" Height="581" VerticalAlignment="Top" Width="1002" Margin="0,0,-6.8,-19.4" ClipToBounds="True" SnapsToDevicePixels="True">
-        <Menu HorizontalAlignment="Right" Height="29" VerticalAlignment="Top" Width="992" Margin="0,0,10,0">
+        Title="Creator" Height="525.2" Width="849.6" ResizeMode="NoResize"  KeyDown="Window_KeyDown" Background="LightGray" >
+    <Grid x:Name="Grid" HorizontalAlignment="Left" Height="490" VerticalAlignment="Top" Width="840" ClipToBounds="True" SnapsToDevicePixels="True">
+        <Menu HorizontalAlignment="Right" Height="29" VerticalAlignment="Top" Width="840" Grid.ColumnSpan="2">
             <MenuItem x:Name="File" Header="  File">
                 <MenuItem x:Name="Save" Header="Save" Tag="Save" Click="MenuClick"/>
                 <MenuItem x:Name="Load" Header="Load" Tag="Load" Click="MenuClick"/>
@@ -19,6 +19,7 @@
                 <MenuItem x:Name="Couch" Header="Couch" Tag="Couch" Click="MenuClick"/>
                 <MenuItem x:Name="Counter" Header="Counter" Tag="Counter" Click="MenuClick"/>
                 <MenuItem x:Name="Bed" Header="Bed" Tag="Bed" Click="MenuClick"/>
+                <MenuItem x:Name="Dresser" Header="Dresser" Tag="Dresser" Click="MenuClick"/>
             </MenuItem>
             <MenuItem x:Name="Help" Header="Help">
                 <MenuItem x:Name="Controls" Header="Controls" Tag="Controls" Click="MenuClick"/>

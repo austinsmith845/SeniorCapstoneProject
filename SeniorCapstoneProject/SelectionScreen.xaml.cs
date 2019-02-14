@@ -41,7 +41,8 @@ namespace SeniorCapstoneProject
             Button btn = (Button)sender;
             if((string)btn.Tag == "Load")
             {
-                MessageBox.Show("Load functionality has not yet been implemented.");
+                Simulator simulator = new Simulator();
+                simulator.Show();
             }
              
             else if ((string)btn.Tag == "Create")

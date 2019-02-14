@@ -80,6 +80,9 @@ namespace SeniorCapstoneProject
                 case FurnitureTypes.Bed:
                     img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Bed.jpg"));
                     break;
+                case FurnitureTypes.Dresser:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Dresser.png"));
+                    break;
             }
             this.Grid.Children.Add(furniture.Img);
 
@@ -120,6 +123,10 @@ namespace SeniorCapstoneProject
 
                 case FurnitureTypes.Bed:
                     img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Bed.jpg"));
+                    break;
+
+                case FurnitureTypes.Dresser:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Dresser.jpg"));
                     break;
             }
 
@@ -230,6 +237,12 @@ namespace SeniorCapstoneProject
             else if ((string)menu.Tag == "Bed")
             {
                 furnToInsert = factory.InsertFurniture("bed", this.Grid);
+                room.Insert(furnToInsert, 0, 0, UpdateUI);
+            }
+
+            else if ((string)menu.Tag == "Dresser")
+            {
+                furnToInsert = factory.InsertFurniture("dresser", this.Grid);
                 room.Insert(furnToInsert, 0, 0, UpdateUI);
             }
 

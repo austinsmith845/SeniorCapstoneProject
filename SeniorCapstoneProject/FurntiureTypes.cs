@@ -6,4 +6,5 @@
     Couch,
     Counter,
     Bed,
+    Dresser,
 }

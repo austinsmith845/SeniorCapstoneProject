@@ -49,6 +49,11 @@ namespace SeniorCapstoneProject
             {
                 return new Bed(FurnitureTypes.Bed, grid);
             }
+
+            else if (whatToInsert == "dresser")
+            {
+                return new Dresser(FurnitureTypes.Dresser, grid);
+            }
             return null;
         }
 

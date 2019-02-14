@@ -126,7 +126,7 @@ namespace SeniorCapstoneProject
                     break;
 
                 case FurnitureTypes.Dresser:
-                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Dresser.jpg"));
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Dresser.png"));
                     break;
             }
 

@@ -8,7 +8,7 @@
         Title="Simulator" Height="525.2" Width="849.6" ResizeMode="NoResize"   Background="LightGray" >
     <Grid x:Name="Grid" HorizontalAlignment="Left" Height="490" VerticalAlignment="Top" Width="840" ClipToBounds="True" SnapsToDevicePixels="True">
        
-        <Menu HorizontalAlignment="Right" Height="29" VerticalAlignment="Top" Width="840" Grid.ColumnSpan="2">
+        <Menu HorizontalAlignment="Right" Height="29" VerticalAlignment="Top" Width="840">
           
           
           

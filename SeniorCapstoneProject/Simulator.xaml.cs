@@ -32,7 +32,7 @@ namespace SeniorCapstoneProject
             objects = new List<IFurniture>();
             InitializeComponent();
             LoadRoom();
-            SimulationSetupScreen setup = new SimulationSetupScreen();
+            SimulationSetupScreen setup = new SimulationSetupScreen(StartSimulation);
             setup.ShowDialog();
         }
 
@@ -89,7 +89,7 @@ namespace SeniorCapstoneProject
                     break;
 
                 case FurnitureTypes.Dresser:
-                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Dresser.jpg"));
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Dresser.png"));
                     break;
             }
 
@@ -135,6 +135,11 @@ namespace SeniorCapstoneProject
                 inputStream.Close();
             }
             return r;
+        }
+
+        public void StartSimulation(bool view)
+        {
+            throw new NotImplementedException();
         }
     }
 }

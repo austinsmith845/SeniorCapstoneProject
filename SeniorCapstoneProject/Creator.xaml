@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Creator" Height="525.2" Width="849.6" ResizeMode="NoResize"  KeyDown="Window_KeyDown" Background="LightGray" >
     <Grid x:Name="Grid" HorizontalAlignment="Left" Height="490" VerticalAlignment="Top" Width="840" ClipToBounds="True" SnapsToDevicePixels="True">
-        <Menu HorizontalAlignment="Right" Height="29" VerticalAlignment="Top" Width="840" Grid.ColumnSpan="2">
+        <Menu HorizontalAlignment="Right" Height="29" VerticalAlignment="Top" Width="840">
             <MenuItem x:Name="File" Header="  File">
                 <MenuItem x:Name="Save" Header="Save" Tag="Save" Click="MenuClick"/>
                 <MenuItem x:Name="Load" Header="Load" Tag="Load" Click="MenuClick"/>

@@ -7,6 +7,25 @@
         mc:Ignorable="d"
         Title="Set up simulation" Height="450" Width="800" Background="LightGray" ResizeMode="NoResize">
     <Grid>
-        
+        <Label Content="Select Simulation Settings." HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="144,26,174.6,0" VerticalAlignment="Top" Height="53" Width="475" FontSize="24"/>
+        <GroupBox Header="Algorithm" HorizontalAlignment="Left" Height="93" Margin="55,84,0,0" VerticalAlignment="Top" Width="676">
+            <ComboBox x:Name="cbxAlgorithms" HorizontalAlignment="Left" Margin="165,25,0,0" VerticalAlignment="Top" Width="306" Height="28" SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBoxItem>Spiral</ComboBoxItem>
+                <ComboBoxItem>Path Transform</ComboBoxItem>
+                <ComboBoxItem>Snake and Wall</ComboBoxItem>
+                <ComboBoxItem>Random Walk</ComboBoxItem>
+                <ComboBoxItem>Genetic</ComboBoxItem>
+            </ComboBox>
+        </GroupBox>
+        <GroupBox Header="View Simulation" HorizontalAlignment="Left" Height="93" Margin="55,199,0,0" VerticalAlignment="Top" Width="676">
+
+
+        </GroupBox>
+        <RadioButton x:Name="rdbSimulation" Content="View Simulation" HorizontalAlignment="Left" Margin="144,238,0,0" VerticalAlignment="Top" Height="21" Width="123" IsChecked="True"/>
+
+        <Button x:Name="btnStart" Content="Start Simulation" HorizontalAlignment="Left" Height="57" Margin="260,329,0,0" VerticalAlignment="Top" Width="250" IsDefault="True" IsEnabled="False" Click="StartClick"/>
+        <RadioButton x:Name="rdbSkip" Content="View stats only" HorizontalAlignment="Left" Margin="496,238,0,0" VerticalAlignment="Top" Height="21" Width="123"/>
+
+
     </Grid>
 </Window>

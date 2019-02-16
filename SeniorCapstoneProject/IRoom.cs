@@ -12,6 +12,8 @@ namespace SeniorCapstoneProject
        float Length { get; set; } 
        float Width { get; set; }
        string Name { get; set; }
+        bool HasVacuum { get; }
+        RobotVacuum Vacuum { get; set; }
 
         void Insert(IFurniture furniture, int x, int y,AddItemToUI callBack);
         void Remove(IFurniture selected);

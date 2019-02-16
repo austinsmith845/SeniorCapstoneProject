@@ -88,7 +88,7 @@ namespace SeniorCapstoneProject.Furniture
             {
                 this.Type = type;
                 _grid = grid;
-                DialogBox box = new DialogBox("Enter a height (cm).");
+                DialogBox box = new DialogBox("Enter a height from floor(cm).");
                 while ((bool)box.ShowDialog(GetDialogResult)) ;
 
                 box = new DialogBox("Enter a width (cm).");
@@ -167,9 +167,11 @@ namespace SeniorCapstoneProject.Furniture
 
             public void MoveLeft()
             {
-
-                this.X -= 5;
-                Img.Margin = new System.Windows.Thickness(X, Y, 0, 0);
+                if (Selected)
+                {
+                    this.X -= 5;
+                    Img.Margin = new System.Windows.Thickness(X, Y, 0, 0);
+                }
 
             }
 

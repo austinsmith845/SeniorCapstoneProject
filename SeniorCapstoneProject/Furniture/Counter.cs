@@ -163,9 +163,11 @@ namespace SeniorCapstoneProject.Furniture
 
         public void MoveLeft()
         {
-
-            this.X -= 5;
-            Img.Margin = new System.Windows.Thickness(X, Y, 0, 0);
+            if (Selected)
+            {
+                this.X -= 5;
+                Img.Margin = new System.Windows.Thickness(X, Y, 0, 0);
+            }
 
         }
 

@@ -33,6 +33,8 @@ namespace SeniorCapstoneProject
             InitializeComponent();
             LoadRoom();
             SimulationSetupScreen setup = new SimulationSetupScreen(StartSimulation);
+            this.Width = room.Width;
+            this.Height = room.Length;
             setup.ShowDialog();
         }
 
@@ -49,6 +51,7 @@ namespace SeniorCapstoneProject
             {
                 LoadUI(furn, furn.Type);
             }
+            InsertVacuumUi();
         }
 
         public void LoadUI(IFurniture furniture, FurnitureTypes furnitureType)
@@ -137,9 +140,21 @@ namespace SeniorCapstoneProject
             return r;
         }
 
+        private void InsertVacuumUi()
+        {
+            
+            room.Vacuum.SetGrid(this.Grid);
+            Image Img = new Image();
+            Img.Source = Img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\RobotVacuum.png"));
+            room.Vacuum.Img = Img;
+            room.Vacuum.SetRotation();
+
+            this.Grid.Children.Add(room.Vacuum.Img);
+        }
+
         public void StartSimulation(bool view)
         {
-            throw new NotImplementedException();
+            ///throw new NotImplementedException();
         }
     }
 }

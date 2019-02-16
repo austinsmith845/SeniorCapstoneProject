@@ -13,6 +13,7 @@
                 <MenuItem x:Name="Load" Header="Load" Tag="Load" Click="MenuClick"/>
             </MenuItem>
             <MenuItem x:Name="Insert" Header="Insert">
+                <MenuItem x:Name="Vacuum" Header="Vacuum" Tag="Vacuum" Click="MenuClick"/>
                 <MenuItem x:Name="Recliner" Header="Recliner" Tag="Recliner" Click="MenuClick"/>
                 <MenuItem x:Name="Chair" Header="Chair" Tag="Chair" Click="MenuClick"/>
                 <MenuItem x:Name="CoffeeTable" Header="Table" Tag="CoffeeTable" Click="MenuClick"/>

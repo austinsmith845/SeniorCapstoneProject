@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Shapes;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace SeniorCapstoneProject
 {
@@ -36,7 +39,25 @@ namespace SeniorCapstoneProject
             set { _name = value; }
         }
 
+        private RobotVacuum _vacuum;
+        public RobotVacuum Vacuum
+        {
+            get { return _vacuum; }
+            set { _vacuum = value; }
+        }
+
+
         List<IFurniture> _furniture;
+
+        private bool _hasVacuum;
+        public bool HasVacuum
+        {
+            get { return _hasVacuum; }
+            set { _hasVacuum = value; }
+        }
+
+        //float[,] roomMatrix;
+       
 
         #endregion
 
@@ -48,7 +69,8 @@ namespace SeniorCapstoneProject
             this.Width = width;
             this.Length = length;
             _furniture = new List<IFurniture>();
-           
+     //       roomMatrix = new float[(int)this.Length, (int)this.Width];
+
         }
 
         /// <summary>
@@ -105,13 +127,15 @@ namespace SeniorCapstoneProject
            
 
         }
-        
+
+            
         private void DeleteImagesForSave()
         {
             foreach(IFurniture furn in _furniture)
             {
                 furn.Img = null;
             }
+            Vacuum.Img = null;
         }
         public List<IFurniture> GetFurniture()
         {

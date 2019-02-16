@@ -25,6 +25,8 @@ namespace SeniorCapstoneProject
     {
         IRoom room;
         List<IFurniture> objects;
+        RobotVacuum vacuum;
+
         public Creator(bool loading)
         {
             InitializeComponent();
@@ -92,8 +94,8 @@ namespace SeniorCapstoneProject
         {
             furniture.SetGrid(this.Grid);
             Image img = new Image();
-            img.Width = furniture.Width;
-            img.Height = furniture.Height;
+            //img.Width = furniture.Width;
+           // img.Height = furniture.Height;
             img.Visibility = Visibility.Visible;
             img.Margin = new Thickness(furniture.X, furniture.Y, 0, 0);
             furniture.Img = img;
@@ -148,13 +150,27 @@ namespace SeniorCapstoneProject
             string fileName = opener.FileName;
             room = DeserializeRoom(fileName);
         
-
-            foreach(IFurniture furn in room.GetFurniture())
+            if(room.GetFurniture() != null)
             {
-             
-                LoadUI(furn, furn.Type);
-                
+                foreach (IFurniture furn in room.GetFurniture())
+                {
+
+                    LoadUI(furn, furn.Type);
+
+                }
             }
+           
+            InsertVacuumUi();
+        }
+
+        private void InsertVacuumUi()
+        {        
+            room.Vacuum.SetGrid(this.Grid);
+            Image Img = new Image();
+            Img.Source = Img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\RobotVacuum.png"));
+            room.Vacuum.Img = Img;
+            room.Vacuum.SetRotation();
+            this.Grid.Children.Add(room.Vacuum.Img);
         }
 
         private IRoom DeserializeRoom(string path)
@@ -246,6 +262,22 @@ namespace SeniorCapstoneProject
                 room.Insert(furnToInsert, 0, 0, UpdateUI);
             }
 
+            else if ((string)menu.Tag == "Vacuum")
+            {
+                if(room.Vacuum == null)
+                {
+                    room.Vacuum = RobotVacuum.Vacuum;
+                    room.Vacuum.X = 0;
+                    room.Vacuum.Y = 0;
+                    InsertVacuumUi();
+                }
+                else
+                {
+                    MessageBox.Show("You can only have one vacuum per room.");
+                }
+                
+            }
+
             else if ((string)menu.Tag == "Controls")
             {
                 MessageBox.Show("How to use the editor\n1) Use the menu to add items.\n2)Click an item to select it.\n3)Use the arrow keys to reposition.\n4)Use a and d keys to rotate.");
@@ -280,55 +312,79 @@ namespace SeniorCapstoneProject
         {
             if(e.Key == Key.Right)
             {
-                foreach (IFurniture furniture in objects)
+                if (objects != null)
                 {
-                    if (furniture.Selected)
+                    foreach (IFurniture furniture in objects)
                     {
-                        furniture.MoveRight();
+                        if (furniture.Selected)
+                        {
+                            furniture.MoveRight();
+                        }
                     }
                 }
+                room.Vacuum.MoveRight();
             }
 
             else if(e.Key ==  Key.Left)
             {
-                foreach (IFurniture furniture in objects)
+                if (objects != null)
                 {
-                    if (furniture.Selected)
+                    foreach (IFurniture furniture in objects)
                     {
-                        furniture.MoveLeft();
+                        if (furniture.Selected)
+                        {
+                            furniture.MoveLeft();
+                        }
                     }
                 }
+                room.Vacuum.MoveLeft();
             }
 
             else if(e.Key == Key.Up)
             {
-                foreach(IFurniture furniture in objects)
+                if (objects != null)
                 {
-                    furniture.MoveUp();
+                    foreach (IFurniture furniture in objects)
+                    {
+                        furniture.MoveUp();
+                    }
                 }
+                room.Vacuum.MoveUp();
             }
 
             else if (e.Key == Key.Down)
             {
-                foreach (IFurniture furniture in objects)
+                if (objects != null)
                 {
-                    furniture.MoveDown();
+                    foreach (IFurniture furniture in objects)
+                    {
+                        furniture.MoveDown();
+                    }
                 }
+                room.Vacuum.MoveDown();
             }
 
             else if (e.Key == Key.A)
             {
-                foreach (IFurniture furniture in objects)
+                if (objects != null)
                 {
-                    furniture.RotateRight();
+                    foreach (IFurniture furniture in objects)
+                    {
+                        furniture.RotateRight();
+                    }
                 }
+                room.Vacuum.RotateRight();
             }
             else if (e.Key == Key.D)
             {
-                foreach (IFurniture furniture in objects)
+                if (objects != null)
                 {
-                    furniture.RotateLeft();
+                    foreach (IFurniture furniture in objects)
+                    {
+                        furniture.RotateLeft();
+                    }
                 }
+                room.Vacuum.RotateLeft();
             }
 
 

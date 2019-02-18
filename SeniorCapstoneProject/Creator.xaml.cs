@@ -322,7 +322,10 @@ namespace SeniorCapstoneProject
                         }
                     }
                 }
-                room.Vacuum.MoveRight();
+                if (room.Vacuum != null)
+                {
+                    room.Vacuum.MoveRight();
+                }
             }
 
             else if(e.Key ==  Key.Left)
@@ -337,7 +340,10 @@ namespace SeniorCapstoneProject
                         }
                     }
                 }
-                room.Vacuum.MoveLeft();
+                if (room.Vacuum != null)
+                {
+                    room.Vacuum.MoveLeft();
+                }
             }
 
             else if(e.Key == Key.Up)
@@ -349,7 +355,10 @@ namespace SeniorCapstoneProject
                         furniture.MoveUp();
                     }
                 }
-                room.Vacuum.MoveUp();
+                if (room.Vacuum != null)
+                {
+                    room.Vacuum.MoveUp();
+                }
             }
 
             else if (e.Key == Key.Down)
@@ -361,7 +370,10 @@ namespace SeniorCapstoneProject
                         furniture.MoveDown();
                     }
                 }
-                room.Vacuum.MoveDown();
+                if (room.Vacuum != null)
+                {
+                    room.Vacuum.MoveDown();
+                }
             }
 
             else if (e.Key == Key.A)
@@ -373,7 +385,10 @@ namespace SeniorCapstoneProject
                         furniture.RotateRight();
                     }
                 }
-                room.Vacuum.RotateRight();
+                if (room.Vacuum != null)
+                {
+                    room.Vacuum.RotateRight();
+                }
             }
             else if (e.Key == Key.D)
             {
@@ -384,7 +399,10 @@ namespace SeniorCapstoneProject
                         furniture.RotateLeft();
                     }
                 }
-                room.Vacuum.RotateLeft();
+                if (room.Vacuum != null)
+                {
+                    room.Vacuum.RotateLeft();
+                }
             }
 
 

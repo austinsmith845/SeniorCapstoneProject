@@ -16,6 +16,7 @@ using System.Reflection;
 using io = System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading;
 
 namespace SeniorCapstoneProject
 {
@@ -26,9 +27,12 @@ namespace SeniorCapstoneProject
     {
         private IRoom room;
         private List<IFurniture> objects;
-       
+        private TimeTickObserver observer;
+        Timer time;
+        Thread timer;
         public Simulator()
         {
+            observer = new TimeTickObserver(UpdateTimerLabel);
             objects = new List<IFurniture>();
             InitializeComponent();
             LoadRoom();
@@ -36,6 +40,9 @@ namespace SeniorCapstoneProject
             this.Width = room.Width;
             this.Height = room.Length;
             setup.ShowDialog();
+            time = new Timer(observer);
+            timer = new Thread(new ThreadStart(time.Tick));
+            timer.Start();
         }
 
         private void LoadRoom()
@@ -155,6 +162,20 @@ namespace SeniorCapstoneProject
         public void StartSimulation(bool view)
         {
             ///throw new NotImplementedException();
+        }
+
+        private void UpdateTimerLabel(int secs)
+        {
+            int mins = secs / 60;
+            this.Dispatcher.Invoke(() => { this.lblTime.Content = String.Format("Elapsed time: {0}:{1:00}", mins, secs % 60); });
+            
+                
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            time.Enabled = false; //disables the timer.
+            timer.Abort(); //Stops the timer thread.
         }
     }
 }

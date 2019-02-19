@@ -56,6 +56,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Battery.cs" />
     <Compile Include="Creator.xaml.cs">
       <DependentUpon>Creator.xaml</DependentUpon>
     </Compile>
@@ -74,6 +75,7 @@
     <Compile Include="IAlgorithm.cs" />
     <Compile Include="IFurniture.cs" />
     <Compile Include="IRoom.cs" />
+    <Compile Include="ITimer.cs" />
     <Compile Include="RobotVacuum.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="SelectionScreen.xaml.cs">
@@ -88,6 +90,8 @@
     <Compile Include="Simulator.xaml.cs">
       <DependentUpon>Simulator.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Timer.cs" />
+    <Compile Include="TimeTickObserver.cs" />
     <Page Include="Creator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

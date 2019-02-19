@@ -57,6 +57,15 @@ namespace SeniorCapstoneProject
             set { _y = value; }
         }
 
+        [NonSerialized]
+        private IAlgorithm _algorithim;
+        public IAlgorithm Algorithm
+        {
+            get { return _algorithim; }
+            set { _algorithim = value; }
+        }
+
+
         private bool _selected;
 
         [NonSerialized]
@@ -179,14 +188,20 @@ namespace SeniorCapstoneProject
             _grid = grid;
         }
 
+        /// <summary>
+        /// initiates the next move.
+        /// </summary>
         public void Move()
         {
-            throw new NotImplementedException();
+            GetNextAction();
         }
 
+        /// <summary>
+        /// Gets the next move based of the algorithm the vacuum is using.
+        /// </summary>
         public void GetNextAction()
         {
-            throw new NotImplementedException();
+            Algorithm.NextMove(this);
         }
         #endregion 
 

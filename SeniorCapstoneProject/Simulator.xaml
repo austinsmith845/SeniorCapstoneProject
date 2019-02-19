@@ -11,6 +11,8 @@
         <Menu HorizontalAlignment="Right" Height="29" VerticalAlignment="Top" Width="840">
 
             <Label x:Name="lblTime" Content="Elapsed time: 0:00" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114"/>
+            <Label x:Name="lblBattery" Content="Battery: 0%" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114"/>
+            <Label x:Name="lblAlgorithm" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114"/>
 
         </Menu>
     </Grid>

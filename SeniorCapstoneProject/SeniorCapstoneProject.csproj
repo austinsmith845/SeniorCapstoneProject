@@ -56,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AlgorithmFactory.cs" />
+    <Compile Include="Algorithms\RandomWalk.cs" />
+    <Compile Include="Algorithms\Spiral.cs" />
     <Compile Include="Battery.cs" />
     <Compile Include="Creator.xaml.cs">
       <DependentUpon>Creator.xaml</DependentUpon>
@@ -76,6 +79,7 @@
     <Compile Include="IFurniture.cs" />
     <Compile Include="IRoom.cs" />
     <Compile Include="ITimer.cs" />
+    <Compile Include="ITimeTickObserver.cs" />
     <Compile Include="RobotVacuum.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="SelectionScreen.xaml.cs">

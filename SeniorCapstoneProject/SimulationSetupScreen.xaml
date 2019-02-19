@@ -10,11 +10,11 @@
         <Label Content="Select Simulation Settings." HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="144,26,174.6,0" VerticalAlignment="Top" Height="53" Width="475" FontSize="24"/>
         <GroupBox Header="Algorithm" HorizontalAlignment="Left" Height="93" Margin="55,84,0,0" VerticalAlignment="Top" Width="676">
             <ComboBox x:Name="cbxAlgorithms" HorizontalAlignment="Left" Margin="165,25,0,0" VerticalAlignment="Top" Width="306" Height="28" SelectionChanged="ComboBox_SelectionChanged">
-                <ComboBoxItem>Spiral</ComboBoxItem>
-                <ComboBoxItem>Path Transform</ComboBoxItem>
-                <ComboBoxItem>Snake and Wall</ComboBoxItem>
-                <ComboBoxItem>Random Walk</ComboBoxItem>
-                <ComboBoxItem>Genetic</ComboBoxItem>
+                <ComboBoxItem x:Name="Spiral">Spiral</ComboBoxItem>
+                <ComboBoxItem x:Name="PathTransform">Path Transform</ComboBoxItem>
+                <ComboBoxItem x:Name="SnakeAndWall">Snake and Wall</ComboBoxItem>
+                <ComboBoxItem x:Name="RandomWalk">Random Walk</ComboBoxItem>
+                <ComboBoxItem x:Name="Genetic">Genetic</ComboBoxItem>
             </ComboBox>
         </GroupBox>
         <GroupBox Header="View Simulation" HorizontalAlignment="Left" Height="93" Margin="55,199,0,0" VerticalAlignment="Top" Width="676">

@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace SeniorCapstoneProject
 {
+    /// <summary>
+    /// This class represents a Battery for the vacuum. It implements the Singleton pattern to ensure that the vacuum
+    /// only has one battery.
+    /// </summary>
     public class Battery
     {
         private float _percent;
@@ -15,7 +19,21 @@ namespace SeniorCapstoneProject
             set { _percent = value; }
         }
 
-        public Battery()
+        private static Battery _instance;
+        public static Battery Instance
+        {
+            get
+            {   
+                if(_instance == null)
+                {
+                    _instance = new Battery();
+                }
+                return _instance;
+            }
+           
+        }
+
+        private Battery()
         {
             Percent = 100f;
         }

@@ -11,6 +11,7 @@ namespace SeniorCapstoneProject
     /// </summary>
     public interface IAlgorithm
     {
+        string Algorithm { get; }
         void NextMove(RobotVacuum vacuum);
         
     }

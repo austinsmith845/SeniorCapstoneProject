@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Threading;
 
 namespace SeniorCapstoneProject
 {
@@ -47,14 +48,24 @@ namespace SeniorCapstoneProject
         public int X
         {
             get { return _x; }
-            set { _x = value; }
+            set { _x = value;
+                if (Img != null)
+                {
+                    //Img.Margin = new System.Windows.Thickness(X, Y, 0, 0);
+                }
+            }
         }
 
         private int _y;
         public int Y
         {
             get { return _y; }
-            set { _y = value; }
+            set { _y = value;
+                if (Img != null)
+                {
+                   // Img.Margin = new System.Windows.Thickness(X, Y, 0, 0);
+                }
+            }
         }
 
         [NonSerialized]
@@ -67,6 +78,18 @@ namespace SeniorCapstoneProject
 
 
         private bool _selected;
+
+        [NonSerialized]
+        private ITimer timer;
+
+        [NonSerialized]
+        private Battery battery = Battery.Instance;
+        public Battery Battery
+        {
+            get { return battery; }
+        }
+
+        
 
         [NonSerialized]
         private Image _img;
@@ -83,6 +106,15 @@ namespace SeniorCapstoneProject
         [NonSerialized]
         RotateTransform rotation;
 
+        private ITimeTickObserver observer;
+        public ITimeTickObserver Observer
+        {
+            get { return observer; }
+            set { observer = value; }
+        }
+
+       
+
         //Will need a battery object eventually.
         #endregion
 
@@ -93,7 +125,7 @@ namespace SeniorCapstoneProject
         /// </summary>
         private RobotVacuum()
         {
-            
+             
         }
 
         #endregion
@@ -162,6 +194,10 @@ namespace SeniorCapstoneProject
             if (_selected)
             {
                 _rotation += 90; //this is in degrees
+                if(_rotation == 360 || _rotation == -360)
+                {
+                    _rotation = 0;
+                }
                 rotation = new RotateTransform(_rotation);
                 Img.RenderTransform = rotation;
             }
@@ -172,6 +208,10 @@ namespace SeniorCapstoneProject
             if (_selected)
             {
                 _rotation -= 90; //this is in degrees
+                if (_rotation == 360 || _rotation == -360)
+                {
+                    _rotation = 0;
+                }
                 rotation = new RotateTransform(_rotation);
                 Img.RenderTransform = rotation;
             }
@@ -191,7 +231,7 @@ namespace SeniorCapstoneProject
         /// <summary>
         /// initiates the next move.
         /// </summary>
-        public void Move()
+        public void Move(int secs)
         {
             GetNextAction();
         }
@@ -201,7 +241,20 @@ namespace SeniorCapstoneProject
         /// </summary>
         public void GetNextAction()
         {
-            Algorithm.NextMove(this);
+            Vacuum.Algorithm.NextMove(this);
+         
+        }
+
+        internal void SetRobotTimer()
+        {
+            timer = new Timer(Observer, 50);
+            Thread thread = new Thread(new ThreadStart(timer.Tick));
+            thread.Start();
+        }
+
+        public int GetRotation()
+        {
+            return _rotation;
         }
         #endregion 
 

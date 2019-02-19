@@ -10,9 +10,8 @@ namespace SeniorCapstoneProject
     /// This class's sole job is to notify other objects that the timer has ticked so that they can update
     /// their state.
     /// </summary>
-    public class TimeTickObserver
+    public class TimeTickObserver : ITimeTickObserver
     {
-        public delegate void TimerTick(int secs);
         TimerTick handler;
 
         public TimeTickObserver(TimerTick tick)

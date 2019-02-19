@@ -27,7 +27,7 @@ namespace SeniorCapstoneProject
     {
         private IRoom room;
         private List<IFurniture> objects;
-        private TimeTickObserver observer;
+        private ITimeTickObserver observer;
         Timer time;
         Thread timer;
         public Simulator()
@@ -40,9 +40,8 @@ namespace SeniorCapstoneProject
             this.Width = room.Width;
             this.Height = room.Length;
             setup.ShowDialog();
-            time = new Timer(observer);
-            timer = new Thread(new ThreadStart(time.Tick));
-            timer.Start();
+            this.lblAlgorithm.Content = RobotVacuum.Vacuum.Algorithm.Algorithm;
+            
         }
 
         private void LoadRoom()
@@ -161,13 +160,19 @@ namespace SeniorCapstoneProject
 
         public void StartSimulation(bool view)
         {
-            ///throw new NotImplementedException();
+
+            time = new Timer(observer, 1000);
+            timer = new Thread(new ThreadStart(time.Tick));
+            timer.Start();
+
+            room.Vacuum.Observer = new TimeTickObserver(room.Vacuum.Move);
+            room.Vacuum.SetRobotTimer();
         }
 
         private void UpdateTimerLabel(int secs)
         {
             int mins = secs / 60;
-            this.Dispatcher.Invoke(() => { this.lblTime.Content = String.Format("Elapsed time: {0}:{1:00}", mins, secs % 60); });
+            this.Dispatcher.Invoke(() => { this.lblTime.Content = String.Format("Elapsed time: {0}:{1:00}", mins, secs % 60); this.lblBattery.Content = String.Format("Battery: {0}%",(int)RobotVacuum.Vacuum.Battery.Percent); });
             
                 
         }

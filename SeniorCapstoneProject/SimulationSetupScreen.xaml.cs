@@ -30,7 +30,12 @@ namespace SeniorCapstoneProject
 
         public void StartClick(object sender, RoutedEventArgs e)
         {
-            if(rdbSimulation.IsChecked == true)
+            RobotVacuum vacuum = RobotVacuum.Vacuum;
+            AlgorithmFactory factory = new AlgorithmFactory();
+            vacuum.Algorithm = factory.GetAlgorithm(((ComboBoxItem)this.cbxAlgorithms.SelectedItem).Name);
+            this.Close();
+
+            if (rdbSimulation.IsChecked == true)
             {
                 commence(true);
             }
@@ -38,8 +43,8 @@ namespace SeniorCapstoneProject
             {
                 commence(false);
             }
-           
-            this.Close();
+
+          
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

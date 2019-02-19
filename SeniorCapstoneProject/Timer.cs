@@ -10,18 +10,24 @@ namespace SeniorCapstoneProject
     public class Timer :ITimer
     {
         private int _secs;
-        private TimeTickObserver _observer;
+        private ITimeTickObserver _observer;
         private bool _enabled = false;
+        private int _timeStep;
         public bool Enabled
         {
             get { return _enabled; }
             set { _enabled = value; }
         }
 
-
-        public Timer(TimeTickObserver observer)
+        /// <summary>
+        /// Creates a new timer.
+        /// </summary>
+        /// <param name="observer"></param>
+        /// <param name="timeStep">in millisecons</param>
+        public Timer(ITimeTickObserver observer, int timeStep)
         {
             _observer = observer;
+            _timeStep = timeStep;
             Enabled = true;
 
         }
@@ -33,7 +39,7 @@ namespace SeniorCapstoneProject
         {
             if (Enabled)
             {
-                Thread.Sleep(1000);
+                Thread.Sleep(_timeStep);
                 _secs++;
                 _observer.TimerHasTicked(_secs);
                 Tick();

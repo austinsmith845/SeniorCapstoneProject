@@ -51,7 +51,7 @@ namespace SeniorCapstoneProject
             set { _x = value;
                 if (Img != null)
                 {
-                    //Img.Margin = new System.Windows.Thickness(X, Y, 0, 0);
+                    Img.Margin = new System.Windows.Thickness(X, Y, 0, 0);
                 }
             }
         }

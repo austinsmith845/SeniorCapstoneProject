@@ -80,6 +80,7 @@
     <Compile Include="IRoom.cs" />
     <Compile Include="ITimer.cs" />
     <Compile Include="ITimeTickObserver.cs" />
+    <Compile Include="RobotMovedObserver.cs" />
     <Compile Include="RobotVacuum.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="SelectionScreen.xaml.cs">

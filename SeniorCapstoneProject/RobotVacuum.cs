@@ -32,6 +32,14 @@ namespace SeniorCapstoneProject
 
         }
 
+        private RobotMovedObserver _observer;
+        public RobotMovedObserver MoveNotifier
+        {
+            get { return _observer; }
+            set { _observer = value; }
+        }
+
+
         private float _height = 9.144f; //This is in cm
         public float Height
         {
@@ -48,24 +56,15 @@ namespace SeniorCapstoneProject
         public int X
         {
             get { return _x; }
-            set { _x = value;
-                if (Img != null)
-                {
-                    Img.Margin = new System.Windows.Thickness(X, Y, 0, 0);
-                }
-            }
+            set { _x = value; MoveNotifier.RobotHasMoved(); }
+            
         }
 
         private int _y;
         public int Y
         {
             get { return _y; }
-            set { _y = value;
-                if (Img != null)
-                {
-                   // Img.Margin = new System.Windows.Thickness(X, Y, 0, 0);
-                }
-            }
+            set { _y = value; MoveNotifier.RobotHasMoved(); }
         }
 
         [NonSerialized]

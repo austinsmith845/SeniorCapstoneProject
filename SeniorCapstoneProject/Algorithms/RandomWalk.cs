@@ -24,7 +24,7 @@ namespace SeniorCapstoneProject.Algorithms
             int rotation = vacuum.GetRotation();
             if (rotation == 0)
             {
-                vacuum.Y += 5;
+                vacuum.Y -= 5;
             }
         }
     }

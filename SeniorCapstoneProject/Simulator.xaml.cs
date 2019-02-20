@@ -30,6 +30,8 @@ namespace SeniorCapstoneProject
         private ITimeTickObserver observer;
         Timer time;
         Thread timer;
+        RobotMovedObserver movedObserver;
+
         public Simulator()
         {
             observer = new TimeTickObserver(UpdateTimerLabel);
@@ -41,6 +43,7 @@ namespace SeniorCapstoneProject
             this.Height = room.Length;
             setup.ShowDialog();
             this.lblAlgorithm.Content = RobotVacuum.Vacuum.Algorithm.Algorithm;
+           
             
         }
 
@@ -158,13 +161,18 @@ namespace SeniorCapstoneProject
             this.Grid.Children.Add(room.Vacuum.Img);
         }
 
+        /// <summary>
+        /// This method starts the simulation
+        /// </summary>
+        /// <param name="view"></param>
         public void StartSimulation(bool view)
         {
-
+            movedObserver = new RobotMovedObserver();
             time = new Timer(observer, 1000);
             timer = new Thread(new ThreadStart(time.Tick));
             timer.Start();
-
+            room.Vacuum.MoveNotifier = movedObserver;
+            room.Vacuum.MoveNotifier.RegisterCallBack(() => { this.Dispatcher.Invoke(() => { room.Vacuum.Img.Margin = new Thickness(room.Vacuum.X, room.Vacuum.Y, 0, 0); }); });
             room.Vacuum.Observer = new TimeTickObserver(room.Vacuum.Move);
             room.Vacuum.SetRobotTimer();
         }

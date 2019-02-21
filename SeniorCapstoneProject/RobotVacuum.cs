@@ -56,7 +56,12 @@ namespace SeniorCapstoneProject
         public int X
         {
             get { return _x; }
-            set { _x = value; MoveNotifier.RobotHasMoved(); }
+            set { _x = value;
+                if (MoveNotifier != null)
+                {
+                    MoveNotifier.RobotHasMoved();
+                }
+            }
             
         }
 
@@ -64,7 +69,12 @@ namespace SeniorCapstoneProject
         public int Y
         {
             get { return _y; }
-            set { _y = value; MoveNotifier.RobotHasMoved(); }
+            set { _y = value;
+                if (MoveNotifier != null)
+                {
+                    MoveNotifier.RobotHasMoved();
+                }
+            }
         }
 
         [NonSerialized]

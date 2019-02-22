@@ -8,7 +8,13 @@ namespace SeniorCapstoneProject.Algorithms
 {
     public class RandomWalk : IAlgorithm
     {
-       
+        private CollisionChecker _checker;
+
+        public RandomWalk()
+        {
+           
+        }
+
         public string Algorithm
         {
             get { return "Random Walk"; }
@@ -16,7 +22,16 @@ namespace SeniorCapstoneProject.Algorithms
 
         public void NextMove(RobotVacuum vacuum)
         {
-            MoveForward(vacuum);
+            _checker = RobotVacuum.Vacuum.Checker;
+
+            if (_checker.CollisionOccured())
+            {
+
+            }
+            else
+            {
+                MoveForward(vacuum);
+            }
         }
 
         private void MoveForward(RobotVacuum vacuum)

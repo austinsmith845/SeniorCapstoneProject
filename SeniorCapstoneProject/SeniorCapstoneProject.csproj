@@ -60,6 +60,7 @@
     <Compile Include="Algorithms\RandomWalk.cs" />
     <Compile Include="Algorithms\Spiral.cs" />
     <Compile Include="Battery.cs" />
+    <Compile Include="CollisionChecker.cs" />
     <Compile Include="Creator.xaml.cs">
       <DependentUpon>Creator.xaml</DependentUpon>
     </Compile>

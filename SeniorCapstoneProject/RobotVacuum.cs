@@ -32,6 +32,7 @@ namespace SeniorCapstoneProject
 
         }
 
+        [NonSerialized]
         private RobotMovedObserver _observer;
         public RobotMovedObserver MoveNotifier
         {
@@ -121,6 +122,16 @@ namespace SeniorCapstoneProject
             get { return observer; }
             set { observer = value; }
         }
+
+        [NonSerialized]
+        private CollisionChecker _checker;
+        public CollisionChecker Checker
+        {
+            get { return _checker; }
+            set { _checker = value; }
+            
+        }
+
 
        
 

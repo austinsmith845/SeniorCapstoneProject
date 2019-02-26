@@ -9,6 +9,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Shapes;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace SeniorCapstoneProject
 {
@@ -16,7 +17,7 @@ namespace SeniorCapstoneProject
     internal class Room : IRoom
     {
         #region Properties
-     
+
 
         private float _length;
         public float Length
@@ -27,9 +28,9 @@ namespace SeniorCapstoneProject
 
         private float _width;
         public float Width
-        { 
-            get{ return _width;}
-            set { _width = value ;}
+        {
+            get { return _width; }
+            set { _width = value; }
         }
 
         private string _name;
@@ -56,8 +57,8 @@ namespace SeniorCapstoneProject
             set { _hasVacuum = value; }
         }
 
-        //float[,] roomMatrix;
-       
+        int[,] roomMatrix;
+
 
         #endregion
 
@@ -69,7 +70,6 @@ namespace SeniorCapstoneProject
             this.Width = width;
             this.Length = length;
             _furniture = new List<IFurniture>();
-     //       roomMatrix = new float[(int)this.Length, (int)this.Width];
 
         }
 
@@ -103,11 +103,11 @@ namespace SeniorCapstoneProject
             Stream room = File.Create(fileName);
             try
             {
-               
+
                 BinaryFormatter writer = new BinaryFormatter();
                 writer.Serialize(room, this);
             }
-            catch(ArgumentNullException i)
+            catch (ArgumentNullException i)
             {
                 System.Windows.MessageBox.Show("An output error occuerd when saving the room.");
             }
@@ -116,7 +116,7 @@ namespace SeniorCapstoneProject
                 System.Windows.MessageBox.Show("An error occuerd when saving the room.");
             }
 
-            catch(System.Security.SecurityException s)
+            catch (System.Security.SecurityException s)
             {
                 System.Windows.MessageBox.Show("Error\nYou do not have the appropriate permission to access the save directory.");
             }
@@ -124,14 +124,14 @@ namespace SeniorCapstoneProject
             {
                 room.Close();
             }
-           
+
 
         }
 
-            
+
         private void DeleteImagesForSave()
         {
-            foreach(IFurniture furn in _furniture)
+            foreach (IFurniture furn in _furniture)
             {
                 furn.Img = null;
             }
@@ -148,10 +148,13 @@ namespace SeniorCapstoneProject
             Save();
         }
 
-        #endregion
-
-        #region Support Methods
-
-        #endregion
     }
 }
+           
+
+            #endregion
+
+            #region Support Methods
+
+            #endregion
+        

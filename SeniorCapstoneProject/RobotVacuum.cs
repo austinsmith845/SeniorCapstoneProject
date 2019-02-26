@@ -110,6 +110,12 @@ namespace SeniorCapstoneProject
         }
 
         private int _rotation = 0;
+        public int DegreeRotation
+        {
+            get { return _rotation; }
+        }
+
+
         [NonSerialized]
         private Grid _grid;
 
@@ -259,6 +265,8 @@ namespace SeniorCapstoneProject
         {
             _grid = grid;
         }
+
+       
 
         /// <summary>
         /// initiates the next move.

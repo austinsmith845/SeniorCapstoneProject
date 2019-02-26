@@ -58,6 +58,10 @@ namespace SeniorCapstoneProject.Furniture
         }
 
         private int _rotation = 0;
+        public int DegreeRotation
+        {
+            get { return _rotation; }
+        }
 
         private FurnitureTypes _type;
         public FurnitureTypes Type

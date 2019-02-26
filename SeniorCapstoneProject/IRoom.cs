@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace SeniorCapstoneProject
 {
-    delegate void AddItemToUI(IFurniture furniture,FurnitureTypes type);
-    internal interface IRoom
+    public delegate void AddItemToUI(IFurniture furniture,FurnitureTypes type);
+    public interface IRoom
     {
        float Length { get; set; } 
        float Width { get; set; }
@@ -20,6 +20,7 @@ namespace SeniorCapstoneProject
         List<IFurniture> GetFurniture();
         void Save();
         void SaveDialogReturnedHandler(string name);
+
 
     }
 }

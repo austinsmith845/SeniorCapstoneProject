@@ -24,9 +24,9 @@ namespace SeniorCapstoneProject.Algorithms
         {
             _checker = RobotVacuum.Vacuum.Checker;
 
-            if (_checker.CollisionOccured())
+            if (_checker.CollisionOccured(vacuum))
             {
-                NextRotation(vacuum);
+                NextRotation(vacuum); //Lets turn in a random direction when a collision detection.
             }
             else
             {

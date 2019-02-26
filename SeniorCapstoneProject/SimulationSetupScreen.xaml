@@ -11,7 +11,6 @@
         <GroupBox Header="Algorithm" HorizontalAlignment="Left" Height="93" Margin="55,84,0,0" VerticalAlignment="Top" Width="676">
             <ComboBox x:Name="cbxAlgorithms" HorizontalAlignment="Left" Margin="165,25,0,0" VerticalAlignment="Top" Width="306" Height="28" SelectionChanged="ComboBox_SelectionChanged">
                 <ComboBoxItem x:Name="Spiral">Spiral</ComboBoxItem>
-                <ComboBoxItem x:Name="PathTransform">Path Transform</ComboBoxItem>
                 <ComboBoxItem x:Name="SnakeAndWall">Snake and Wall</ComboBoxItem>
                 <ComboBoxItem x:Name="RandomWalk">Random Walk</ComboBoxItem>
                 <ComboBoxItem x:Name="Genetic">Genetic</ComboBoxItem>

@@ -9,12 +9,15 @@ using System.Windows.Media;
 
 namespace SeniorCapstoneProject.Furniture
 {
+    /// <summary>
+    /// Represents a bed.
+    /// </summary>
     [Serializable]
-    public class CoffeeTable :  IFurniture
+    public class Bed2 : IFurniture
     {
         #region Attributes / Properties
 
-        private float _height =0; //this is the average height of a recliner in cm.
+        private float _height = 0; //this is the average height of a recliner in cm.
         public float Height
         {
             get { return _height; }
@@ -88,30 +91,30 @@ namespace SeniorCapstoneProject.Furniture
         #endregion
 
         #region Constructors
-        public CoffeeTable(FurnitureTypes type, Grid grid)
+        public Bed2(FurnitureTypes type, Grid grid)
         {
             this.Type = type;
             _grid = grid;
             DialogBox box = new DialogBox("Enter a height from floor(cm).");
-            while((bool)box.ShowDialog(GetDialogResult));
+            while ((bool)box.ShowDialog(GetDialogResult)) ;
 
             box = new DialogBox("Enter a width (cm).");
-            while((bool)box.ShowDialog(GetDialogResult));
+            while ((bool)box.ShowDialog(GetDialogResult)) ;
 
             box = new DialogBox("Enter a length (cm).");
             while ((bool)box.ShowDialog(GetDialogResult)) ;
 
         }
 
-      
+
         private void GetDialogResult(string value)
         {
-            if(this.Height == 0)
+            if (this.Height == 0)
             {
                 _height = float.Parse(value);
 
             }
-            else if(this .Width == 0)
+            else if (this.Width == 0)
             {
                 _width = float.Parse(value);
             }
@@ -232,4 +235,6 @@ namespace SeniorCapstoneProject.Furniture
         #endregion
 
     }
-}
+
+    }
+

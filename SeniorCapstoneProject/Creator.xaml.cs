@@ -64,26 +64,29 @@ namespace SeniorCapstoneProject
 
             switch (furnitureType)
             {
-                case FurnitureTypes.recliner:
-                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Recliner.jpg"));
+                case FurnitureTypes.Bed:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Bed.png"));
                     break;
-                case FurnitureTypes.CoffeeTable:
-                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\CoffeeTable.jpg"));
+                case FurnitureTypes.Bed2:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Bed2.png"));
                     break;
-                case FurnitureTypes.Couch:
-                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Couch.jpg"));
-                    break;
-                case FurnitureTypes.chair:
+                case FurnitureTypes.Chair:
                     img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Chair.png"));
                     break;
-                case FurnitureTypes.Counter:
-                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Counter.jpg"));
+                case FurnitureTypes.DeskChair:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\DeskChair.png"));
                     break;
-                case FurnitureTypes.Bed:
-                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Bed.jpg"));
+                case FurnitureTypes.Rug:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Rug.png"));
                     break;
-                case FurnitureTypes.Dresser:
-                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Dresser.png"));
+                case FurnitureTypes.Stove:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Stove.png"));
+                    break;
+                case FurnitureTypes.Table:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Table.png"));
+                    break;
+                case FurnitureTypes.TVTable:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\TVTable.png"));
                     break;
             }
             this.Grid.Children.Add(furniture.Img);
@@ -106,29 +109,29 @@ namespace SeniorCapstoneProject
 
             switch (furnitureType)
             {
-                case FurnitureTypes.recliner:
-                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Recliner.jpg"));
+                case FurnitureTypes.Bed:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Bed.png"));
                     break;
-                case FurnitureTypes.CoffeeTable:
-                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\CoffeeTable.jpg"));
+                case FurnitureTypes.Bed2:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Bed2.png"));
                     break;
-                case FurnitureTypes.Couch:
-                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Couch.jpg"));
-                    break;
-                case FurnitureTypes.chair:
+                case FurnitureTypes.Chair:
                     img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Chair.png"));
                     break;
-
-                case FurnitureTypes.Counter:
-                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Counter.jpg"));
+                case FurnitureTypes.DeskChair:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\DeskChair.png"));
                     break;
-
-                case FurnitureTypes.Bed:
-                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Bed.jpg"));
+                case FurnitureTypes.Rug:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Rug.png"));
                     break;
-
-                case FurnitureTypes.Dresser:
-                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Dresser.png"));
+                case FurnitureTypes.Stove:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Stove.png"));
+                    break;
+                case FurnitureTypes.Table:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Table.png"));
+                    break;
+                case FurnitureTypes.TVTable:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\TVTable.png"));
                     break;
             }
 
@@ -222,43 +225,49 @@ namespace SeniorCapstoneProject
             FurnitureFactory factory = new FurnitureFactory();
             IFurniture furnToInsert;
 
-           if((string)menu.Tag == "Recliner")
+           if((string)menu.Tag == "Bed")
             {
-                furnToInsert=factory.InsertFurniture("recliner",this.Grid);
+                furnToInsert=factory.InsertFurniture("Bed",this.Grid);
                 room.Insert(furnToInsert,0,0,UpdateUI);
             }
 
-            else if ((string)menu.Tag == "CoffeeTable")
+            else if ((string)menu.Tag == "Bed2")
             {
-                furnToInsert = factory.InsertFurniture("coffeetable", this.Grid);
-                room.Insert(furnToInsert, 0, 0, UpdateUI);
-            }
-            else if ((string)menu.Tag == "Couch")
-            {
-                furnToInsert = factory.InsertFurniture("couch", this.Grid);
+                furnToInsert = factory.InsertFurniture("Bed2", this.Grid);
                 room.Insert(furnToInsert, 0, 0, UpdateUI);
             }
             else if ((string)menu.Tag == "Chair")
             {
-                furnToInsert = factory.InsertFurniture("chair", this.Grid);
+                furnToInsert = factory.InsertFurniture("Chair", this.Grid);
+                room.Insert(furnToInsert, 0, 0, UpdateUI);
+            }
+            else if ((string)menu.Tag == "DeskChair")
+            {
+                furnToInsert = factory.InsertFurniture("DeskChair", this.Grid);
                 room.Insert(furnToInsert, 0, 0, UpdateUI);
             }
 
-            else if ((string)menu.Tag == "Counter")
+            else if ((string)menu.Tag == "Rug")
             {
-                furnToInsert = factory.InsertFurniture("counter", this.Grid);
+                furnToInsert = factory.InsertFurniture("Rug", this.Grid);
                 room.Insert(furnToInsert, 0, 0, UpdateUI);
             }
 
-            else if ((string)menu.Tag == "Bed")
+            else if ((string)menu.Tag == "Stove")
             {
-                furnToInsert = factory.InsertFurniture("bed", this.Grid);
+                furnToInsert = factory.InsertFurniture("Stove", this.Grid);
                 room.Insert(furnToInsert, 0, 0, UpdateUI);
             }
 
-            else if ((string)menu.Tag == "Dresser")
+            else if ((string)menu.Tag == "Table")
             {
-                furnToInsert = factory.InsertFurniture("dresser", this.Grid);
+                furnToInsert = factory.InsertFurniture("Table", this.Grid);
+                room.Insert(furnToInsert, 0, 0, UpdateUI);
+            }
+
+            else if ((string)menu.Tag == "TVTable")
+            {
+                furnToInsert = factory.InsertFurniture("TVTable", this.Grid);
                 room.Insert(furnToInsert, 0, 0, UpdateUI);
             }
 

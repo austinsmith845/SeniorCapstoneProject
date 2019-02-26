@@ -72,13 +72,14 @@
       <DependentUpon>DialogBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="FurnitureFactory.cs" />
+    <Compile Include="Furniture\Bed2.cs" />
     <Compile Include="Furniture\Bed.cs" />
+    <Compile Include="Furniture\Table.cs" />
+    <Compile Include="Furniture\TVTable.cs" />
+    <Compile Include="Furniture\Stove.cs" />
+    <Compile Include="Furniture\Rug.cs" />
+    <Compile Include="Furniture\DeskChair.cs" />
     <Compile Include="Furniture\Chair.cs" />
-    <Compile Include="Furniture\CoffeeTable.cs" />
-    <Compile Include="Furniture\Couch.cs" />
-    <Compile Include="Furniture\Counter.cs" />
-    <Compile Include="Furniture\Dresser.cs" />
-    <Compile Include="Furniture\Recliner.cs" />
     <Compile Include="FurntiureTypes.cs" />
     <Compile Include="IAlgorithm.cs" />
     <Compile Include="IFurniture.cs" />
@@ -166,28 +167,31 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\Bed.jpg">
+    <Content Include="Images\Bed.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Rug.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Stove.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Table.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\TVTable.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\Logo.png" />
+    <Content Include="Images\Bed2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\DeskChair.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Chair.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\CoffeeTable.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Couch.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Counter.JPG">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Dresser.PNG">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Recliner.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Resource Include="Images\Logo.png" />
     <Content Include="Images\RobotVacuum.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

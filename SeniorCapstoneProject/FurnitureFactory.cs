@@ -19,41 +19,46 @@ namespace SeniorCapstoneProject
         public IFurniture InsertFurniture(string whatToInsert, Grid grid)
         {
             whatToInsert = whatToInsert.ToLower();
-            if(whatToInsert == "recliner")
+            if(whatToInsert == "bed")
             {
-                return new Recliner(FurnitureTypes.recliner,grid);
+                return new Bed(FurnitureTypes.Bed,grid);
             }
 
-            else if (whatToInsert == "coffeetable")
+            else if (whatToInsert == "bed2")
             {
-                return new CoffeeTable(FurnitureTypes.CoffeeTable, grid);
-            }
-
-            else if (whatToInsert == "couch")
-            {
-                return new CoffeeTable(FurnitureTypes.Couch, grid);
+                return new Bed2(FurnitureTypes.Bed2, grid);
             }
 
             else if (whatToInsert == "chair")
             {
-                return new Chair(FurnitureTypes.chair, grid);
+                return new Chair(FurnitureTypes.Chair, grid);
             }
 
-
-            else if (whatToInsert == "counter")
+            else if (whatToInsert == "deskchair")
             {
-                return new Counter(FurnitureTypes.Counter, grid);
+                return new DeskChair(FurnitureTypes.DeskChair, grid);
             }
 
-            else if (whatToInsert == "bed")
+            else if (whatToInsert == "rug")
             {
-                return new Bed(FurnitureTypes.Bed, grid);
+                return new Rug(FurnitureTypes.Rug, grid);
             }
 
-            else if (whatToInsert == "dresser")
+            else if (whatToInsert == "stove")
             {
-                return new Dresser(FurnitureTypes.Dresser, grid);
+                return new Stove(FurnitureTypes.Stove, grid);
             }
+
+            else if (whatToInsert == "table")
+            {
+                return new Table(FurnitureTypes.Table, grid);
+            }
+
+            else if (whatToInsert == "tvtable")
+            {
+                return new TVTable(FurnitureTypes.TVTable, grid);
+            }
+
             return null;
         }
 

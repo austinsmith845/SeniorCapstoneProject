@@ -1,10 +1,11 @@
 ﻿public enum FurnitureTypes
 {
-    chair,
-    recliner,
-    CoffeeTable,
-    Couch,
-    Counter,
     Bed,
-    Dresser,
+    Bed2,
+    Chair,
+    DeskChair,
+    Rug,
+    Stove,
+    Table,
+    TVTable,
 }

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SeniorCapstoneProject"
         mc:Ignorable="d"
+        x:Name="window"
         Title="Simulator" Height="525.2" Width="849.6" ResizeMode="NoResize"   Background="LightGray" Closing="Window_Closing" >
     <Grid x:Name="Grid" HorizontalAlignment="Left" Height="490" VerticalAlignment="Top" Width="840" ClipToBounds="True" SnapsToDevicePixels="True">
 

@@ -106,7 +106,7 @@ namespace SeniorCapstoneProject
         public Image Img
         {
             get { return _img; }
-            set { _img = value; Img.MouseDown += Select; Img.Width = this.Width; Img.Height = this.Width; Img.Margin = new System.Windows.Thickness(X, Y, 0, 0); }
+            set { _img = value; Img.HorizontalAlignment = System.Windows.HorizontalAlignment.Center; Img.MouseDown += Select; Img.Width = this.Width; Img.Height = this.Width; Img.Margin = new System.Windows.Thickness(X, Y, 0, 0); }
         }
 
         private int _rotation = 0;
@@ -115,6 +115,10 @@ namespace SeniorCapstoneProject
 
         [NonSerialized]
         RotateTransform rotation;
+        internal RotateTransform Rotation
+        {
+            get { return rotation; }
+        }
 
         private ITimeTickObserver observer;
         public ITimeTickObserver Observer
@@ -241,7 +245,8 @@ namespace SeniorCapstoneProject
         {
             _rotation = degree;
             rotation = new RotateTransform(_rotation);
-            Img.RenderTransform = rotation;
+            MoveNotifier.RobotHasMoved();//Call the move notifier to tell the UI it needs to update its positions and transforms.
+            //Img.RenderTransform = rotation;
         }
 
         public void SetRotation()

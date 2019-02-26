@@ -26,15 +26,19 @@ namespace SeniorCapstoneProject.Algorithms
 
             if (_checker.CollisionOccured())
             {
-
+                NextRotation(vacuum);
             }
             else
             {
-                NextRotation(vacuum);
+               
                 MoveForward(vacuum);
             }
         }
 
+        /// <summary>
+        /// Needs to be updated to calculate what point is forward.
+        /// </summary>
+        /// <param name="vacuum"></param>
         private void MoveForward(RobotVacuum vacuum)
         {
             vacuum.Y -= 5;

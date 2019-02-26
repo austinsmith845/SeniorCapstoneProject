@@ -58,6 +58,8 @@
     </ApplicationDefinition>
     <Compile Include="AlgorithmFactory.cs" />
     <Compile Include="Algorithms\RandomWalk.cs" />
+    <Compile Include="Algorithms\Genetic.cs" />
+    <Compile Include="Algorithms\SnakeAndWall.cs" />
     <Compile Include="Algorithms\Spiral.cs" />
     <Compile Include="Battery.cs" />
     <Compile Include="CollisionChecker.cs" />

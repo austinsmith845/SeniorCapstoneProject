@@ -237,6 +237,13 @@ namespace SeniorCapstoneProject
             }
         }
 
+        public void RotateN(int degree) //needs renaming
+        {
+            _rotation = degree;
+            rotation = new RotateTransform(_rotation);
+            Img.RenderTransform = rotation;
+        }
+
         public void SetRotation()
         {
             rotation = new RotateTransform(_rotation);

@@ -12,7 +12,7 @@ namespace SeniorCapstoneProject.Algorithms
 
         public RandomWalk()
         {
-           
+
         }
 
         public string Algorithm
@@ -30,18 +30,23 @@ namespace SeniorCapstoneProject.Algorithms
             }
             else
             {
+                NextRotation(vacuum);
                 MoveForward(vacuum);
             }
         }
 
         private void MoveForward(RobotVacuum vacuum)
         {
-            int rotation = vacuum.GetRotation();
-            if (rotation == 0)
-            {
-                vacuum.Y -= 5;
-            }
+            vacuum.Y -= 5;
         }
+
+        private void NextRotation(RobotVacuum vacuum)
+        {
+            Random _rnd = new Random();
+            int degree = _rnd.Next(1, 360);
+            vacuum.RotateN(degree);
+        }
+
     }
 }
 

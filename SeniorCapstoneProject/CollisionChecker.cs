@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace SeniorCapstoneProject
 {
@@ -22,6 +23,10 @@ namespace SeniorCapstoneProject
         public bool CollisionOccured()
         {
             //This method has not been implemented yet.
+            foreach(IFurniture furn in furniture)
+            {
+                
+            }
             return false;
         }
     }

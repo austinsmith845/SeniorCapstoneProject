@@ -26,7 +26,7 @@ namespace SeniorCapstoneProject.Algorithms
 
             if (_checker.CollisionOccured())
             {
-                NextRotation(vacuum);
+                NextRotation(vacuum); //Lets turn in a random direction when a collision detection.
             }
             else
             {

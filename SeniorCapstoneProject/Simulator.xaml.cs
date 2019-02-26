@@ -38,6 +38,7 @@ namespace SeniorCapstoneProject
             objects = new List<IFurniture>();
             InitializeComponent();
             LoadRoom();
+            this.lblRoomName.Content = room.Name;
             SimulationSetupScreen setup = new SimulationSetupScreen(StartSimulation);
             this.Width = room.Width;
             this.Height = room.Length;

@@ -72,17 +72,29 @@ namespace SeniorCapstoneProject
                     transform.Angle = furn.DegreeRotation;
 
                     Rect furnitureBounds = new Rect();
-                    furnitureBounds = transform.TransformBounds(furn.Img.RenderTransform.TransformBounds(new Rect(furn.X, furn.Y, furn.Img.Width, furn.Img.Height)));
+                    furnitureBounds = furn.Img.RenderTransform.TransformBounds(new Rect(furn.X, furn.Y, furn.Img.Width, furn.Img.Height));          
+                    furnitureBounds = transform.TransformBounds(furnitureBounds);
 
                     transform = new RotateTransform();
-                    transform.Angle = vacuum.DegreeRotation;
+                    transform.Angle =  vacuum.DegreeRotation;
                     Rect vacuumBounds = new Rect();
-                    vacuumBounds = transform.TransformBounds(vacuum.Img.RenderTransform.TransformBounds(new Rect(vacuum.X, vacuum.Y, vacuum.Img.Width, vacuum.Img.Height)));
+                    vacuumBounds = vacuum.Img.RenderTransform.TransformBounds(new Rect(vacuum.X, vacuum.Y, vacuum.Img.Width, vacuum.Img.Height));
 
-                    if(vacuumBounds.IntersectsWith(furnitureBounds) && !furn.CanPassUnder())
+                    if((furnitureBounds.Contains(new Point(vacuum.X,vacuum.Y)) || furnitureBounds.Contains(new Point(vacuum.X + vacuum.Width, vacuum.Y)) || furnitureBounds.Contains(new Point(vacuum.X, vacuum.Y + vacuum.Height)) || furnitureBounds.Contains(new Point(vacuum.X + vacuum.Width, vacuum.Y + vacuum.Height))) && !furn.CanPassUnder())
                     {
                         collision = true;
                     }
+
+                    else if(vacuum.X >=820)
+                    {
+                        collision = true;
+                    }
+
+                    else if (vacuum.X <= -820)
+                    {
+                        collision = true;
+                    }
+
 
                 });
                 //return false;

@@ -28,6 +28,8 @@ namespace SeniorCapstoneProject.Algorithms
             {
                 Reverse(vacuum);
                 Reverse(vacuum);
+                Reverse(vacuum);
+                Reverse(vacuum);
                 NextRotation(vacuum); //Lets turn in a random direction when a collision detection.
             }
             else
@@ -70,7 +72,7 @@ namespace SeniorCapstoneProject.Algorithms
 
             else if (vacuum.GetRotation() == -180)
             {
-                vacuum.Y -= 5;
+                vacuum.Y += 5;
             }
 
             else if (vacuum.GetRotation() == -270)

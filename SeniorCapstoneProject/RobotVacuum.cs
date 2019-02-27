@@ -266,6 +266,10 @@ namespace SeniorCapstoneProject
             _grid = grid;
         }
 
+        public Grid GetGrid()
+        {
+            return _grid;
+        }
        
 
         /// <summary>

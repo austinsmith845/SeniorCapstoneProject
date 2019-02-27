@@ -96,7 +96,7 @@ namespace SeniorCapstoneProject.Furniture
         {
             this.Type = type;
             _grid = grid;
-            DialogBox box = new DialogBox("Enter a height from floor(cm).");
+            DialogBox box = new DialogBox("Enter a length (cm).");
             while ((bool)box.ShowDialog(GetDialogResult)) ;
 
             box = new DialogBox("Enter a width (cm).");
@@ -108,7 +108,7 @@ namespace SeniorCapstoneProject.Furniture
 
         private void GetDialogResult(string value)
         {
-            if (this.Height == 0)
+            if (this.Length == 0)
             {
                 _height = float.Parse(value);
 
@@ -211,15 +211,7 @@ namespace SeniorCapstoneProject.Furniture
         /// <returns></returns>
         public bool CanPassUnder()
         {
-            RobotVacuum vacuum = RobotVacuum.Vacuum;
-            if (this.Height > vacuum.Height)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return true;
         }
 
         public void SetGrid(Grid grid)

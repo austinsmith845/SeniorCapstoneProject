@@ -76,7 +76,7 @@ namespace SeniorCapstoneProject.Furniture
         public Image Img
         {
             get { return _img; }
-            set { _img = value; Img.MouseDown += Select; Img.Width = this.Width; Img.Height = this.Length; }
+            set { _img = value; Img.MouseDown += Select; Img.Width = this.Width; Img.Height = this.Width; }
         }
 
         [NonSerialized]
@@ -97,7 +97,7 @@ namespace SeniorCapstoneProject.Furniture
             this.Type = type;
             _grid = grid;
             DialogBox box = new DialogBox("Enter a height from floor(cm).");
-            while ((bool)box.ShowDialog(GetDialogResult)) ;
+            
 
             box = new DialogBox("Enter a width (cm).");
             while ((bool)box.ShowDialog(GetDialogResult)) ;
@@ -108,12 +108,7 @@ namespace SeniorCapstoneProject.Furniture
 
         private void GetDialogResult(string value)
         {
-            if (this.Height == 0)
-            {
-                _height = float.Parse(value);
-
-            }
-            else if (this.Width == 0)
+            if (this.Width == 0)
             {
                 _width = float.Parse(value);
             }

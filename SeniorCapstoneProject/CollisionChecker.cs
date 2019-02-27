@@ -76,7 +76,8 @@ namespace SeniorCapstoneProject
                         transform.Angle = furn.DegreeRotation;
 
                         Rect furnitureBounds = new Rect();
-                        furnitureBounds = furn.Img.RenderTransform.TransformBounds(new Rect(0, 0, furn.Img.Width, furn.Img.Height));
+                        Point furnPoint = new Point(furn.X, furn.Y);
+                        furnitureBounds = furn.Img.RenderTransform.TransformBounds(new Rect(furnPoint.X, furnPoint.Y, furn.Img.Width, furn.Img.Height));
                         //furnitureBounds = transform.TransformBounds(furnitureBounds);
 
                         transform = new RotateTransform();
@@ -103,7 +104,7 @@ namespace SeniorCapstoneProject
                            collision = true;
                         }*/
 
-                        if (!intersect.IsEmpty || (furnitureBounds.IntersectsWith(vacuumBounds))  || (furnitureBounds.Contains(robotPoint) || furnitureBounds.Contains(new Point(robotPoint.X + vacuum.Width, robotPoint.Y)) || furnitureBounds.Contains(new Point(robotPoint.X, vacuum.Y + vacuum.Height)) || furnitureBounds.Contains(new Point(robotPoint.X + vacuum.Width, vacuum.Y + vacuum.Height))) && !furn.CanPassUnder())
+                        if ( (furnitureBounds.IntersectsWith(vacuumBounds))  || (furnitureBounds.Contains(robotPoint) || furnitureBounds.Contains(new Point(robotPoint.X + vacuum.Width, robotPoint.Y)) || furnitureBounds.Contains(new Point(robotPoint.X, vacuum.Y + vacuum.Height)) || furnitureBounds.Contains(new Point(robotPoint.X + vacuum.Width, vacuum.Y + vacuum.Height))) && !furn.CanPassUnder())
                         {
                             collision = true;
                         }

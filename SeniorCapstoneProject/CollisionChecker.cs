@@ -19,11 +19,11 @@ namespace SeniorCapstoneProject
         private  IRoom _room;
         private d.Graphics _graphics;
 
-        public CollisionChecker(List<IFurniture> furn, IRoom room, d.Graphics graphics)
+        public CollisionChecker(List<IFurniture> furn, IRoom room)
         {
             furniture = furn;
             _room = room;
-            _graphics = graphics;
+           
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace SeniorCapstoneProject
             //int[,] bounds = _room.GetBoundsMatrix();
           /*  Point[] furnBounds = new Point[4];
             Point[] vacBounds = new Point[4];
-            RotateTransform transform = new RotateTransform();
+           
 
             vacBounds[0] = new Point(vacuum.X , vacuum.Y);
             vacBounds[1] = new Point(vacuum.X + vacuum.Width , vacuum.Y);
@@ -57,7 +57,7 @@ namespace SeniorCapstoneProject
             */
             foreach (IFurniture furn in furniture)
             {
-              /*  transform.Angle = furn.DegreeRotation;
+              /*  
                 furnBounds[0] = new Point(furn.X, furn.Y);
                 furnBounds[1] = new Point(furn.X + furn.Width, furn.Y);
                 furnBounds[1] = transform.Transform(furnBounds[1]);
@@ -67,13 +67,17 @@ namespace SeniorCapstoneProject
                 furnBounds[3] = transform.Transform(furnBounds[3]);*/
 
                 Application.Current.Dispatcher.Invoke((Action)delegate {
-              
+
+                    RotateTransform transform = new RotateTransform();
+                    transform.Angle = furn.DegreeRotation;
 
                     Rect furnitureBounds = new Rect();
-                    furnitureBounds = furn.Img.RenderTransform.TransformBounds(new Rect(furn.X, furn.Y, furn.Img.Width, furn.Img.Height));
+                    furnitureBounds = transform.TransformBounds(furn.Img.RenderTransform.TransformBounds(new Rect(furn.X, furn.Y, furn.Img.Width, furn.Img.Height)));
 
+                    transform = new RotateTransform();
+                    transform.Angle = vacuum.DegreeRotation;
                     Rect vacuumBounds = new Rect();
-                    vacuumBounds = vacuum.Img.RenderTransform.TransformBounds(new Rect(vacuum.X, vacuum.Y, vacuum.Img.Width, vacuum.Img.Height));
+                    vacuumBounds = transform.TransformBounds(vacuum.Img.RenderTransform.TransformBounds(new Rect(vacuum.X, vacuum.Y, vacuum.Img.Width, vacuum.Img.Height)));
 
                     if(vacuumBounds.IntersectsWith(furnitureBounds) && !furn.CanPassUnder())
                     {

@@ -17,7 +17,7 @@ using io = System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
-using d = System.Drawing;
+
 
 namespace SeniorCapstoneProject
 {
@@ -32,7 +32,7 @@ namespace SeniorCapstoneProject
         Timer time;
         Thread timer;
         RobotMovedObserver movedObserver;
-        d.Graphics grp;
+        
 
         public Simulator()
         {
@@ -171,12 +171,12 @@ namespace SeniorCapstoneProject
         /// <param name="view"></param>
         public void StartSimulation(bool view)
         {
-            grp = d.Graphics.FromHwnd(new System.Windows.Interop.WindowInteropHelper(window).Handle);
+ 
             movedObserver = new RobotMovedObserver();
             time = new Timer(observer, 1000);
             timer = new Thread(new ThreadStart(time.Tick));
             timer.Start();
-            RobotVacuum.Vacuum.Checker = new CollisionChecker(room.GetFurniture(), room,grp);
+            RobotVacuum.Vacuum.Checker = new CollisionChecker(room.GetFurniture(), room);
             room.Vacuum.MoveNotifier = movedObserver;
             room.Vacuum.MoveNotifier.RegisterCallBack(() => { this.Dispatcher.Invoke(() => { room.Vacuum.SetRotation(); room.Vacuum.Img.Margin = new Thickness(room.Vacuum.X, room.Vacuum.Y, 0, 0); }); }); //This forces the movement statement to execute on the UI thread to avoid a cross thread exception.
             room.Vacuum.Observer = new TimeTickObserver(room.Vacuum.Move);

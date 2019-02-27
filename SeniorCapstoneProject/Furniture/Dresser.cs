@@ -7,10 +7,11 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
+
 namespace SeniorCapstoneProject.Furniture
 {
     /// <summary>
-    /// Represents a dresser.
+    /// Represents the chair object.
     /// </summary>
     [Serializable]
     public class Dresser : IFurniture
@@ -31,10 +32,10 @@ namespace SeniorCapstoneProject.Furniture
         }
 
 
-        private float _length = 0;
+        
         public float Length
         {
-            get { return _length; }
+            get { return this.Width; }
         }
 
         public bool Selected
@@ -95,15 +96,13 @@ namespace SeniorCapstoneProject.Furniture
         {
             this.Type = type;
             _grid = grid;
-            DialogBox box = new DialogBox("Enter a height from floor (cm).");
+            DialogBox box = new DialogBox("Enter a height from floor(cm).");
             while ((bool)box.ShowDialog(GetDialogResult)) ;
 
             box = new DialogBox("Enter a width (cm).");
             while ((bool)box.ShowDialog(GetDialogResult)) ;
 
-            box = new DialogBox("Enter a length (cm).");
-            while ((bool)box.ShowDialog(GetDialogResult)) ;
-
+            
         }
 
 
@@ -119,10 +118,7 @@ namespace SeniorCapstoneProject.Furniture
                 _width = float.Parse(value);
             }
 
-            else if (this.Length == 0)
-            {
-                _length = float.Parse(value);
-            }
+          
         }
 
         #endregion
@@ -174,11 +170,9 @@ namespace SeniorCapstoneProject.Furniture
 
         public void MoveLeft()
         {
-            if (Selected)
-            {
-                this.X -= 5;
-                Img.Margin = new System.Windows.Thickness(X, Y, 0, 0);
-            }
+
+            this.X -= 5;
+            Img.Margin = new System.Windows.Thickness(X, Y, 0, 0);
 
         }
 
@@ -217,7 +211,15 @@ namespace SeniorCapstoneProject.Furniture
         /// <returns></returns>
         public bool CanPassUnder()
         {
-            return false;
+            RobotVacuum vacuum = RobotVacuum.Vacuum;
+            if (this.Height > vacuum.Height)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void SetGrid(Grid grid)
@@ -225,7 +227,6 @@ namespace SeniorCapstoneProject.Furniture
             _grid = grid;
         }
         #endregion
-
     }
 }
 

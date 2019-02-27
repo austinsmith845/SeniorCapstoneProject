@@ -7,15 +7,17 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
-
 namespace SeniorCapstoneProject.Furniture
 {
+    /// <summary>
+    /// Represents a bed.
+    /// </summary>
     [Serializable]
-    public class Counter : IFurniture
+    public class BookShelf : IFurniture
     {
         #region Attributes / Properties
 
-        private float _height = 150; //this is the average height of a recliner in cm.
+        private float _height = 0; //this is the average height of a recliner in cm.
         public float Height
         {
             get { return _height; }
@@ -89,25 +91,27 @@ namespace SeniorCapstoneProject.Furniture
         #endregion
 
         #region Constructors
-        public Counter(FurnitureTypes type, Grid grid)
+        public BookShelf(FurnitureTypes type, Grid grid)
         {
             this.Type = type;
             _grid = grid;
-            DialogBox box = new DialogBox("Enter a length (cm).");
+            DialogBox box = new DialogBox("Enter a height from floor(cm).");
             while ((bool)box.ShowDialog(GetDialogResult)) ;
 
             box = new DialogBox("Enter a width (cm).");
             while ((bool)box.ShowDialog(GetDialogResult)) ;
 
+            box = new DialogBox("Enter a length (cm).");
+            while ((bool)box.ShowDialog(GetDialogResult)) ;
 
         }
 
 
         private void GetDialogResult(string value)
         {
-            if (this.Length == 0)
+            if (this.Height == 0)
             {
-                _length = float.Parse(value);
+                _height = float.Parse(value);
 
             }
             else if (this.Width == 0)
@@ -115,7 +119,10 @@ namespace SeniorCapstoneProject.Furniture
                 _width = float.Parse(value);
             }
 
-
+            else if (this.Length == 0)
+            {
+                _length = float.Parse(value);
+            }
         }
 
         #endregion
@@ -210,7 +217,15 @@ namespace SeniorCapstoneProject.Furniture
         /// <returns></returns>
         public bool CanPassUnder()
         {
-            return false; //A counter is attached to the ground, therefore the robot cannot pass under it.
+            RobotVacuum vacuum = RobotVacuum.Vacuum;
+            if (this.Height > vacuum.Height)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void SetGrid(Grid grid)
@@ -218,6 +233,8 @@ namespace SeniorCapstoneProject.Furniture
             _grid = grid;
         }
         #endregion
+
     }
-}
+
+    }
 

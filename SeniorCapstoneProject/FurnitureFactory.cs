@@ -19,41 +19,66 @@ namespace SeniorCapstoneProject
         public IFurniture InsertFurniture(string whatToInsert, Grid grid)
         {
             whatToInsert = whatToInsert.ToLower();
-            if(whatToInsert == "recliner")
+            if(whatToInsert == "bed")
             {
-                return new Recliner(FurnitureTypes.recliner,grid);
+                return new Bed(FurnitureTypes.Bed,grid);
             }
 
-            else if (whatToInsert == "coffeetable")
+            else if (whatToInsert == "bed2")
             {
-                return new CoffeeTable(FurnitureTypes.CoffeeTable, grid);
+                return new Bed2(FurnitureTypes.Bed2, grid);
+            }
+
+            else if (whatToInsert == "bookshelf")
+            {
+                return new BookShelf(FurnitureTypes.BookShelf, grid);
             }
 
             else if (whatToInsert == "couch")
             {
-                return new CoffeeTable(FurnitureTypes.Couch, grid);
+                return new Couch(FurnitureTypes.Couch, grid);
             }
 
-            else if (whatToInsert == "chair")
+            else if (whatToInsert == "deskchair")
             {
-                return new Chair(FurnitureTypes.chair, grid);
-            }
-
-
-            else if (whatToInsert == "counter")
-            {
-                return new Counter(FurnitureTypes.Counter, grid);
-            }
-
-            else if (whatToInsert == "bed")
-            {
-                return new Bed(FurnitureTypes.Bed, grid);
+                return new DeskChair(FurnitureTypes.DeskChair, grid);
             }
 
             else if (whatToInsert == "dresser")
             {
                 return new Dresser(FurnitureTypes.Dresser, grid);
             }
+
+            else if (whatToInsert == "recliner")
+            {
+                return new Recliner(FurnitureTypes.Recliner, grid);
+            }
+
+            else if (whatToInsert == "rug")
+            {
+                return new Rug(FurnitureTypes.Rug, grid);
+            }
+
+            else if (whatToInsert == "sofa")
+            {
+                return new Sofa(FurnitureTypes.Sofa, grid);
+            }
+
+            else if (whatToInsert == "stove")
+            {
+                return new Stove(FurnitureTypes.Stove, grid);
+            }
+
+            else if (whatToInsert == "table")
+            {
+                return new Table(FurnitureTypes.Table, grid);
+            }
+
+            else if (whatToInsert == "tvstand")
+            {
+                return new TVStand(FurnitureTypes.TVStand, grid);
+            }
+
             return null;
         }
 

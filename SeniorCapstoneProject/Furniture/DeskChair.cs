@@ -14,7 +14,7 @@ namespace SeniorCapstoneProject.Furniture
     /// Represents the chair object.
     /// </summary>
     [Serializable]
-    public class Chair : IFurniture
+    public class DeskChair : IFurniture
     {
         #region Attributes / Properties
 
@@ -92,7 +92,7 @@ namespace SeniorCapstoneProject.Furniture
         #endregion
 
         #region Constructors
-        public Chair(FurnitureTypes type, Grid grid)
+        public DeskChair(FurnitureTypes type, Grid grid)
         {
             this.Type = type;
             _grid = grid;

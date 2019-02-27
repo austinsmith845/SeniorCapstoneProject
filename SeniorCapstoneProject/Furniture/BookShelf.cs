@@ -10,10 +10,10 @@ using System.Windows.Media;
 namespace SeniorCapstoneProject.Furniture
 {
     /// <summary>
-    /// Represents a dresser.
+    /// Represents a bed.
     /// </summary>
     [Serializable]
-    public class TVTable : IFurniture
+    public class BookShelf : IFurniture
     {
         #region Attributes / Properties
 
@@ -91,11 +91,11 @@ namespace SeniorCapstoneProject.Furniture
         #endregion
 
         #region Constructors
-        public TVTable(FurnitureTypes type, Grid grid)
+        public BookShelf(FurnitureTypes type, Grid grid)
         {
             this.Type = type;
             _grid = grid;
-            DialogBox box = new DialogBox("Enter a height from floor (cm).");
+            DialogBox box = new DialogBox("Enter a height from floor(cm).");
             while ((bool)box.ShowDialog(GetDialogResult)) ;
 
             box = new DialogBox("Enter a width (cm).");
@@ -217,7 +217,15 @@ namespace SeniorCapstoneProject.Furniture
         /// <returns></returns>
         public bool CanPassUnder()
         {
-            return false;
+            RobotVacuum vacuum = RobotVacuum.Vacuum;
+            if (this.Height > vacuum.Height)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void SetGrid(Grid grid)
@@ -227,5 +235,6 @@ namespace SeniorCapstoneProject.Furniture
         #endregion
 
     }
-}
+
+    }
 

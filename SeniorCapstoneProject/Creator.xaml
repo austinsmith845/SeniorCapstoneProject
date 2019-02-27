@@ -16,12 +16,16 @@
                 <MenuItem x:Name="Vacuum" Header="Vacuum" Tag="Vacuum" Click="MenuClick"/>
                 <MenuItem x:Name="Bed" Header="Bed" Tag="Bed" Click="MenuClick"/>
                 <MenuItem x:Name="Bed2" Header="Bed2" Tag="Bed2" Click="MenuClick"/>
-                <MenuItem x:Name="Chair" Header="Chair" Tag="Chair" Click="MenuClick"/>
+                <MenuItem x:Name="BookShelf" Header="BookShelf" Tag="BookShelf" Click="MenuClick"/>
+                <MenuItem x:Name="Couch" Header="Couch" Tag="Couch" Click="MenuClick"/>
                 <MenuItem x:Name="DeskChair" Header="DeskChair" Tag="DeskChair" Click="MenuClick"/>
+                <MenuItem x:Name="Dresser" Header="Dresser" Tag="Dresser" Click="MenuClick"/>
+                <MenuItem x:Name="Recliner" Header="Recliner" Tag="Recliner" Click="MenuClick"/>
                 <MenuItem x:Name="Rug" Header="Rug" Tag="Rug" Click="MenuClick"/>
+                <MenuItem x:Name="Sofa" Header="Sofa" Tag="Sofa" Click="MenuClick"/>
                 <MenuItem x:Name="Stove" Header="Stove" Tag="Stove" Click="MenuClick"/>
                 <MenuItem x:Name="Table" Header="Table" Tag="Table" Click="MenuClick"/>
-                <MenuItem x:Name="TVTable" Header="TVTable" Tag="TVTable" Click="MenuClick"/>
+                <MenuItem x:Name="TVStand" Header="TVStand" Tag="TVStand" Click="MenuClick"/>
             </MenuItem>
             <MenuItem x:Name="Help" Header="Help">
                 <MenuItem x:Name="Controls" Header="Controls" Tag="Controls" Click="MenuClick"/>

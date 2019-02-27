@@ -2,10 +2,14 @@
 {
     Bed,
     Bed2,
-    Chair,
+    BookShelf,
+    Couch,
     DeskChair,
+    Dresser,
+    Recliner,
     Rug,
+    Sofa,
     Stove,
     Table,
-    TVTable,
+    TVStand,
 }

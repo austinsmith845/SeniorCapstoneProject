@@ -90,14 +90,26 @@ namespace SeniorCapstoneProject
                 case FurnitureTypes.Bed2:
                     img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Bed2.png"));
                     break;
-                case FurnitureTypes.Chair:
-                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Chair.png"));
+                case FurnitureTypes.BookShelf:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\BookShelf.png"));
+                    break;
+                case FurnitureTypes.Couch:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Couch.png"));
                     break;
                 case FurnitureTypes.DeskChair:
                     img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\DeskChair.png"));
                     break;
+                case FurnitureTypes.Dresser:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Dresser.png"));
+                    break;
+                case FurnitureTypes.Recliner:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Recliner.png"));
+                    break;
                 case FurnitureTypes.Rug:
                     img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Rug.png"));
+                    break;
+                case FurnitureTypes.Sofa:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Sofa.png"));
                     break;
                 case FurnitureTypes.Stove:
                     img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Stove.png"));
@@ -105,8 +117,8 @@ namespace SeniorCapstoneProject
                 case FurnitureTypes.Table:
                     img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Table.png"));
                     break;
-                case FurnitureTypes.TVTable:
-                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\TVTable.png"));
+                case FurnitureTypes.TVStand:
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\TVStand.png"));
                     break;
             }
 

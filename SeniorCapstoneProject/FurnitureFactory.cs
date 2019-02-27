@@ -29,9 +29,14 @@ namespace SeniorCapstoneProject
                 return new Bed2(FurnitureTypes.Bed2, grid);
             }
 
-            else if (whatToInsert == "chair")
+            else if (whatToInsert == "bookshelf")
             {
-                return new Chair(FurnitureTypes.Chair, grid);
+                return new BookShelf(FurnitureTypes.BookShelf, grid);
+            }
+
+            else if (whatToInsert == "couch")
+            {
+                return new Couch(FurnitureTypes.Couch, grid);
             }
 
             else if (whatToInsert == "deskchair")
@@ -39,9 +44,24 @@ namespace SeniorCapstoneProject
                 return new DeskChair(FurnitureTypes.DeskChair, grid);
             }
 
+            else if (whatToInsert == "dresser")
+            {
+                return new Dresser(FurnitureTypes.Dresser, grid);
+            }
+
+            else if (whatToInsert == "recliner")
+            {
+                return new Recliner(FurnitureTypes.Recliner, grid);
+            }
+
             else if (whatToInsert == "rug")
             {
                 return new Rug(FurnitureTypes.Rug, grid);
+            }
+
+            else if (whatToInsert == "sofa")
+            {
+                return new Sofa(FurnitureTypes.Sofa, grid);
             }
 
             else if (whatToInsert == "stove")
@@ -54,9 +74,9 @@ namespace SeniorCapstoneProject
                 return new Table(FurnitureTypes.Table, grid);
             }
 
-            else if (whatToInsert == "tvtable")
+            else if (whatToInsert == "tvstand")
             {
-                return new TVTable(FurnitureTypes.TVTable, grid);
+                return new TVStand(FurnitureTypes.TVStand, grid);
             }
 
             return null;

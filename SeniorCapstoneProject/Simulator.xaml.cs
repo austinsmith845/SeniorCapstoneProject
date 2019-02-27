@@ -192,7 +192,7 @@ namespace SeniorCapstoneProject
             timer.Start();
             RobotVacuum.Vacuum.Checker = new CollisionChecker(room.GetFurniture(), room);
             room.Vacuum.MoveNotifier = movedObserver;
-            room.Vacuum.MoveNotifier.RegisterCallBack(() => { this.Dispatcher.Invoke(() => { /*room.Vacuum.SetRotation()*/; room.Vacuum.Img.Margin = new Thickness(room.Vacuum.X, room.Vacuum.Y, 0, 0); }); }); //This forces the movement statement to execute on the UI thread to avoid a cross thread exception.
+            room.Vacuum.MoveNotifier.RegisterCallBack(() => { this.Dispatcher.Invoke(() => { /*room.Vacuum.SetRotation();*/ room.Vacuum.Img.Margin = new Thickness(room.Vacuum.X, room.Vacuum.Y, 0, 0); }); }); //This forces the movement statement to execute on the UI thread to avoid a cross thread exception.
             room.Vacuum.Observer = new TimeTickObserver(room.Vacuum.Move);
             room.Vacuum.SetRobotTimer();
         }

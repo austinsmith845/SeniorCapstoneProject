@@ -217,6 +217,10 @@ namespace SeniorCapstoneProject.Furniture
         /// <returns></returns>
         public bool CanPassUnder()
         {
+            if(this.Height > RobotVacuum.Vacuum.Height)
+            {
+                return true;
+            }
             return false;
         }
 

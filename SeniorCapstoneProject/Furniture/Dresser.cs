@@ -32,10 +32,10 @@ namespace SeniorCapstoneProject.Furniture
         }
 
 
-        
+        private float _length = 0;
         public float Length
         {
-            get { return this.Width; }
+            get { return _length; }
         }
 
         public bool Selected
@@ -102,7 +102,10 @@ namespace SeniorCapstoneProject.Furniture
             box = new DialogBox("Enter a width (cm).");
             while ((bool)box.ShowDialog(GetDialogResult)) ;
 
-            
+            box = new DialogBox("Enter a length (cm).");
+            while ((bool)box.ShowDialog(GetDialogResult)) ;
+
+
         }
 
 
@@ -118,7 +121,12 @@ namespace SeniorCapstoneProject.Furniture
                 _width = float.Parse(value);
             }
 
-          
+            else if (this.Length == 0)
+            {
+                this._length = float.Parse(value);
+            }
+
+
         }
 
         #endregion

@@ -18,7 +18,6 @@
         </GroupBox>
         <GroupBox Header="View Simulation" HorizontalAlignment="Left" Height="93" Margin="55,199,0,0" VerticalAlignment="Top" Width="676">
 
-
         </GroupBox>
         <RadioButton x:Name="rdbSimulation" Content="View Simulation" HorizontalAlignment="Left" Margin="144,238,0,0" VerticalAlignment="Top" Height="21" Width="123" IsChecked="True"/>
 

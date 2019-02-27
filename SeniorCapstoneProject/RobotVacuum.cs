@@ -18,16 +18,24 @@ namespace SeniorCapstoneProject
     {
         #region Properties
 
+        private object lockobj = new object();
+
+        private static object locker = new object();
+
         private static RobotVacuum _vacuum;
         public static RobotVacuum Vacuum
         {
             get
             {
-               if(_vacuum == null )
+                lock (locker)
                 {
-                    _vacuum = new RobotVacuum();
+                    if (_vacuum == null)
+                    {
+                        _vacuum = new RobotVacuum();
+                    }
+                    return _vacuum;
                 }
-                return _vacuum;
+            
             }
 
         }
@@ -56,8 +64,19 @@ namespace SeniorCapstoneProject
         private int _x;
         public int X
         {
-            get { return _x; }
-            set { _x = value;
+            get {
+                lock (this)
+                {
+                    return _x;
+                }
+            }
+
+            set
+            {
+                lock (this)
+                {
+                    _x = value;
+                }
                 if (MoveNotifier != null)
                 {
                     MoveNotifier.RobotHasMoved();
@@ -69,8 +88,19 @@ namespace SeniorCapstoneProject
         private int _y;
         public int Y
         {
-            get { return _y; }
-            set { _y = value;
+            get
+            {
+                lock (this)
+                {
+                    return _y;
+                }
+            }
+            set
+            {
+                lock (this)
+                {
+                    _y = value;
+                }
                 if (MoveNotifier != null)
                 {
                     MoveNotifier.RobotHasMoved();
@@ -277,15 +307,19 @@ namespace SeniorCapstoneProject
         /// </summary>
         public void Move(int secs)
         {
-            GetNextAction();
+            while(GetNextAction())
+            {
+                Thread.Yield();
+            }
         }
 
         /// <summary>
         /// Gets the next move based of the algorithm the vacuum is using.
         /// </summary>
-        public void GetNextAction()
+        public bool GetNextAction()
         {
             Vacuum.Algorithm.NextMove(this);
+            return false;
          
         }
 

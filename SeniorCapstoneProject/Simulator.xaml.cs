@@ -209,6 +209,7 @@ namespace SeniorCapstoneProject
         {
             time.Enabled = false; //disables the timer.
             timer.Abort(); //Stops the timer thread.
+            RobotVacuum.Vacuum.AbortThread();
         }
     }
 }

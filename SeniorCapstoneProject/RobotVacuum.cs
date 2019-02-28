@@ -22,6 +22,8 @@ namespace SeniorCapstoneProject
 
         private static object locker = new object();
 
+        Thread thread;
+
         private static RobotVacuum _vacuum;
         public static RobotVacuum Vacuum
         {
@@ -326,8 +328,14 @@ namespace SeniorCapstoneProject
         internal void SetRobotTimer()
         {
             timer = new Timer(Observer, 50);
-            Thread thread = new Thread(new ThreadStart(timer.Tick));
-            thread.Start();
+            Vacuum.thread = new Thread(new ThreadStart(timer.Tick));
+            Vacuum.thread.Start();
+        }
+
+        public void AbortThread()
+        {
+            Vacuum.thread.Abort();
+            Vacuum.thread = null;
         }
 
         public int GetRotation()

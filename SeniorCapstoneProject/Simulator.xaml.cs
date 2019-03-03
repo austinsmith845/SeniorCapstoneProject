@@ -75,6 +75,8 @@ namespace SeniorCapstoneProject
             img.Height = furniture.Height;
             img.Visibility = Visibility.Visible;
             img.Margin = new Thickness(furniture.X, furniture.Y, 0, 0);
+            img.StretchDirection = StretchDirection.Both;
+          
 
             furniture.Img = img;
 
@@ -86,7 +88,7 @@ namespace SeniorCapstoneProject
             {
 
                 case FurnitureTypes.Bed:
-                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Bed.png"));
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Bed2.png"));
                     break;
                 case FurnitureTypes.Bed2:
                     img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Bed2.png"));
@@ -123,9 +125,10 @@ namespace SeniorCapstoneProject
                     break;
             }
 
+            this.Grid.Children.Add(furniture.Img);
 
             furniture.SetRotation();
-            this.Grid.Children.Add(furniture.Img);
+    
 
         }
 

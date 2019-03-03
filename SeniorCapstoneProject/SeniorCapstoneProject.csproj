@@ -72,6 +72,9 @@
       <DependentUpon>DialogBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="FurnitureFactory.cs" />
+    <Compile Include="FurnitureSetupWindow.xaml.cs">
+      <DependentUpon>FurnitureSetupWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Furniture\BookShelf.cs" />
     <Compile Include="Furniture\Bed2.cs" />
     <Compile Include="Furniture\Bed.cs" />
@@ -112,6 +115,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DialogBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FurnitureSetupWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -171,9 +178,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\Bed.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Images\Bed2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -204,7 +208,9 @@
     <Content Include="Images\TVStand.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Images\Logo.png" />
+    <Content Include="Images\Logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Recliner.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

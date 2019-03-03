@@ -22,6 +22,7 @@ namespace SeniorCapstoneProject
 
         private static object locker = new object();
 
+        [NonSerialized]
         Thread thread;
 
         private static RobotVacuum _vacuum;

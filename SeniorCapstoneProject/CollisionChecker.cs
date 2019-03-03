@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using d= System.Drawing;
+using d = System.Drawing;
 using System.Drawing.Drawing2D;
 
 using System.Windows.Media;
@@ -16,14 +16,14 @@ namespace SeniorCapstoneProject
     public class CollisionChecker
     {
         List<IFurniture> furniture;
-        private  IRoom _room;
+        private IRoom _room;
         private d.Graphics _graphics;
 
         public CollisionChecker(List<IFurniture> furn, IRoom room)
         {
             furniture = furn;
             _room = room;
-           
+
         }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace SeniorCapstoneProject
         public bool CollisionOccured(RobotVacuum vacuum)
         {
             bool collision = false;
-           // int[,] bounds = new int[1640, 840];
+            // int[,] bounds = new int[1640, 840];
             /*  Point[] furnBounds = new Point[4];
               Point[] vacBounds = new Point[4];
 
@@ -60,79 +60,70 @@ namespace SeniorCapstoneProject
                 Point robotPoint = new Point(vacuum.X, vacuum.Y);
                 foreach (IFurniture furn in furniture)
                 {
-                    /*  
-                      furnBounds[0] = new Point(furn.X, furn.Y);
-                      furnBounds[1] = new Point(furn.X + furn.Width, furn.Y);
-                      furnBounds[1] = transform.Transform(furnBounds[1]);
-                      furnBounds[2] = transform.Transform(new Point(furn.X, furn.Y + furn.Length));
-                      furnBounds[2] = transform.Transform(furnBounds[2]);
-                      furnBounds[3] = transform.Transform(new Point(furn.X + furn.Width, furn.Y + furn.Length));
-                      furnBounds[3] = transform.Transform(furnBounds[3]);*/
+                    Rect furnitureBounds = new Rect(furn.X, furn.Y, furn.Width, furn.Length);
+                    Rect vacuumBounds = new Rect(vacuum.X, vacuum.Y, vacuum.Width, vacuum.Width);
 
-                    Application.Current.Dispatcher.Invoke((Action)delegate
+                   
+
+                    if ((furnitureBounds.IntersectsWith(vacuumBounds)) && !furn.CanPassUnder())// || (furnitureBounds.Contains(robotPoint) || furnitureBounds.Contains(new Point(robotPoint.X + vacuum.Width, robotPoint.Y)) || furnitureBounds.Contains(new Point(robotPoint.X, vacuum.Y + vacuum.Height)) || furnitureBounds.Contains(new Point(robotPoint.X + vacuum.Width, vacuum.Y + vacuum.Height))) && !furn.CanPassUnder())
                     {
+                        collision = true;
+                    }
 
-                        RotateTransform transform = new RotateTransform();
-                        transform.Angle = furn.DegreeRotation;
+                    if ((vacuum.X >= furn.X - furn.Width && vacuum.X <= furn.X + furn.Width) && (vacuum.Y >= furn.Y - furn.Length && vacuum.Y <= furn.Y + furn.Length) && !furn.CanPassUnder())
+                    {
+                        collision = true;
+                    }
 
-                        Rect furnitureBounds = new Rect();
-                        Point furnPoint = new Point(furn.X, furn.Y);
-                        furnitureBounds = furn.Img.RenderTransform.TransformBounds(new Rect(furnPoint.X, furnPoint.Y, furn.Img.Width, furn.Img.Height));
-                        //furnitureBounds = transform.TransformBounds(furnitureBounds);
+                    furnitureBounds.Intersect(vacuumBounds);
 
-                        transform = new RotateTransform();
-                        transform.Angle = vacuum.DegreeRotation;
-                        Rect vacuumBounds = new Rect();
-                        vacuumBounds = vacuum.Img.RenderTransform.TransformBounds(new Rect(vacuum.X, vacuum.Y, vacuum.Img.Width, vacuum.Img.Height));
-
-
-                     
+                    if (!furnitureBounds.IsEmpty && !furn.CanPassUnder())
+                    {
+                        return true;
+                    }
 
 
-
-                        Rect intersect = furnitureBounds;
-
-
-                       intersect.Intersect(vacuumBounds);
-
-               
-
-                        
+                }
                 /*
                         if(!intersect.IsEmpty)
                         {
                            collision = true;
                         }*/
 
-                        if ( (furnitureBounds.IntersectsWith(vacuumBounds))  || (furnitureBounds.Contains(robotPoint) || furnitureBounds.Contains(new Point(robotPoint.X + vacuum.Width, robotPoint.Y)) || furnitureBounds.Contains(new Point(robotPoint.X, vacuum.Y + vacuum.Height)) || furnitureBounds.Contains(new Point(robotPoint.X + vacuum.Width, vacuum.Y + vacuum.Height))) && !furn.CanPassUnder())
-                        {
-                            collision = true;
-                        }
-                       
 
-                       if (vacuum.X >= 820)
-                        {
-                            collision = true;
-                        }
-
-                        if (vacuum.X <= -820)
-                        {
-                            collision = true;
-                        }
-
-
-                    });
-                    //return false;
-
+                if (vacuum.X >= 820)
+                {
+                    collision = true;
                 }
 
-            }
+                if (vacuum.X <= -820)
+                {
+                    collision = true;
+                }
 
+                if (vacuum.Y >= 400)
+                {
+                    collision = true;
+                }
+
+                if (vacuum.Y <= -400)
+                {
+                    return true;
+                }
+
+
+
+                //return false;
+
+            }
             return collision;
+
         }
 
-      
-       
-
     }
+
+
+
+
 }
+

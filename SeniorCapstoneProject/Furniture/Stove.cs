@@ -21,7 +21,7 @@ namespace SeniorCapstoneProject.Furniture
         private float _height = 0; //this is the average height of a recliner in cm.
         public float Height
         {
-            get { return _height; }
+            get { return Width; }
 
         }
 
@@ -96,25 +96,24 @@ namespace SeniorCapstoneProject.Furniture
         {
             this.Type = type;
             _grid = grid;
-            DialogBox box = new DialogBox("Enter a height from floor(cm).");
-         
+            FurnitureSetupWindow box = new FurnitureSetupWindow();
+            box.txtHeight.IsEnabled = false;
+            box.txtLength.IsEnabled = false;
 
-            box = new DialogBox("Enter a width (cm).");
             while ((bool)box.ShowDialog(GetDialogResult)) ;
 
-            
+
         }
 
 
-        private void GetDialogResult(string value)
+        private void GetDialogResult(string height, string width, string length, int rotation)
         {
-           
-          if (this.Width == 0)
+            
+            if (this.Width == 0)
             {
-                _width = float.Parse(value);
+                _width = float.Parse(width);
             }
-
-          
+            
         }
 
         #endregion

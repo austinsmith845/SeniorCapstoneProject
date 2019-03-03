@@ -57,7 +57,7 @@ namespace SeniorCapstoneProject
             img.Height = furniture.Height;
             img.Visibility = Visibility.Visible;
             img.Margin = new Thickness(furniture.X, furniture.Y, 0, 0);
-
+            img.Stretch = Stretch.Fill;
             furniture.Img = img;
 
 
@@ -66,7 +66,7 @@ namespace SeniorCapstoneProject
             switch (furnitureType)
             {
                 case FurnitureTypes.Bed:
-                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Bed.png"));
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Bed2.png"));
                     break;
                 case FurnitureTypes.Bed2:
                     img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Bed2.png"));
@@ -110,9 +110,11 @@ namespace SeniorCapstoneProject
         {
             furniture.SetGrid(this.Grid);
             Image img = new Image();
-            //img.Width = furniture.Width;
-           // img.Height = furniture.Height;
+            img.Width = furniture.Width;
+            img.Height = furniture.Height;
             img.Visibility = Visibility.Visible;
+            img.Stretch = Stretch.Fill;
+
             img.Margin = new Thickness(furniture.X, furniture.Y, 0, 0);
 
             furniture.Img = img;
@@ -124,7 +126,7 @@ namespace SeniorCapstoneProject
             switch (furnitureType)
             {
                 case FurnitureTypes.Bed:
-                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Bed.png"));
+                    img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Bed2.png"));
                     break;
                 case FurnitureTypes.Bed2:
                     img.Source = new BitmapImage(new Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Images\Bed2.png"));
@@ -437,34 +439,7 @@ namespace SeniorCapstoneProject
                 }
             }
 
-            else if (e.Key == Key.A)
-            {
-                if (objects != null)
-                {
-                    foreach (IFurniture furniture in objects)
-                    {
-                        furniture.RotateRight();
-                    }
-                }
-                if (room.Vacuum != null)
-                {
-                    room.Vacuum.RotateRight();
-                }
-            }
-            else if (e.Key == Key.D)
-            {
-                if (objects != null)
-                {
-                    foreach (IFurniture furniture in objects)
-                    {
-                        furniture.RotateLeft();
-                    }
-                }
-                if (room.Vacuum != null)
-                {
-                    room.Vacuum.RotateLeft();
-                }
-            }
+          
 
 
 

@@ -95,34 +95,31 @@ namespace SeniorCapstoneProject.Furniture
         {
             this.Type = type;
             _grid = grid;
-            DialogBox box = new DialogBox("Enter a height from floor(cm).");
-            while ((bool)box.ShowDialog(GetDialogResult)) ;
+            FurnitureSetupWindow box = new FurnitureSetupWindow();
+            while((bool)box.ShowDialog(GetDialogResult));
 
-            box = new DialogBox("Enter a width (cm).");
-            while ((bool)box.ShowDialog(GetDialogResult)) ;
-
-            box = new DialogBox("Enter a length (cm).");
-            while ((bool)box.ShowDialog(GetDialogResult)) ;
 
         }
 
 
-        private void GetDialogResult(string value)
+        private void GetDialogResult(string height, string width, string length, int rotation)
         {
             if (this.Height == 0)
             {
-                _height = float.Parse(value);
+                _height = float.Parse(height);
 
             }
-            else if (this.Width == 0)
+            if (this.Width == 0)
             {
-                _width = float.Parse(value);
+                _width = float.Parse(width);
             }
 
-            else if (this.Length == 0)
+            if (this.Length == 0)
             {
-                _length = float.Parse(value);
+                _length = float.Parse(length);
             }
+
+            _rotation = rotation;
         }
 
         #endregion
@@ -131,8 +128,8 @@ namespace SeniorCapstoneProject.Furniture
 
         public void SetRotation()
         {
-            rotation = new RotateTransform(_rotation);
-            Img.RenderTransform = rotation;
+           /// rotation = new RotateTransform(_rotation);
+           // Img.RenderTransform = rotation;
         }
 
         /// <summary>

@@ -310,7 +310,8 @@ namespace SeniorCapstoneProject
         /// </summary>
         public void Move(int secs)
         {
-            while(GetNextAction())
+            Vacuum.Battery.Percent -= 0.001f;
+            while (GetNextAction())
             {
                 Thread.Yield();
             }
@@ -322,12 +323,14 @@ namespace SeniorCapstoneProject
         public bool GetNextAction()
         {
             Vacuum.Algorithm.NextMove(this);
+            
             return false;
          
         }
 
         internal void SetRobotTimer()
         {
+            Vacuum.Battery.Percent = 100f;
             timer = new Timer(Observer, 50);
             Vacuum.thread = new Thread(new ThreadStart(timer.Tick));
             Vacuum.thread.Start();

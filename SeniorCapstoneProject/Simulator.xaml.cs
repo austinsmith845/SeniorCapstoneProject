@@ -194,6 +194,7 @@ namespace SeniorCapstoneProject
             timer = new Thread(new ThreadStart(time.Tick));
             timer.Start();
             RobotVacuum.Vacuum.Checker = new CollisionChecker(room.GetFurniture(), room);
+        
             room.Vacuum.MoveNotifier = movedObserver;
             room.Vacuum.MoveNotifier.RegisterCallBack(() => { this.Dispatcher.Invoke(() => { /*room.Vacuum.SetRotation();*/ room.Vacuum.Img.Margin = new Thickness(room.Vacuum.X, room.Vacuum.Y, 0, 0); }); }); //This forces the movement statement to execute on the UI thread to avoid a cross thread exception.
             room.Vacuum.Observer = new TimeTickObserver(room.Vacuum.Move);
@@ -203,7 +204,7 @@ namespace SeniorCapstoneProject
         private void UpdateTimerLabel(int secs)
         {
             int mins = secs / 60;
-            this.Dispatcher.Invoke(() => { this.lblTime.Content = String.Format("Elapsed time: {0}:{1:00}", mins, secs % 60); this.lblBattery.Content = String.Format("Battery: {0}%",(int)RobotVacuum.Vacuum.Battery.Percent); });
+            this.Dispatcher.Invoke(() => { this.lblTime.Content = String.Format("Elapsed time: {0}:{1:00}", mins, secs % 60); this.lblBattery.Content = String.Format("Battery: {0:0.00}%", RobotVacuum.Vacuum.Battery.Percent); });
             
                 
         }

@@ -49,14 +49,33 @@ namespace SeniorCapstoneProject.Algorithms
             {
                 vacuum.Y -= 5;
             }
-      
+
+            else if (vacuum.GetRotation() == 45)
+            {
+                vacuum.X += 5;
+                vacuum.Y -= 5;
+            }
+
             else if(vacuum.GetRotation()==90)
             {
                 vacuum.X += 5;
             }
 
+            else if (vacuum.GetRotation() == 135)
+            {
+                vacuum.X -= 5;
+                vacuum.Y -= 5;
+            }
+
+
             else if (vacuum.GetRotation() == 180)
             {
+                vacuum.Y += 5;
+            }
+
+            else if (vacuum.GetRotation() == 225)
+            {
+                vacuum.X -= 5;
                 vacuum.Y += 5;
             }
 
@@ -65,20 +84,13 @@ namespace SeniorCapstoneProject.Algorithms
                 vacuum.X -= 5;
             }
 
-            else if (vacuum.GetRotation() == -90)
+            else if (vacuum.GetRotation() == 315)
             {
-                vacuum.X -= 5;
-            }
-
-            else if (vacuum.GetRotation() == -180)
-            {
+                vacuum.X += 5;
                 vacuum.Y += 5;
             }
 
-            else if (vacuum.GetRotation() == -270)
-            {
-                vacuum.X += 5;
-            }
+
         }
 
         private void Reverse(RobotVacuum vacuum)
@@ -89,13 +101,32 @@ namespace SeniorCapstoneProject.Algorithms
                 vacuum.Y += 5;
             }
 
+            else if (vacuum.GetRotation() == 45)
+            {
+                vacuum.X -= 5;
+                vacuum.Y += 5;
+            }
+
             else if (vacuum.GetRotation() == 90)
             {
                 vacuum.X -= 5;
             }
 
+            else if (vacuum.GetRotation() == 135)
+            {
+                vacuum.X += 5;
+                vacuum.Y += 5;
+            }
+
+
             else if (vacuum.GetRotation() == 180)
             {
+                vacuum.Y -= 5;
+            }
+
+            else if (vacuum.GetRotation() == 225)
+            {
+                vacuum.X += 5;
                 vacuum.Y -= 5;
             }
 
@@ -103,12 +134,18 @@ namespace SeniorCapstoneProject.Algorithms
             {
                 vacuum.X += 5;
             }
+
+            else if (vacuum.GetRotation() == 315)
+            {
+                vacuum.X -= 5;
+                vacuum.Y -= 5;
+            }
         }
         private void NextRotation(RobotVacuum vacuum)
         {
             Random _rnd = new Random();
-            int[] rotations = { 0, 90, 180, 270 };
-            int degree = _rnd.Next(0, 4);
+            int[] rotations = { 0, 45, 90, 135, 180, 225, 270, 315  };
+            int degree = _rnd.Next(0, rotations.Length);
             vacuum.RotateN(rotations[degree]);
         }
 

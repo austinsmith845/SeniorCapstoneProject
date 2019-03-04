@@ -41,8 +41,16 @@ namespace SeniorCapstoneProject
             Button btn = (Button)sender;
             if((string)btn.Tag == "Load")
             {
-                Simulator simulator = new Simulator();
-                simulator.Show();
+                if (!Simulator.IsRunning)
+                {
+                    Simulator simulator = new Simulator();
+                    simulator.Show();
+                }
+
+                else
+                {
+                    MessageBox.Show("You cannot have more than one instance of the simulator running.","Already running");
+                }
             }
              
             else if ((string)btn.Tag == "Create")

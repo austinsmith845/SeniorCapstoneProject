@@ -32,10 +32,18 @@ namespace SeniorCapstoneProject
         Timer time;
         Thread timer;
         RobotMovedObserver movedObserver;
+        float coverage;
+
+        public static bool IsRunning
+        {
+            get;
+            set;
+        }
         
 
         public Simulator()
         {
+            IsRunning = true;
             observer = new TimeTickObserver(UpdateTimerLabel);
             objects = new List<IFurniture>();
             InitializeComponent();
@@ -50,6 +58,9 @@ namespace SeniorCapstoneProject
 
         }
 
+        /// <summary>
+        /// Loads the room's setup.
+        /// </summary>
         private void LoadRoom()
         {
             OpenFileDialog opener = new OpenFileDialog();
@@ -67,6 +78,11 @@ namespace SeniorCapstoneProject
             InsertVacuumUi();
         }
 
+        /// <summary>
+        /// Loads the ui
+        /// </summary>
+        /// <param name="furniture"></param>
+        /// <param name="furnitureType"></param>
         public void LoadUI(IFurniture furniture, FurnitureTypes furnitureType)
         {
             furniture.SetGrid(this.Grid);
@@ -204,13 +220,16 @@ namespace SeniorCapstoneProject
         private void UpdateTimerLabel(int secs)
         {
             int mins = secs / 60;
-            this.Dispatcher.Invoke(() => { this.lblTime.Content = String.Format("Elapsed time: {0}:{1:00}", mins, secs % 60); this.lblBattery.Content = String.Format("Battery: {0:0.00}%", RobotVacuum.Vacuum.Battery.Percent); });
+            coverage = ((float)room.Vacuum.PointsVisited.Count / room.PointsInRoom())*100;
+            this.Dispatcher.Invoke(() => { this.lblTime.Content = String.Format("Elapsed time: {0}:{1:00}", mins, secs % 60); this.lblBattery.Content = String.Format("Battery: {0:0.00}%", RobotVacuum.Vacuum.Battery.Percent); this.lblCoverage.Content = String.Format("Coverage: {0:0.000}%", coverage); }); //Updates the timer label.
             
+            //Add coverage of 100% here
                 
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            IsRunning = false;
             time.Enabled = false; //disables the timer.
             timer.Abort(); //Stops the timer thread.
             RobotVacuum.Vacuum.AbortThread();

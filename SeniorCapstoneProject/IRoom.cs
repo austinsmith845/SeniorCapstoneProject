@@ -13,6 +13,7 @@ namespace SeniorCapstoneProject
        float Width { get; set; }
        string Name { get; set; }
         bool HasVacuum { get; }
+       
         RobotVacuum Vacuum { get; set; }
 
         void Insert(IFurniture furniture, int x, int y,AddItemToUI callBack);
@@ -20,6 +21,7 @@ namespace SeniorCapstoneProject
         List<IFurniture> GetFurniture();
         void Save();
         void SaveDialogReturnedHandler(string name);
+        int PointsInRoom();
 
 
     }

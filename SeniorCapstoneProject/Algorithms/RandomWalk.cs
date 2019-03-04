@@ -37,6 +37,11 @@ namespace SeniorCapstoneProject.Algorithms
                
                 MoveForward(vacuum);
             }
+
+            if (!vacuum.PointsVisited.Contains(new System.Drawing.Point(vacuum.X, vacuum.Y)))
+            {
+                vacuum.PointsVisited.Add(new System.Drawing.Point(vacuum.X, vacuum.Y));
+            }
         }
 
         /// <summary>

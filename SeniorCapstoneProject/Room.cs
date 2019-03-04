@@ -56,6 +56,9 @@ namespace SeniorCapstoneProject
             get { return _hasVacuum; }
             set { _hasVacuum = value; }
         }
+        
+
+   
 
         int[,] roomMatrix;
 
@@ -147,6 +150,12 @@ namespace SeniorCapstoneProject
             this.Name = name;
             Save();
         }
+
+        public int PointsInRoom()
+        {
+            return (int)(this.Width * this.Length);
+        }
+    
 
     }
 }

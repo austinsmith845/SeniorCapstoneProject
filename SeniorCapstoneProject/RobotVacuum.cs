@@ -51,6 +51,18 @@ namespace SeniorCapstoneProject
             set { _observer = value; }
         }
 
+        [NonSerialized]
+        private List<System.Drawing.Point> _pointsVisited;
+        public List<System.Drawing.Point> PointsVisited
+        {
+            get {
+                if (_pointsVisited == null)
+                {
+                    _pointsVisited = new List<System.Drawing.Point>();
+                }
+                return _pointsVisited;
+            }
+        }
 
         private float _height = 9.144f; //This is in cm
         public float Height
@@ -315,6 +327,7 @@ namespace SeniorCapstoneProject
             {
                 Thread.Yield();
             }
+           
         }
 
         /// <summary>

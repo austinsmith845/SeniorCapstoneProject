@@ -61,7 +61,8 @@ namespace SeniorCapstoneProject
             
             else if ((string)btn.Tag == "Algorithm")
             {
-                MessageBox.Show("Algorithm functionality has not yet been implemented.");
+                AlgorithmEditor editor = new AlgorithmEditor();
+                editor.ShowDialog();
             }
         }
     }

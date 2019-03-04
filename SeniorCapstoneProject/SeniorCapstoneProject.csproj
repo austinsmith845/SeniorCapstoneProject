@@ -58,6 +58,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AlgorithmEditor.xaml.cs">
+      <DependentUpon>AlgorithmEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AlgorithmFactory.cs" />
     <Compile Include="Algorithms\Genetic.cs" />
     <Compile Include="Algorithms\RandomWalk.cs" />
@@ -102,6 +105,7 @@
     <Compile Include="SaveDialog.xaml.cs">
       <DependentUpon>SaveDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SettingsRegistry.cs" />
     <Compile Include="SimulationSetupScreen.xaml.cs">
       <DependentUpon>SimulationSetupScreen.xaml</DependentUpon>
     </Compile>
@@ -110,6 +114,10 @@
     </Compile>
     <Compile Include="Timer.cs" />
     <Compile Include="TimeTickObserver.cs" />
+    <Page Include="AlgorithmEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Creator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

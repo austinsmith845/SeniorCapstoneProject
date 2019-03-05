@@ -67,12 +67,16 @@
     <Compile Include="Algorithms\SnakeAndWall.cs" />
     <Compile Include="Algorithms\Spiral.cs" />
     <Compile Include="Battery.cs" />
+    <Compile Include="BatteryDeadObserver.cs" />
     <Compile Include="CollisionChecker.cs" />
     <Compile Include="Creator.xaml.cs">
       <DependentUpon>Creator.xaml</DependentUpon>
     </Compile>
     <Compile Include="DialogBox.xaml.cs">
       <DependentUpon>DialogBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EndSimulation.xaml.cs">
+      <DependentUpon>EndSimulation.xaml</DependentUpon>
     </Compile>
     <Compile Include="FurnitureFactory.cs" />
     <Compile Include="FurnitureSetupWindow.xaml.cs">
@@ -123,6 +127,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DialogBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EndSimulation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

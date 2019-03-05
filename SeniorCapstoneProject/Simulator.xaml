@@ -16,7 +16,7 @@
             <Label x:Name="lblAlgorithm" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114"/>
             <Label x:Name="lblCoverage" Content="Coverage: 0%" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114"/>
             <Label x:Name="lblRoomName" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114"/>
-
+            <Button x:Name="btnTerminate" Content="Terminate Simulation" Margin="40,0,0,0" Height="19" Width="135" Tag="Terminate" Click="ButtonClick"/>
         </Menu>
     </Grid>
 </Window>

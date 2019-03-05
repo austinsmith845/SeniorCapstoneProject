@@ -55,9 +55,21 @@ namespace SeniorCapstoneProject.Algorithms
                 vacuum.Y -= 5;
             }
 
+            else if (vacuum.GetRotation() == 22)
+            {
+                vacuum.X += 5;
+                vacuum.Y -= 8;
+            }
+
             else if (vacuum.GetRotation() == 45)
             {
                 vacuum.X += 5;
+                vacuum.Y -= 5;
+            }
+
+            else if (vacuum.GetRotation() == 67)
+            {
+                vacuum.X += 8;
                 vacuum.Y -= 5;
             }
 
@@ -66,16 +78,33 @@ namespace SeniorCapstoneProject.Algorithms
                 vacuum.X += 5;
             }
 
+            else if (vacuum.GetRotation() == 112)
+            {
+                vacuum.X -= 5;
+                vacuum.Y -= 8;
+            }
+
             else if (vacuum.GetRotation() == 135)
             {
                 vacuum.X -= 5;
                 vacuum.Y -= 5;
             }
 
+            else if (vacuum.GetRotation() == 157)
+            {
+                vacuum.X -= 5;
+                vacuum.Y -= 8;
+            }
 
             else if (vacuum.GetRotation() == 180)
             {
                 vacuum.Y += 5;
+            }
+
+            else if (vacuum.GetRotation() == 202)
+            {
+                vacuum.X -= 5;
+                vacuum.Y += 8;
             }
 
             else if (vacuum.GetRotation() == 225)
@@ -84,9 +113,21 @@ namespace SeniorCapstoneProject.Algorithms
                 vacuum.Y += 5;
             }
 
+            else if (vacuum.GetRotation() == 247)
+            {
+                vacuum.X -= 8;
+                vacuum.Y += 5;
+            }
+
             else if (vacuum.GetRotation() == 270)
             {
                 vacuum.X -= 5;
+            }
+
+            else if (vacuum.GetRotation() == 292)
+            {
+                vacuum.X += 8;
+                vacuum.Y += 5;
             }
 
             else if (vacuum.GetRotation() == 315)
@@ -94,6 +135,19 @@ namespace SeniorCapstoneProject.Algorithms
                 vacuum.X += 5;
                 vacuum.Y += 5;
             }
+
+            else if (vacuum.GetRotation() == 315)
+            {
+                vacuum.X += 5;
+                vacuum.Y += 5;
+            }
+
+            else if (vacuum.GetRotation() == 337)
+            {
+                vacuum.X += 8;
+                vacuum.Y += 5;
+            }
+
 
 
         }
@@ -106,9 +160,22 @@ namespace SeniorCapstoneProject.Algorithms
                 vacuum.Y += 5;
             }
 
+            else if (vacuum.GetRotation() == 22)
+            {
+                vacuum.X -= 5;
+                vacuum.Y += 8;
+            }
+
+
             else if (vacuum.GetRotation() == 45)
             {
                 vacuum.X -= 5;
+                vacuum.Y += 5;
+            }
+
+            else if (vacuum.GetRotation() == 67)
+            {
+                vacuum.X -= 8;
                 vacuum.Y += 5;
             }
 
@@ -117,16 +184,34 @@ namespace SeniorCapstoneProject.Algorithms
                 vacuum.X -= 5;
             }
 
+            else if (vacuum.GetRotation() == 112)
+            {
+                vacuum.X += 5;
+                vacuum.Y += 8;
+            }
+
             else if (vacuum.GetRotation() == 135)
             {
                 vacuum.X += 5;
                 vacuum.Y += 5;
             }
 
+            else if (vacuum.GetRotation() == 157)
+            {
+                vacuum.X += 5;
+                vacuum.Y += 8;
+            }
 
             else if (vacuum.GetRotation() == 180)
             {
                 vacuum.Y -= 5;
+            }
+
+
+            else if (vacuum.GetRotation() == 202)
+            {
+                vacuum.X += 5;
+                vacuum.Y -= 8;
             }
 
             else if (vacuum.GetRotation() == 225)
@@ -135,9 +220,22 @@ namespace SeniorCapstoneProject.Algorithms
                 vacuum.Y -= 5;
             }
 
+            else if (vacuum.GetRotation() == 247)
+            {
+                vacuum.X += 8;
+                vacuum.Y -= 5;
+            }
+
             else if (vacuum.GetRotation() == 270)
             {
                 vacuum.X += 5;
+            }
+
+
+            else if (vacuum.GetRotation() == 292)
+            {
+                vacuum.X -= 8;
+                vacuum.Y -= 5;
             }
 
             else if (vacuum.GetRotation() == 315)
@@ -145,11 +243,17 @@ namespace SeniorCapstoneProject.Algorithms
                 vacuum.X -= 5;
                 vacuum.Y -= 5;
             }
+
+            else if (vacuum.GetRotation() == 337)
+            {
+                vacuum.X -= 8;
+                vacuum.Y -= 5;
+            }
         }
         private void NextRotation(RobotVacuum vacuum)
         {
             Random _rnd = new Random();
-            int[] rotations = { 0, 45, 90, 135, 180, 225, 270, 315  };
+            int[] rotations = { 0, 22, 45, 67, 90, 112, 135, 157, 180, 202, 225, 247, 270, 292, 315, 337  };
             int degree = _rnd.Next(0, rotations.Length);
             vacuum.RotateN(rotations[degree]);
         }

@@ -16,7 +16,15 @@ namespace SeniorCapstoneProject
         public float Percent
         {
             get { return _percent; }
-            set { _percent = value; }
+            set
+            {
+                _percent = value;
+                if (_percent <= 0)
+                {
+                    observer.BatteryDead(); //call the battery dead handlers.
+                }
+            }
+
         }
 
         private static Battery _instance;
@@ -32,6 +40,20 @@ namespace SeniorCapstoneProject
             }
            
         }
+
+        private BatteryDeadObserver observer;
+        public BatteryDeadObserver BatteryDead
+        {
+            get
+            {
+                if(observer == null)
+                {
+                    observer = new BatteryDeadObserver();
+                }
+                return observer;
+            }
+        }
+
 
         private Battery()
         {

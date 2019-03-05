@@ -33,6 +33,7 @@ namespace SeniorCapstoneProject
         Thread timer;
         RobotMovedObserver movedObserver;
         float coverage;
+        BatteryDeadObserver dead;
 
         public static bool IsRunning
         {
@@ -204,7 +205,9 @@ namespace SeniorCapstoneProject
         /// <param name="view"></param>
         public void StartSimulation(bool view)
         {
- 
+
+            dead = room.Vacuum.Battery.BatteryDead;
+            dead.RegisterHandler(BatteryDead);
             movedObserver = new RobotMovedObserver();
             time = new Timer(observer, 1000);
             timer = new Thread(new ThreadStart(time.Tick));
@@ -227,12 +230,62 @@ namespace SeniorCapstoneProject
                 
         }
 
+        private void BatteryDead()
+        {
+            IsRunning = false;
+            time.Enabled = false; //disables the timer.
+            timer.Abort(); //Stops the timer thread.
+            EndSimulation end;
+
+            this.Dispatcher.Invoke(() =>
+            {
+               end = new EndSimulation("Battery died.");
+                end.Show();
+                this.Close();
+            }); //Force this code to run in the UI thread.
+
+      
+        
+            RobotVacuum.Vacuum.AbortThread();
+           
+        }
+
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             IsRunning = false;
             time.Enabled = false; //disables the timer.
             timer.Abort(); //Stops the timer thread.
             RobotVacuum.Vacuum.AbortThread();
+        }
+
+        private void ButtonClick(object sender, RoutedEventArgs args)
+        {
+            Button button = (Button)sender;
+            if((string)button.Tag == "Terminate")
+            {
+                TerminateSimulation();
+            }
+
+
+        }
+
+        private void TerminateSimulation()
+        {
+            IsRunning = false;
+            time.Enabled = false; //disables the timer.
+            timer.Abort(); //Stops the timer thread.
+            EndSimulation end;
+
+            this.Dispatcher.Invoke(() =>
+            {
+                end = new EndSimulation("User Terminated.");
+                end.Show();
+                this.Close();
+            }); //Force this code to run in the UI thread.
+
+
+
+            room.Vacuum.AbortThread();
         }
     }
 }

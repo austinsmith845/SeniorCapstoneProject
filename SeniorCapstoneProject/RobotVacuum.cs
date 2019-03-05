@@ -141,7 +141,7 @@ namespace SeniorCapstoneProject
         private Battery battery = Battery.Instance;
         public Battery Battery
         {
-            get { return battery; }
+            get { return Battery.Instance; }
         }
 
         
@@ -351,8 +351,11 @@ namespace SeniorCapstoneProject
 
         public void AbortThread()
         {
-            Vacuum.thread.Abort();
-            Vacuum.thread = null;
+            if (Vacuum.thread != null)
+            {
+                Vacuum.thread.Abort();
+                Vacuum.thread = null;
+            }
         }
 
         public int GetRotation()

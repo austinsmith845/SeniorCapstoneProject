@@ -223,6 +223,7 @@ namespace SeniorCapstoneProject
         private void UpdateTimerLabel(int secs)
         {
             int mins = secs / 60;
+            
             coverage = ((float)room.Vacuum.PointsVisited.Count / room.PointsInRoom())*100;
             this.Dispatcher.Invoke(() => { this.lblTime.Content = String.Format("Elapsed time: {0}:{1:00}", mins, secs % 60); this.lblBattery.Content = String.Format("Battery: {0:0.00}%", RobotVacuum.Vacuum.Battery.Percent); this.lblCoverage.Content = String.Format("Coverage: {0:0.000}%", coverage); }); //Updates the timer label.
             
@@ -271,10 +272,15 @@ namespace SeniorCapstoneProject
 
         private void TerminateSimulation()
         {
+
+            IStatistics stats = new Statistics(time.Secs, coverage, RobotVacuum.Vacuum.Algorithm.Algorithm);
+
             IsRunning = false;
             time.Enabled = false; //disables the timer.
             timer.Abort(); //Stops the timer thread.
             EndSimulation end;
+           
+
 
             this.Dispatcher.Invoke(() =>
             {

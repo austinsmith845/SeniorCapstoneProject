@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace SeniorCapstoneProject
 {
-    public interface ITimer
+    public interface IStatistics
     {
-        int Secs { get; }
-        bool Enabled { get; set; }
-        void Tick();
+        int TimeTaken { get; }
+        float Coverage { get; }    
+        string Algorithm { get; }
+
     }
 }

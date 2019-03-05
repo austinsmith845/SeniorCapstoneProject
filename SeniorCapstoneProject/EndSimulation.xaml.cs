@@ -24,5 +24,11 @@ namespace SeniorCapstoneProject
             InitializeComponent();
             lblEnded.Content += "\t " + reason;
         }
+
+        public EndSimulation(string reason, IStatistics stats)
+        {
+            InitializeComponent();
+            lblEnded.Content += "\t " + reason;
+        }
     }
 }

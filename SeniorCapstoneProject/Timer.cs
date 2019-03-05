@@ -10,6 +10,12 @@ namespace SeniorCapstoneProject
     public class Timer :ITimer
     {
         private int _secs;
+        public int Secs
+        {
+            get { return _secs; }
+        }
+
+
         private ITimeTickObserver _observer;
         private bool _enabled = false;
         private int _timeStep;

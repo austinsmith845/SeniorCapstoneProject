@@ -98,6 +98,7 @@
     <Compile Include="IAlgorithm.cs" />
     <Compile Include="IFurniture.cs" />
     <Compile Include="IRoom.cs" />
+    <Compile Include="IStatistics.cs" />
     <Compile Include="ITimer.cs" />
     <Compile Include="ITimeTickObserver.cs" />
     <Compile Include="RobotMovedObserver.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Simulator.xaml.cs">
       <DependentUpon>Simulator.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Statistics.cs" />
     <Compile Include="Timer.cs" />
     <Compile Include="TimeTickObserver.cs" />
     <Page Include="AlgorithmEditor.xaml">

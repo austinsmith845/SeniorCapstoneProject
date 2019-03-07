@@ -43,12 +43,12 @@ namespace SeniorCapstoneProject
         /// </summary>
         public void Tick()
         {
-            if (Enabled)
+            while (Enabled)
             {
                 Thread.Sleep(_timeStep);
                 _secs++;
                 _observer.TimerHasTicked(_secs);
-                Tick();
+              
             }
         }
     }

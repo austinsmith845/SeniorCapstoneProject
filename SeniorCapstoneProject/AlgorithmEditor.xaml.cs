@@ -23,5 +23,17 @@ namespace SeniorCapstoneProject
         {
             InitializeComponent();
         }
+
+        private void CbxAlgorithms_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string item = ((ComboBoxItem)((ComboBox)sender).SelectedItem).Name;
+            lblNoSettings.Visibility = Visibility.Hidden;
+
+            switch (item)
+            {
+                case "RandomWalk": lblNoSettings.Visibility = Visibility.Visible; break;
+            }
+
+        }
     }
 }

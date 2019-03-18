@@ -13,12 +13,15 @@
         <Image x:Name="imgLogo" HorizontalAlignment="Left"   Height="100" Margin="747,0,0,0" VerticalAlignment="Top" Width="100" Source="Images/Logo.png"/>
 
         <GroupBox Header="Algorithm" HorizontalAlignment="Left" Height="119" Margin="31,86,0,0" VerticalAlignment="Top" Width="792">
-            <ComboBox x:Name="cbxAlgorithms" HorizontalAlignment="Left" Margin="238,31,0,0" VerticalAlignment="Top" Width="306" Height="28">
+            <ComboBox x:Name="cbxAlgorithms" HorizontalAlignment="Left" Margin="238,31,0,0" VerticalAlignment="Top" Width="306" Height="28" SelectionChanged="CbxAlgorithms_SelectionChanged">
                 <ComboBoxItem x:Name="Spiral">Spiral</ComboBoxItem>
                 <ComboBoxItem x:Name="SnakeAndWall">Snake and Wall</ComboBoxItem>
                 <ComboBoxItem x:Name="RandomWalk">Random Walk</ComboBoxItem>
                 <ComboBoxItem x:Name="Genetic">Genetic</ComboBoxItem>
             </ComboBox>
+        </GroupBox>
+        <GroupBox Header="Algorithm settings." HorizontalAlignment="Left" Height="135" Margin="31,242,0,0" VerticalAlignment="Top" Width="792">
+            <Label x:Name="lblNoSettings" Content="This algorithm has no editable settings." Visibility="Hidden" FontSize="24" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="98,29,0,0" VerticalAlignment="Top" Height="62" Width="537"/>
         </GroupBox>
 
     </Grid>

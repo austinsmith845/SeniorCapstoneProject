@@ -18,6 +18,18 @@ namespace SeniorCapstoneProject
         List<IFurniture> furniture;
         private IRoom _room;
         private d.Graphics _graphics;
+        
+        public bool SideWallCollision
+        {
+            get;
+            set;
+        }
+
+        public bool NorthSouthWallCollision
+        {
+            get;
+            set;
+        }
 
         public CollisionChecker(List<IFurniture> furn, IRoom room)
         {
@@ -33,6 +45,9 @@ namespace SeniorCapstoneProject
         public bool CollisionOccured(RobotVacuum vacuum)
         {
             bool collision = false;
+            NorthSouthWallCollision = false;
+            SideWallCollision = false;
+           
             // int[,] bounds = new int[1640, 840];
             /*  Point[] furnBounds = new Point[4];
               Point[] vacBounds = new Point[4];
@@ -94,20 +109,24 @@ namespace SeniorCapstoneProject
                 if (vacuum.X >= 820)
                 {
                     collision = true;
+                    SideWallCollision = true;
                 }
 
                 if (vacuum.X <= -820)
                 {
                     collision = true;
+                    SideWallCollision = true;
                 }
 
                 if (vacuum.Y >= 400)
                 {
                     collision = true;
+                    NorthSouthWallCollision = true;
                 }
 
                 if (vacuum.Y <= -400)
                 {
+                    NorthSouthWallCollision = true;
                     return true;
                 }
 

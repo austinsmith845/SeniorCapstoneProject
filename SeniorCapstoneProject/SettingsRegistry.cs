@@ -30,5 +30,23 @@ namespace SeniorCapstoneProject
             set { _snakeAndWalkRotationModifier = value; }
         }
 
+        private static SettingsRegistry _instance;
+        public static SettingsRegistry Instance
+        {
+            get
+            {
+                if(_instance == null)
+                {
+                    _instance = new SettingsRegistry();
+                }
+                return _instance;
+            }
+        }
+
+        private SettingsRegistry()
+        {
+
+        }
+
     }
 }

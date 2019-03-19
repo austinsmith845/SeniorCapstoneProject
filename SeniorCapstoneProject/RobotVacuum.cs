@@ -294,6 +294,10 @@ namespace SeniorCapstoneProject
 
         public void RotateN(int degree) //needs renaming
         {
+            if(degree == 360)
+            {
+                degree = 0;
+            }
             _rotation = degree;
             rotation = new RotateTransform(_rotation);
             MoveNotifier.RobotHasMoved();//Call the move notifier to tell the UI it needs to update its positions and transforms.

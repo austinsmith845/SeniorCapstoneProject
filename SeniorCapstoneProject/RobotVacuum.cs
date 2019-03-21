@@ -52,13 +52,13 @@ namespace SeniorCapstoneProject
         }
 
         [NonSerialized]
-        private List<System.Drawing.Point> _pointsVisited;
-        public List<System.Drawing.Point> PointsVisited
+        private Dictionary<System.Drawing.Point,bool> _pointsVisited;
+        public Dictionary<System.Drawing.Point,bool> PointsVisited
         {
             get {
                 if (_pointsVisited == null)
                 {
-                    _pointsVisited = new List<System.Drawing.Point>();
+                    _pointsVisited = new Dictionary<System.Drawing.Point, bool>();
                 }
                 return _pointsVisited;
             }

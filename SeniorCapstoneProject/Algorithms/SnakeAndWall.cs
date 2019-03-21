@@ -187,10 +187,11 @@ namespace SeniorCapstoneProject.Algorithms
                 MoveForward(vacuum);
             }
 
-            if (!vacuum.PointsVisited.Contains(new System.Drawing.Point(vacuum.X, vacuum.Y)))
-            {
-                vacuum.PointsVisited.Add(new System.Drawing.Point(vacuum.X, vacuum.Y));
-            }
+            //if (!vacuum.PointsVisited.Contains(new System.Drawing.Point(vacuum.X, vacuum.Y)))
+            //{
+            //    vacuum.PointsVisited.Add(new System.Drawing.Point(vacuum.X, vacuum.Y));
+            //}
+            AddPoints(vacuum);
         }
 
         private void MoveForward(RobotVacuum vacuum)
@@ -279,6 +280,29 @@ namespace SeniorCapstoneProject.Algorithms
                 vacuum.X -= 5;
             }
 
+        }
+        private void AddPoints(RobotVacuum vacuum)
+        {
+            object locker = new object();
+            lock (locker)
+            {
+                int x = vacuum.X;
+                int y = vacuum.Y;
+                while (x < vacuum.X + vacuum.Width)
+                {
+                    while (y < vacuum.Y + vacuum.Width)
+                    {
+
+                        if (!vacuum.PointsVisited.ContainsKey(new System.Drawing.Point(x, y)))
+                        {
+                            vacuum.PointsVisited.Add(new System.Drawing.Point(x, y), true);
+                        }
+
+                        y++;
+                    }
+                    x++;
+                }
+            }
         }
     }
 }

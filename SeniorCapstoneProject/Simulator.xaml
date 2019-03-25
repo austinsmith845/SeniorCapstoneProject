@@ -8,8 +8,12 @@
         x:Name="window"
         Title="Simulator" Height="525.2" Width="849.6" ResizeMode="NoResize"   Background="LightGray" Closing="Window_Closing" >
     <Grid x:Name="Grid" HorizontalAlignment="Left" Height="490" VerticalAlignment="Top" Width="840" ClipToBounds="True" SnapsToDevicePixels="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="123*"/>
+            <ColumnDefinition Width="157*"/>
+        </Grid.ColumnDefinitions>
 
-        <Menu HorizontalAlignment="Right" Height="29" VerticalAlignment="Top" Width="840">
+        <Menu HorizontalAlignment="Right" Height="29" VerticalAlignment="Top" Width="840" Grid.ColumnSpan="2">
 
             <Label x:Name="lblTime" Content="Elapsed time: 0:00" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114"/>
             <Label x:Name="lblBattery" Content="Battery: 0%" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114"/>

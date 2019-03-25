@@ -233,6 +233,8 @@ namespace SeniorCapstoneProject
 
         private void BatteryDead()
         {
+            IStatistics stats = new Statistics(time.Secs, coverage, RobotVacuum.Vacuum.Algorithm.Algorithm);
+
             IsRunning = false;
             time.Enabled = false; //disables the timer.
             timer.Abort(); //Stops the timer thread.
@@ -240,7 +242,7 @@ namespace SeniorCapstoneProject
 
             this.Dispatcher.Invoke(() =>
             {
-               end = new EndSimulation("Battery died.");
+               end = new EndSimulation("Battery died.",stats);
                 end.Show();
                 this.Close();
             }); //Force this code to run in the UI thread.
@@ -284,7 +286,7 @@ namespace SeniorCapstoneProject
 
             this.Dispatcher.Invoke(() =>
             {
-                end = new EndSimulation("User Terminated.");
+                end = new EndSimulation("User Terminated.", stats);
                 end.Show();
                 this.Close();
             }); //Force this code to run in the UI thread.

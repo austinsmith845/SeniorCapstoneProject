@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
+using Microsoft.Win32;
 
 namespace SeniorCapstoneProject
 {
@@ -40,10 +44,41 @@ namespace SeniorCapstoneProject
             TimeTaken = timetaken;
             Coverage = coverage;
             Algorithm = algorithm;
+            SaveStatistics();
         }
 
         #region Support Methods
 
+        public void SaveStatistics()
+        {
+            DateTime now = DateTime.Now;
+            string name =   now.Day + "."+ now.Hour +"."+now.Minute+"." +now.Second+ "." + Algorithm + "stats.rvss";
+            Stream file = File.Create(name);
+
+            try
+            {
+                BinaryFormatter writer = new BinaryFormatter();
+                writer.Serialize(file, this);
+               
+            }
+            catch (ArgumentNullException a)
+             {
+                Console.WriteLine("Cannot save a null statistics object.\n" + a.Message);
+             }
+            catch (SerializationException s)
+            {
+                Console.WriteLine("An error occured while writing the file.\n" + s.Message);
+
+            }
+            catch (System.Security.SecurityException)
+            {
+                Console.WriteLine("You do not have permission to save in the required save directory.");
+            }
+            finally
+            {
+                file.Close(); //Close the file to prevent a memory leak.
+            }
+        }
 
         #endregion
 

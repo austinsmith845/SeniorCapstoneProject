@@ -25,10 +25,17 @@ namespace SeniorCapstoneProject
             lblEnded.Content += "\t " + reason;
         }
 
-        public EndSimulation(string reason, IStatistics stats)
+        public EndSimulation(string reason, IStatistics stats) : this(reason)
         {
             InitializeComponent();
-            lblEnded.Content += "\t " + reason;
+            DisplayStatistics(stats);
+            
+        }
+
+        private void DisplayStatistics(IStatistics stats)
+        {
+            string TimeTaken = string.Format("{1:00}:{0:00}", stats.TimeTaken % 60, stats.TimeTaken / 60);
+            this.lblThisRunStats.Content = String.Format("Time Taken: \t {0}\nCoverage: \t {1:0.000}%\nAlgorithm: \t {2}", TimeTaken, stats.Coverage, stats.Algorithm); 
         }
     }
 }

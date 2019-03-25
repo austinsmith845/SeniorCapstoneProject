@@ -8,7 +8,10 @@
         Title="EndSimulation" Height="450" Width="800" Background="LightGray">
     <Grid>
         <Label x:Name="lblEnded" Content="The simulation has ended. reason:"  HorizontalAlignment="Left" HorizontalContentAlignment="Left"  FontSize="24" Margin="10,29,-0.4,0" VerticalAlignment="Top" Width="784" FontWeight="Normal"/>
-        <Label x:Name="lblLabel" Content="Simulation Statistics:"  FontSize="20" HorizontalAlignment="Left" Height="37" Margin="10,93,0,0" VerticalAlignment="Top" Width="349"/>
+        <GroupBox Header="Simultation Statistics this run" HorizontalAlignment="Left" Height="128" Margin="10,107,0,0" VerticalAlignment="Top" Width="774">
+            <Label x:Name="lblThisRunStats" FontSize="18" HorizontalAlignment="Left" Height="108" Margin="4,-6,0,0" VerticalAlignment="Top" Width="754"/>
+        </GroupBox>
+        <GroupBox Header="Simultation Statistics overall" HorizontalAlignment="Left" Height="128" Margin="10,240,0,0" VerticalAlignment="Top" Width="774"/>
 
     </Grid>
 </Window>

@@ -326,7 +326,7 @@ namespace SeniorCapstoneProject
         /// </summary>
         public void Move(int secs)
         {
-            Vacuum.Battery.Percent -= 0.001f;
+            Vacuum.Battery.Percent -= 0.0025f;
             while (GetNextAction())
             {
                 Thread.Yield();

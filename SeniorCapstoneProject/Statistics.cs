@@ -10,6 +10,7 @@ using Microsoft.Win32;
 
 namespace SeniorCapstoneProject
 {
+    [Serializable]
     public class Statistics : IStatistics
     {
 
@@ -49,22 +50,23 @@ namespace SeniorCapstoneProject
 
         #region Support Methods
 
+
         public void SaveStatistics()
         {
             DateTime now = DateTime.Now;
-            string name =   now.Day + "."+ now.Hour +"."+now.Minute+"." +now.Second+ "." + Algorithm + "stats.rvss";
+            string name = now.Day + "." + now.Hour + "." + now.Minute + "." + now.Second + "." + Algorithm + "stats.rvss";
             Stream file = File.Create(name);
 
             try
             {
                 BinaryFormatter writer = new BinaryFormatter();
                 writer.Serialize(file, this);
-               
+
             }
             catch (ArgumentNullException a)
-             {
+            {
                 Console.WriteLine("Cannot save a null statistics object.\n" + a.Message);
-             }
+            }
             catch (SerializationException s)
             {
                 Console.WriteLine("An error occured while writing the file.\n" + s.Message);
@@ -79,6 +81,41 @@ namespace SeniorCapstoneProject
                 file.Close(); //Close the file to prevent a memory leak.
             }
         }
+
+        /// <summary>
+        /// This method will average the time taken by all of the statistics objects with the same algorithm.
+        /// It is called on the class level and not the object level.
+        /// </summary>
+        /// <param name="stats"></param>
+        /// <returns></returns>
+        public static int AverageTimeTaken(Statistics[] stats)
+        {
+            int average = 0;
+            foreach( Statistics stat in stats)
+            {
+                average += stat.TimeTaken;
+            }
+            return average / stats.Length;
+        }
+
+        /// <summary>
+        /// This method will average the coverage by all of the statistics objects with the same algorithm.
+        /// It is called on the class level and not the object level.
+        /// </summary>
+        /// <param name="stats"></param>
+        /// <returns></returns>
+        public static float AverageCoverage(Statistics[] stats)
+        {
+            float average = 0;
+            foreach(Statistics stat in stats)
+            {
+                average += stat.Coverage;
+            }
+            return average / stats.Length;
+        }
+
+      
+
 
         #endregion
 

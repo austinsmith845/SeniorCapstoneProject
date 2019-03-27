@@ -116,6 +116,7 @@ namespace SeniorCapstoneProject.Algorithms
                     Reverse(vacuum);
                     vacuum.RotateN(180);
                     rotatedRightLast = true;
+                    upAndDown = true;
                 }
 
                 else if ((vacuum.GetRotation() == 90 || vacuum.GetRotation() == 270) && vacuum.Y <= -400)
@@ -127,6 +128,7 @@ namespace SeniorCapstoneProject.Algorithms
                     Reverse(vacuum);
                     vacuum.RotateN(0);
                     rotatedRightLast = false;
+                    upAndDown = true;
                 }
 
                 if (!rotatedRightLast)

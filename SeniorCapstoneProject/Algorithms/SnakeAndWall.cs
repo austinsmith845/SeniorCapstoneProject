@@ -59,6 +59,19 @@ namespace SeniorCapstoneProject.Algorithms
                         MoveForward(vacuum);
                         vacuum.RotateN(90);
                     }
+
+                    else if (!goRight && upAndDown)
+                    {
+                        rotatedRightLast = !rotatedRightLast;
+                        Reverse(vacuum);
+                        Reverse(vacuum);
+                        vacuum.RotateN(270);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        vacuum.RotateN(0);
+                    }
                 }
                 else
                 {
@@ -74,7 +87,7 @@ namespace SeniorCapstoneProject.Algorithms
                         MoveForward(vacuum);
                         vacuum.RotateN(0);
                     }
-                    else if(goRight && !upAndDown)
+                    else if (goRight && !upAndDown)
                     {
                         rotatedRightLast = !rotatedRightLast;
                         Reverse(vacuum);
@@ -86,9 +99,21 @@ namespace SeniorCapstoneProject.Algorithms
                         MoveForward(vacuum);
                         vacuum.RotateN(270);
                     }
+
+                    else if (!goRight && upAndDown)
+                    {
+                        rotatedRightLast = !rotatedRightLast;
+                        Reverse(vacuum);
+                        Reverse(vacuum);
+                        vacuum.RotateN(270);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        vacuum.RotateN(180);
+                    }
+
                 }
-
-
             }
 
             else if (_checker.CollisionOccured(vacuum) && _checker.NorthSouthWallCollision && _checker.SideWallCollision && vacuum.X>=820)
@@ -145,6 +170,19 @@ namespace SeniorCapstoneProject.Algorithms
                         MoveForward(vacuum);
                         vacuum.RotateN(180);
                     }
+
+                    else if(!goRight && upAndDown)
+                    {
+                        rotatedRightLast = !rotatedRightLast;
+                        Reverse(vacuum);
+                        Reverse(vacuum);
+                        vacuum.RotateN(270);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        vacuum.RotateN(0);
+                    }
                 }
                 else
                 {
@@ -159,6 +197,19 @@ namespace SeniorCapstoneProject.Algorithms
                         MoveForward(vacuum);
                         MoveForward(vacuum);
                         vacuum.RotateN(0);
+                    }
+
+                    else if (!goRight && upAndDown)
+                    {
+                        rotatedRightLast = !rotatedRightLast;
+                        Reverse(vacuum);
+                        Reverse(vacuum);
+                        vacuum.RotateN(270);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        vacuum.RotateN(180);
                     }
                 }
             }

@@ -13,7 +13,7 @@ namespace SeniorCapstoneProject.Algorithms
         private CollisionChecker _checker;
         private bool rotatedRightLast = false;
         private bool goRight = true;
-        private bool goLeft = false;
+        private bool upAndDown = true;
       
 
         public string Algorithm
@@ -35,32 +35,56 @@ namespace SeniorCapstoneProject.Algorithms
             {
                 if (!rotatedRightLast)
                 {
-                    if (goRight)
+                    if (goRight && upAndDown)
                     {
                         rotatedRightLast = !rotatedRightLast;
                         Reverse(vacuum);
                         Reverse(vacuum);
-                        vacuum.RotateN(vacuum.GetRotation() + 90);
+                        vacuum.RotateN(90);
                         MoveForward(vacuum);
                         MoveForward(vacuum);
                         MoveForward(vacuum);
                         MoveForward(vacuum);
-                        vacuum.RotateN(vacuum.GetRotation() + 90);
+                        vacuum.RotateN(180);
+                    }
+                    else if (goRight && !upAndDown)
+                    {
+                        rotatedRightLast = !rotatedRightLast;
+                        Reverse(vacuum);
+                        Reverse(vacuum);
+                        vacuum.RotateN(0);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        vacuum.RotateN(90);
                     }
                 }
                 else
                 {
-                    if (goRight)
+                    if (goRight && upAndDown)
                     {
                         rotatedRightLast = !rotatedRightLast;
                         Reverse(vacuum);
                         Reverse(vacuum);
-                        vacuum.RotateN(vacuum.GetRotation() - 90);
+                        vacuum.RotateN(90);
                         MoveForward(vacuum);
                         MoveForward(vacuum);
                         MoveForward(vacuum);
                         MoveForward(vacuum);
-                        vacuum.RotateN(vacuum.GetRotation() - 90);
+                        vacuum.RotateN(0);
+                    }
+                    else if(goRight && !upAndDown)
+                    {
+                        rotatedRightLast = !rotatedRightLast;
+                        Reverse(vacuum);
+                        Reverse(vacuum);
+                        vacuum.RotateN(0);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        vacuum.RotateN(270);
                     }
                 }
 
@@ -77,6 +101,7 @@ namespace SeniorCapstoneProject.Algorithms
                 Reverse(vacuum);
                 vacuum.RotateN(180);
                 goRight = false;
+                upAndDown = true;
 
             }
 
@@ -106,32 +131,32 @@ namespace SeniorCapstoneProject.Algorithms
 
                 if (!rotatedRightLast)
                 {
-                    if (goRight)
+                    if (goRight && upAndDown)
                     {
                         rotatedRightLast = !rotatedRightLast;
                         Reverse(vacuum);
                         Reverse(vacuum);
-                        vacuum.RotateN(vacuum.GetRotation() + 90);
+                        vacuum.RotateN(90);
                         MoveForward(vacuum);
                         MoveForward(vacuum);
                         MoveForward(vacuum);
                         MoveForward(vacuum);
-                        vacuum.RotateN(vacuum.GetRotation() + 90);
+                        vacuum.RotateN(180);
                     }
                 }
                 else
                 {
-                    if (goRight)
+                    if (goRight && upAndDown)
                     {
                         rotatedRightLast = !rotatedRightLast;
                         Reverse(vacuum);
                         Reverse(vacuum);
-                        vacuum.RotateN(vacuum.GetRotation() - 90);
+                        vacuum.RotateN(90);
                         MoveForward(vacuum);
                         MoveForward(vacuum);
                         MoveForward(vacuum);
                         MoveForward(vacuum);
-                        vacuum.RotateN(vacuum.GetRotation() - 90);
+                        vacuum.RotateN(0);
                     }
                 }
             }
@@ -147,37 +172,38 @@ namespace SeniorCapstoneProject.Algorithms
                     Reverse(vacuum);
                     vacuum.RotateN(270);
                     rotatedRightLast = false;
+                    upAndDown = false;
                 }
                 else
                 {
                     if (!rotatedRightLast)
                     {
-                        if (goRight)
+                        if (goRight && !upAndDown)
                         {
                             rotatedRightLast = !rotatedRightLast;
                             Reverse(vacuum);
                             Reverse(vacuum);
-                            vacuum.RotateN(vacuum.GetRotation() + 90);
+                            vacuum.RotateN(0);
                             MoveForward(vacuum);
                             MoveForward(vacuum);
                             MoveForward(vacuum);
                             MoveForward(vacuum);
-                            vacuum.RotateN(vacuum.GetRotation() + 90);
+                            vacuum.RotateN(90);
                         }
                     }
                     else
                     {
-                        if (goRight)
+                        if (goRight && !upAndDown)
                         {
                             rotatedRightLast = !rotatedRightLast;
                             Reverse(vacuum);
                             Reverse(vacuum);
-                            vacuum.RotateN(vacuum.GetRotation() - 90);
+                            vacuum.RotateN(0);
                             MoveForward(vacuum);
                             MoveForward(vacuum);
                             MoveForward(vacuum);
                             MoveForward(vacuum);
-                            vacuum.RotateN(vacuum.GetRotation() + 270);
+                            vacuum.RotateN(270);
                         }
                     }
                 }

@@ -154,9 +154,12 @@ namespace SeniorCapstoneProject
         public int PointsInRoom()
         {
             int area = (int)(this.Width * this.Length);
-            foreach(IFurniture furn in _furniture)
+            foreach (IFurniture furn in _furniture)
             {
-                area -= (int)(furn.Width * furn.Length);
+                if (!furn.CanPassUnder())
+                {
+                    area -= (int)(furn.Width * furn.Length);
+                }
             }
             return area;
         }

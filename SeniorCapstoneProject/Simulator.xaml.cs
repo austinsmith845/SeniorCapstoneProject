@@ -228,6 +228,10 @@ namespace SeniorCapstoneProject
             this.Dispatcher.Invoke(() => { this.lblTime.Content = String.Format("Elapsed time: {0}:{1:00}", mins, secs % 60); this.lblBattery.Content = String.Format("Battery: {0:0.00}%", RobotVacuum.Vacuum.Battery.Percent); this.lblCoverage.Content = String.Format("Coverage: {0:0.000}%", coverage); }); //Updates the timer label.
             
             //Add coverage of 100% here
+            if(coverage >= 100)
+            {
+                TerminateSimulation("Room 100% covered.");
+            }
                 
         }
 
@@ -266,13 +270,13 @@ namespace SeniorCapstoneProject
             Button button = (Button)sender;
             if((string)button.Tag == "Terminate")
             {
-                TerminateSimulation();
+                TerminateSimulation("User Terminated.");
             }
 
 
         }
 
-        private void TerminateSimulation()
+        private void TerminateSimulation(string reason)
         {
 
             IStatistics stats = new Statistics(time.Secs, coverage, RobotVacuum.Vacuum.Algorithm.Algorithm);
@@ -286,7 +290,7 @@ namespace SeniorCapstoneProject
 
             this.Dispatcher.Invoke(() =>
             {
-                end = new EndSimulation("User Terminated.", stats);
+                end = new EndSimulation(reason, stats);
                 end.Show();
                 this.Close();
             }); //Force this code to run in the UI thread.

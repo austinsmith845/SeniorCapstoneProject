@@ -226,7 +226,7 @@ namespace SeniorCapstoneProject
             
             coverage = ((float)room.Vacuum.PointsVisited.Count / room.PointsInRoom())*100;
             this.Dispatcher.Invoke(() => { this.lblTime.Content = String.Format("Elapsed time: {0}:{1:00}", mins, secs % 60); this.lblBattery.Content = String.Format("Battery: {0:0.00}%", RobotVacuum.Vacuum.Battery.Percent); this.lblCoverage.Content = String.Format("Coverage: {0:0.000}%", coverage); }); //Updates the timer label.
-            
+
             //Add coverage of 100% here
             if(coverage >= 100)
             {
@@ -283,7 +283,7 @@ namespace SeniorCapstoneProject
 
             IsRunning = false;
             time.Enabled = false; //disables the timer.
-            timer.Abort(); //Stops the timer thread.
+             //Stops the timer thread.
             EndSimulation end;
            
 
@@ -295,9 +295,11 @@ namespace SeniorCapstoneProject
                 this.Close();
             }); //Force this code to run in the UI thread.
 
-
-
             room.Vacuum.AbortThread();
+
+            timer.Abort();
+
+
         }
     }
 }

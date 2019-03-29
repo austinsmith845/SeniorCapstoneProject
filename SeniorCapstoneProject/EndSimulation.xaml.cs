@@ -54,7 +54,7 @@ namespace SeniorCapstoneProject
         private void DisplayStatistics(IStatistics stats)
         {
             string TimeTaken = string.Format("{1:00}:{0:00}", stats.TimeTaken % 60, stats.TimeTaken / 60);
-            this.lblThisRunStats.Content = String.Format("Time Taken: \t {0}\nCoverage: \t {1:0.000}%\nAlgorithm: \t {2}", TimeTaken, stats.Coverage, stats.Algorithm); 
+            this.lblThisRunStats.Content = String.Format("Time Taken: \t {0}\nCoverage: \t {1:0}%\nAlgorithm: \t {2}", TimeTaken, stats.Coverage, stats.Algorithm); 
         }
 
         private void GetOverallStatistics(String currentAlgorithm)
@@ -74,7 +74,7 @@ namespace SeniorCapstoneProject
 
             int AverageTimeTaken = Statistics.AverageTimeTaken(stats.ToArray<Statistics>());
             float AverageCoverage = Statistics.AverageCoverage(stats.ToArray<Statistics>());
-            this.lblOverallStats.Content = String.Format("Algotrithm: \t\t {0}.\nAverage time taken: \t {1:00}:{2:00}.\nAverage coverage: \t {3:0.000}%.\nNumber of runs: \t\t {4}.", currentAlgorithm, AverageTimeTaken / 60, AverageTimeTaken % 60, AverageCoverage, stats.Count);
+            this.lblOverallStats.Content = String.Format("Algotrithm: \t\t {0}.\nAverage time taken: \t {1:00}:{2:00}.\nAverage coverage: \t {3:0s}%.\nNumber of runs: \t\t {4}.", currentAlgorithm, AverageTimeTaken / 60, AverageTimeTaken % 60, AverageCoverage, stats.Count);
 
         }
 

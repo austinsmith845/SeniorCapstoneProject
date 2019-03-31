@@ -473,6 +473,72 @@ namespace SeniorCapstoneProject.Algorithms
                     rotatedRightLast = false;
                     upAndDown = false;
                 }
+                else if ((vacuum.GetRotation() == 0 || vacuum.GetRotation() == 180) && vacuum.X <= -820)
+                {
+                    vacuum.X += 5;
+                    vacuum.Y -= 5;
+                    upAndDown = false;
+                    rotatedRightLast = false;
+                    goRight = true;
+
+                }
+
+                else if ((vacuum.GetRotation() == 90 || vacuum.GetRotation() == 270) && vacuum.X <= -820)
+                {
+                    vacuum.X += 5;
+                    if (vacuum.Y < 0)
+                    {
+                        vacuum.Y += 5;
+                        vacuum.RotateN(180);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                    }
+                    else
+                    {
+                        vacuum.Y -= 5;
+                        vacuum.RotateN(0);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+
+                    }
+             
+                    vacuum.RotateN(0);
+                    upAndDown = true;
+                    goRight = true;
+                }
+
+                else if ((vacuum.GetRotation() == 90 || vacuum.GetRotation() == 270) && vacuum.X >= 820)
+                {
+                    vacuum.X -= 5;
+                    if (vacuum.Y < 0)
+                    {
+                        vacuum.Y += 5;
+                        vacuum.RotateN(180);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                    }
+                    else
+                    {
+                        vacuum.Y -= 5;
+                        vacuum.RotateN(0);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+                        MoveForward(vacuum);
+
+                    }
+                  
+                    vacuum.RotateN(0);
+                    upAndDown = true;
+                    goRight = false;
+                }
+
                 else
                 {
                     if (_checker.CollisionOccured(vacuum))
@@ -529,7 +595,7 @@ namespace SeniorCapstoneProject.Algorithms
                     {
                         if (goRight && !upAndDown)
                         {
-                            
+
                             rotatedRightLast = !rotatedRightLast;
                             Reverse(vacuum);
                             Reverse(vacuum);
@@ -593,7 +659,7 @@ namespace SeniorCapstoneProject.Algorithms
 
                         else if (!goRight && !upAndDown)
                         {
-                           
+
                             rotatedRightLast = !rotatedRightLast;
                             Reverse(vacuum);
                             Reverse(vacuum);
@@ -659,8 +725,8 @@ namespace SeniorCapstoneProject.Algorithms
                     {
                         if (!goRight && !upAndDown)
                         {
-                           
-                              
+
+
                             rotatedRightLast = !rotatedRightLast;
                             Reverse(vacuum);
                             Reverse(vacuum);
@@ -670,19 +736,19 @@ namespace SeniorCapstoneProject.Algorithms
                             MoveForward(vacuum);
                             MoveForward(vacuum);
                             vacuum.RotateN(270);
-                                if (_checker.CollidedFurnitureObject != null)
+                            if (_checker.CollidedFurnitureObject != null)
+                            {
+                                if (vacuum.X <= 0)
                                 {
-                                    if (vacuum.X <= 0)
-                                    {
-                                        goRight = true;
-                                    }
-                                    else
-                                    {
-                                        goRight = false;
-                                    }
+                                    goRight = true;
+                                }
+                                else
+                                {
+                                    goRight = false;
+                                }
 
-                                    if (_checker.CollisionOccured(vacuum))
-                                    {
+                                if (_checker.CollisionOccured(vacuum))
+                                {
 
                                     if (vacuum.Y <= _checker.CollidedFurnitureObject.Y)
                                     {
@@ -722,9 +788,9 @@ namespace SeniorCapstoneProject.Algorithms
                             }
                         }
 
-                        else if(goRight && !upAndDown)
+                        else if (goRight && !upAndDown)
                         {
-                           
+
                             rotatedRightLast = !rotatedRightLast;
                             Reverse(vacuum);
                             Reverse(vacuum);

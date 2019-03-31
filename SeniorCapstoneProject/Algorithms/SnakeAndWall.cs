@@ -14,7 +14,7 @@ namespace SeniorCapstoneProject.Algorithms
         private bool rotatedRightLast = false;
         private bool goRight = true; //Change this back to true
         private bool upAndDown = true;
-      
+
 
         public string Algorithm
         {
@@ -25,14 +25,14 @@ namespace SeniorCapstoneProject.Algorithms
         public SnakeAndWall()
         {
             _checker = RobotVacuum.Vacuum.Checker;
-            
-            
+
+
         }
 
         public void NextMove(RobotVacuum vacuum)
         {
             _checker = RobotVacuum.Vacuum.Checker;
-       
+
             if (_checker.CollisionOccured(vacuum) && _checker.NorthSouthWallCollision && _checker.SideWallCollision && vacuum.X >= 820)
             {
                 if (vacuum.Y < 0)
@@ -73,7 +73,7 @@ namespace SeniorCapstoneProject.Algorithms
                     vacuum.RotateN(270);
                     Reverse(vacuum);
                     Reverse(vacuum);
-                
+
                     vacuum.RotateN(180);
                     goRight = false;
                     upAndDown = true;
@@ -110,7 +110,7 @@ namespace SeniorCapstoneProject.Algorithms
                     {
                         //vacuum.X += (int)_checker.CollidedFurnitureObject.Width;
                         upAndDown = false;
-                        
+
                         rotatedRightLast = false;
                         vacuum.RotateN(270);
                         Reverse(vacuum);
@@ -170,7 +170,7 @@ namespace SeniorCapstoneProject.Algorithms
                     rotatedRightLast = false;
                     upAndDown = true;
                 }
-              
+
                 //else
                 //{
                 if (!rotatedRightLast)
@@ -201,10 +201,10 @@ namespace SeniorCapstoneProject.Algorithms
 
                                 if (vacuum.X >= _checker.CollidedFurnitureObject.X)
                                 {
-                                  
-                                   // vacuum.X += (int)_checker.CollidedFurnitureObject.Width;
+
+                                    // vacuum.X += (int)_checker.CollidedFurnitureObject.Width;
                                     upAndDown = false;
-                                    
+
                                     rotatedRightLast = false;
                                     vacuum.RotateN(270);
                                     Reverse(vacuum);
@@ -258,7 +258,7 @@ namespace SeniorCapstoneProject.Algorithms
 
                                 if (vacuum.X >= _checker.CollidedFurnitureObject.X)
                                 {
-                                  
+
                                     // vacuum.X += (int)_checker.CollidedFurnitureObject.Width;
                                     upAndDown = false;
                                     rotatedRightLast = false;
@@ -314,8 +314,8 @@ namespace SeniorCapstoneProject.Algorithms
 
                                 if (vacuum.X >= _checker.CollidedFurnitureObject.X)
                                 {
-                                 
-                                   // vacuum.X += (int)_checker.CollidedFurnitureObject.Width;
+
+                                    // vacuum.X += (int)_checker.CollidedFurnitureObject.Width;
                                     upAndDown = false;
                                     rotatedRightLast = false;
                                     vacuum.RotateN(270);
@@ -428,7 +428,7 @@ namespace SeniorCapstoneProject.Algorithms
 
                                 if (vacuum.X >= _checker.CollidedFurnitureObject.X)
                                 {
-                                   // vacuum.X += (int)_checker.CollidedFurnitureObject.Width;
+                                    // vacuum.X += (int)_checker.CollidedFurnitureObject.Width;
                                     upAndDown = false;
                                     rotatedRightLast = false;
                                     vacuum.RotateN(270);
@@ -456,7 +456,7 @@ namespace SeniorCapstoneProject.Algorithms
                             }
                         }
                     }
-                   
+
                 }
             }
 
@@ -473,55 +473,6 @@ namespace SeniorCapstoneProject.Algorithms
                     rotatedRightLast = false;
                     upAndDown = false;
                 }
-                else if ((vacuum.GetRotation() == 0 || vacuum.GetRotation() == 180) && vacuum.X <= -820)
-                {
-                    vacuum.X += 5;
-                    vacuum.Y -= 5;
-                    upAndDown = false;
-                    rotatedRightLast = false;
-                    goRight = true;
-
-                }
-
-                else if ((vacuum.GetRotation() == 90 || vacuum.GetRotation() == 270) && vacuum.X <= -820)
-                {
-                    vacuum.X += 5;
-                    if (vacuum.Y < 0)
-                    {
-                        goRight = false;
-                        vacuum.Y += 10;
-                        vacuum.RotateN(90);
-                    }
-                    else
-                    {
-                        vacuum.Y -= 10;
-                        goRight =true;
-                        vacuum.RotateN(90);
-                    }
-                    
-                   
-              
-                }
-
-                else if ((vacuum.GetRotation() == 90 || vacuum.GetRotation() == 270) && vacuum.X >= 820)
-                {
-                    vacuum.X -= 5;
-                    if (vacuum.Y < 0)
-                    {
-                        vacuum.Y += 10;
-                        goRight = false;
-                        vacuum.RotateN(270);
-                    }
-                    else
-                    {
-                        vacuum.Y -= 10;
-                        goRight = true;
-                        vacuum.RotateN(270);
-                    }
-
-
-                }
-
                 else
                 {
                     if (_checker.CollisionOccured(vacuum))
@@ -952,11 +903,11 @@ namespace SeniorCapstoneProject.Algorithms
                 }
             }
 
-           
 
-            
 
-           
+
+
+
             else
             {
                 MoveForward(vacuum);
@@ -976,13 +927,13 @@ namespace SeniorCapstoneProject.Algorithms
                 vacuum.Y -= 5;
             }
 
-         
+
             else if (vacuum.GetRotation() == 90)
             {
                 vacuum.X += 5;
             }
 
-          
+
 
             else if (vacuum.GetRotation() == 180)
             {

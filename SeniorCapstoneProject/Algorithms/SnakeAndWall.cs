@@ -733,7 +733,7 @@ namespace SeniorCapstoneProject.Algorithms
                             MoveForward(vacuum);
                             MoveForward(vacuum);
                             MoveForward(vacuum);
-                            vacuum.RotateN(270);
+                            vacuum.RotateN(90);
 
                             if (_checker.CollisionOccured(vacuum))
                             {
@@ -806,6 +806,7 @@ namespace SeniorCapstoneProject.Algorithms
                         MoveForward(vacuum);
                         MoveForward(vacuum);
                         vacuum.RotateN(180);
+
                     }
                     else if (goRight && !upAndDown)
                     {

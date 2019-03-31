@@ -300,7 +300,7 @@ namespace SeniorCapstoneProject
             }
             _rotation = degree;
             rotation = new RotateTransform(_rotation);
-            MoveNotifier.RobotHasMoved();//Call the move notifier to tell the UI it needs to update its positions and transforms.
+            //MoveNotifier.RobotHasMoved();//Call the move notifier to tell the UI it needs to update its positions and transforms.
             //Img.RenderTransform = rotation;
         }
 

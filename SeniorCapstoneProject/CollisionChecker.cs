@@ -18,7 +18,13 @@ namespace SeniorCapstoneProject
         List<IFurniture> furniture;
         private IRoom _room;
         private d.Graphics _graphics;
-        
+     
+        public IFurniture CollidedFurnitureObject
+        {
+            get;
+            set;
+        }
+
         public bool SideWallCollision
         {
             get;
@@ -44,6 +50,7 @@ namespace SeniorCapstoneProject
         /// <returns></returns>
         public bool CollisionOccured(RobotVacuum vacuum)
         {
+            CollidedFurnitureObject = null;
             bool collision = false;
             NorthSouthWallCollision = false;
             SideWallCollision = false;
@@ -83,18 +90,24 @@ namespace SeniorCapstoneProject
                     if ((furnitureBounds.IntersectsWith(vacuumBounds)) && !furn.CanPassUnder())// || (furnitureBounds.Contains(robotPoint) || furnitureBounds.Contains(new Point(robotPoint.X + vacuum.Width, robotPoint.Y)) || furnitureBounds.Contains(new Point(robotPoint.X, vacuum.Y + vacuum.Height)) || furnitureBounds.Contains(new Point(robotPoint.X + vacuum.Width, vacuum.Y + vacuum.Height))) && !furn.CanPassUnder())
                     {
                         collision = true;
+                        CollidedFurnitureObject = furn;
                     }
 
                     if ((vacuum.X >= furn.X - furn.Width && vacuum.X <= furn.X + furn.Width) && (vacuum.Y >= furn.Y - furn.Length && vacuum.Y <= furn.Y + furn.Length) && !furn.CanPassUnder())
                     {
                         collision = true;
+                        CollidedFurnitureObject = furn;
+
                     }
 
                     furnitureBounds.Intersect(vacuumBounds);
 
                     if (!furnitureBounds.IsEmpty && !furn.CanPassUnder())
                     {
+                        CollidedFurnitureObject = furn;
+
                         return true;
+
                     }
 
 

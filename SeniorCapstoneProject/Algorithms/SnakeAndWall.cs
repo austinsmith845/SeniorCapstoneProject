@@ -489,12 +489,12 @@ namespace SeniorCapstoneProject.Algorithms
                     if (vacuum.Y < 0)
                     {
                         goRight = false;
-                        vacuum.Y += 5;
+                        vacuum.Y += 10;
                         vacuum.RotateN(90);
                     }
                     else
                     {
-                        vacuum.Y -= 5;
+                        vacuum.Y -= 10;
                         goRight =true;
                         vacuum.RotateN(90);
                     }
@@ -508,13 +508,13 @@ namespace SeniorCapstoneProject.Algorithms
                     vacuum.X -= 5;
                     if (vacuum.Y < 0)
                     {
-                        vacuum.Y += 5;
+                        vacuum.Y += 10;
                         goRight = false;
                         vacuum.RotateN(270);
                     }
                     else
                     {
-                        vacuum.Y -= 5;
+                        vacuum.Y -= 10;
                         goRight = true;
                         vacuum.RotateN(270);
                     }

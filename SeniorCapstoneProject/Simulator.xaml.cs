@@ -92,6 +92,7 @@ namespace SeniorCapstoneProject
             img.Height = furniture.Height;
             img.Visibility = Visibility.Visible;
             img.Margin = new Thickness(furniture.X, furniture.Y, 0, 0);
+            img.Stretch = Stretch.Fill;
             img.StretchDirection = StretchDirection.Both;
           
 

@@ -488,27 +488,19 @@ namespace SeniorCapstoneProject.Algorithms
                     vacuum.X += 5;
                     if (vacuum.Y < 0)
                     {
+                        goRight = false;
                         vacuum.Y += 5;
-                        vacuum.RotateN(180);
-                        MoveForward(vacuum);
-                        MoveForward(vacuum);
-                        MoveForward(vacuum);
-                        MoveForward(vacuum);
+                        vacuum.RotateN(90);
                     }
                     else
                     {
                         vacuum.Y -= 5;
-                        vacuum.RotateN(0);
-                        MoveForward(vacuum);
-                        MoveForward(vacuum);
-                        MoveForward(vacuum);
-                        MoveForward(vacuum);
-
+                        goRight =true;
+                        vacuum.RotateN(90);
                     }
-             
-                    vacuum.RotateN(0);
-                    upAndDown = true;
-                    goRight = true;
+                    
+                   
+              
                 }
 
                 else if ((vacuum.GetRotation() == 90 || vacuum.GetRotation() == 270) && vacuum.X >= 820)
@@ -517,26 +509,17 @@ namespace SeniorCapstoneProject.Algorithms
                     if (vacuum.Y < 0)
                     {
                         vacuum.Y += 5;
-                        vacuum.RotateN(180);
-                        MoveForward(vacuum);
-                        MoveForward(vacuum);
-                        MoveForward(vacuum);
-                        MoveForward(vacuum);
+                        goRight = false;
+                        vacuum.RotateN(270);
                     }
                     else
                     {
                         vacuum.Y -= 5;
-                        vacuum.RotateN(0);
-                        MoveForward(vacuum);
-                        MoveForward(vacuum);
-                        MoveForward(vacuum);
-                        MoveForward(vacuum);
-
+                        goRight = true;
+                        vacuum.RotateN(270);
                     }
-                  
-                    vacuum.RotateN(0);
-                    upAndDown = true;
-                    goRight = false;
+
+
                 }
 
                 else

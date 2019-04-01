@@ -95,6 +95,40 @@ namespace SeniorCapstoneProject.Algorithms
 
             else if (_checker.CollisionOccured(vacuum) && _checker.NorthSouthWallCollision)
             {
+                if ((vacuum.GetRotation() == 90 || vacuum.GetRotation() == 270) && vacuum.Y >= 400)
+                {
+
+
+                    vacuum.RotateN(180);
+                    Reverse(vacuum);
+                    Reverse(vacuum);
+                    Reverse(vacuum);
+                    Reverse(vacuum);
+                    Reverse(vacuum);
+                    Reverse(vacuum);
+                    Reverse(vacuum);
+                    Reverse(vacuum);
+                    vacuum.RotateN(0);
+                    rotatedRightLast = true;
+                    upAndDown = true;
+                }
+
+                else if ((vacuum.GetRotation() == 90 || vacuum.GetRotation() == 270) && vacuum.Y <= -400)
+                {
+                    vacuum.RotateN(0);
+                    Reverse(vacuum);
+                    Reverse(vacuum);
+                    Reverse(vacuum);
+                    Reverse(vacuum);
+                    Reverse(vacuum);
+                    Reverse(vacuum);
+                    Reverse(vacuum);
+                    Reverse(vacuum);
+                    vacuum.RotateN(180);
+                    rotatedRightLast = false;
+                    upAndDown = true;
+                }
+
                 if (_checker.CollidedFurnitureObject != null)
                 {
                     if (vacuum.X <= 0)
@@ -145,31 +179,7 @@ namespace SeniorCapstoneProject.Algorithms
                     }
                     // upAndDown = false;
                 }
-                if ((vacuum.GetRotation() == 90 || vacuum.GetRotation() == 270) && vacuum.Y >= 400)
-                {
-
-
-                    vacuum.RotateN(0);
-                    Reverse(vacuum);
-                    Reverse(vacuum);
-                    Reverse(vacuum);
-                    Reverse(vacuum);
-                    vacuum.RotateN(180);
-                    rotatedRightLast = true;
-                    upAndDown = true;
-                }
-
-                else if ((vacuum.GetRotation() == 90 || vacuum.GetRotation() == 270) && vacuum.Y <= -400)
-                {
-                    vacuum.RotateN(180);
-                    Reverse(vacuum);
-                    Reverse(vacuum);
-                    Reverse(vacuum);
-                    Reverse(vacuum);
-                    vacuum.RotateN(0);
-                    rotatedRightLast = false;
-                    upAndDown = true;
-                }
+              
 
                 //else
                 //{
@@ -462,6 +472,8 @@ namespace SeniorCapstoneProject.Algorithms
 
             else if (_checker.CollisionOccured(vacuum) && _checker.SideWallCollision)
             {
+              
+
                 if ((vacuum.GetRotation() == 0 || vacuum.GetRotation() == 180) && vacuum.X >= 820)
                 {
                     vacuum.RotateN(90);

@@ -47,7 +47,7 @@ namespace SeniorCapstoneProject
         public void CreateRoom()
         {
            
-            room = new Room("Room1", (int)this.Width, (int)this.Height); //Will add name setter in now.
+            room = new Room("Room1", (int)Math.Ceiling(this.Width), (int)Math.Ceiling(this.Height)); //Will add name setter in now.
         }
 
         public void UpdateUI(IFurniture furniture, FurnitureTypes furnitureType)

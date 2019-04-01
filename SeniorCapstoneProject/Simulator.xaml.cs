@@ -229,11 +229,11 @@ namespace SeniorCapstoneProject
             this.Dispatcher.Invoke(() => { this.lblTime.Content = String.Format("Elapsed time: {0}:{1:00}", mins, secs % 60); this.lblBattery.Content = String.Format("Battery: {0:0.00}%", RobotVacuum.Vacuum.Battery.Percent); this.lblCoverage.Content = String.Format("Coverage: {0:0.000}%", coverage); }); //Updates the timer label.
 
             //Add coverage of 100% here
-            if(coverage >= 100)
+            if (coverage >= 100)
             {
                 TerminateSimulation("Room 100% covered.");
             }
-                
+
         }
 
         private void BatteryDead()

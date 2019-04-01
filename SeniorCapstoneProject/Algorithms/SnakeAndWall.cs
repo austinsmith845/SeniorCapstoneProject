@@ -972,7 +972,10 @@ namespace SeniorCapstoneProject.Algorithms
             {
                 vacuum.X += 5;
             }
-            AddPoints(vacuum);
+            while (!AddPoints(vacuum))
+            {
+              
+            }
 
 
         }
@@ -1020,16 +1023,17 @@ namespace SeniorCapstoneProject.Algorithms
             }
 
         }
-        private void AddPoints(RobotVacuum vacuum)
+        private bool AddPoints(RobotVacuum vacuum)
         {
             object locker = new object();
             lock (locker)
             {
                 int x = vacuum.X;
                 int y = vacuum.Y;
-                while (x < vacuum.X + vacuum.Width)
+                while (x < Math.Floor(vacuum.X + vacuum.Width))
                 {
-                    while (y < vacuum.Y + vacuum.Width)
+                    y = vacuum.Y;
+                    while (y < Math.Floor(vacuum.Y + vacuum.Width))
                     {
 
                         if (!vacuum.PointsVisited.ContainsKey(new System.Drawing.Point(x, y)))
@@ -1041,6 +1045,7 @@ namespace SeniorCapstoneProject.Algorithms
                     }
                     x++;
                 }
+                return true;
             }
         }
     }

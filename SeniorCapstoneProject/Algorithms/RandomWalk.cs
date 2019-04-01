@@ -264,6 +264,7 @@ namespace SeniorCapstoneProject.Algorithms
                 int y = vacuum.Y;
                 while (x < vacuum.X + vacuum.Width)
                 {
+                    y = vacuum.Y;
                     while (y < vacuum.Y + vacuum.Width)
                     {
 

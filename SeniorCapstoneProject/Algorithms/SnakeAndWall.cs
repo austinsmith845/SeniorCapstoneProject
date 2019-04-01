@@ -929,7 +929,6 @@ namespace SeniorCapstoneProject.Algorithms
             //{
             //    vacuum.PointsVisited.Add(new System.Drawing.Point(vacuum.X, vacuum.Y));
             //}
-            AddPoints(vacuum);
         }
 
         private void MoveForward(RobotVacuum vacuum)
@@ -973,6 +972,8 @@ namespace SeniorCapstoneProject.Algorithms
             {
                 vacuum.X += 5;
             }
+            AddPoints(vacuum);
+
 
         }
 

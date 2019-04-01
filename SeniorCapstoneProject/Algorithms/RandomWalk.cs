@@ -255,28 +255,29 @@ namespace SeniorCapstoneProject.Algorithms
             vacuum.RotateN(rotations[degree]);
         }
 
-        private void AddPoints(RobotVacuum vacuum)
+        private bool AddPoints(RobotVacuum vacuum)
         {
             object locker = new object();
             lock (locker)
             {
                 int x = vacuum.X;
                 int y = vacuum.Y;
-                while (x < vacuum.X + vacuum.Width)
+                while (x < Math.Floor(vacuum.X + vacuum.Width))
                 {
                     y = vacuum.Y;
-                    while (y < vacuum.Y + vacuum.Width)
+                    while (y < Math.Floor(vacuum.Y + vacuum.Width))
                     {
 
-                        if(!vacuum.PointsVisited.ContainsKey(new System.Drawing.Point(x,y)))
+                        if (!vacuum.PointsVisited.ContainsKey(new System.Drawing.Point(x, y)))
                         {
-                            vacuum.PointsVisited.Add(new System.Drawing.Point(x,y), true);
+                            vacuum.PointsVisited.Add(new System.Drawing.Point(x, y), true);
                         }
 
                         y++;
                     }
                     x++;
                 }
+                return true;
             }
         }
 

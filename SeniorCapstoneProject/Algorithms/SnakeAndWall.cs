@@ -1030,10 +1030,10 @@ namespace SeniorCapstoneProject.Algorithms
             {
                 int x = vacuum.X;
                 int y = vacuum.Y;
-                while (x < Math.Floor(vacuum.X + vacuum.Width))
+                while (x < vacuum.X + vacuum.Width)
                 {
                     y = vacuum.Y;
-                    while (y < Math.Floor(vacuum.Y + vacuum.Width))
+                    while (y < vacuum.Y + vacuum.Width)
                     {
 
                         if (!vacuum.PointsVisited.ContainsKey(new System.Drawing.Point(x, y)))

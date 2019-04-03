@@ -238,11 +238,11 @@ namespace SeniorCapstoneProject
 
         private void BatteryDead()
         {
-            
+
+            dead.DeregisterHandler(BatteryDead); //Ensures that the battery dead observer does not have two instances of the BatteryDead handler method.
 
             this.Dispatcher.Invoke(() =>
             {
-                dead.DeregisterHandler(BatteryDead); //Ensures that the battery dead observer does not have two instances of the BatteryDead handler method.
                 IsRunning = false;
                 //time.Enabled = false; //disables the timer.
                 //timer.Abort(); //Stops the timer thread.
@@ -270,6 +270,8 @@ namespace SeniorCapstoneProject
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             IsRunning = false;
+            dead.DeregisterHandler(BatteryDead); //Ensures that the battery dead observer does not have two instances of the BatteryDead handler method.
+
             time.Enabled = false; //disables the timer.
             timer.Abort(); //Stops the timer thread.
             timer = null;

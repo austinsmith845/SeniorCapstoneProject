@@ -81,26 +81,10 @@ namespace SeniorCapstoneProject.Algorithms
                 movesMade = 0;
                 movesUntilTurn = 1;
                 movesUntilResume = 50;
+                Random random = new Random();
 
-                if (vacuum.GetRotation() == 0)
-                {
-                    vacuum.RotateN(180);
-                }
-
-                else if (vacuum.GetRotation() == 90)
-                {
-                    vacuum.RotateN(270);
-                }
-
-                else if (vacuum.GetRotation() == 180)
-                {
-                    vacuum.RotateN(0);
-                }
-
-                else if (vacuum.GetRotation() == 270)
-                {
-                    vacuum.RotateN(90);
-                }
+                int[] rotations = { 0, 90, 180, 270 };
+                vacuum.RotateN(rotations[random.Next(0, rotations.Length)]);
 
             }
             if (vacuum.GetRotation() == 0)

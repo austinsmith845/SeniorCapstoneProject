@@ -972,11 +972,7 @@ namespace SeniorCapstoneProject.Algorithms
             {
                 vacuum.X += 5;
             }
-            while (!AddPoints(vacuum))
-            {
-              
-            }
-
+            AddPoints(vacuum);
 
         }
 

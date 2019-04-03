@@ -44,7 +44,7 @@ namespace SeniorCapstoneProject
                 if (!Simulator.IsRunning)
                 {
                     Simulator simulator = new Simulator();
-                    simulator.Show();
+                    simulator.ShowDialog();
                 }
 
                 else
@@ -63,6 +63,12 @@ namespace SeniorCapstoneProject
             {
                 AlgorithmEditor editor = new AlgorithmEditor();
                 editor.ShowDialog();
+            }
+            
+            else if ((string)btn.Tag == "Statistics")
+            {
+                OverallStatisticsScreen screen = new OverallStatisticsScreen();
+                screen.ShowDialog();
             }
         }
     }

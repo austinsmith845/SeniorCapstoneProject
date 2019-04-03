@@ -101,6 +101,9 @@
     <Compile Include="IStatistics.cs" />
     <Compile Include="ITimer.cs" />
     <Compile Include="ITimeTickObserver.cs" />
+    <Compile Include="OverallStatisticsScreen.xaml.cs">
+      <DependentUpon>OverallStatisticsScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RobotMovedObserver.cs" />
     <Compile Include="RobotVacuum.cs" />
     <Compile Include="Room.cs" />
@@ -152,6 +155,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="OverallStatisticsScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SelectionScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

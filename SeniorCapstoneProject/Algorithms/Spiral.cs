@@ -13,7 +13,7 @@ namespace SeniorCapstoneProject.Algorithms
         private CollisionChecker _checker;
 
         private int count = 1;
-        
+
 
         public string Algorithm
         {
@@ -22,11 +22,11 @@ namespace SeniorCapstoneProject.Algorithms
 
         #endregion
 
-        private  static int movesUntilTurn = 1;
+        private static int movesUntilTurn = 1;
         private static int movesMade = 0;
         private static int movesUntilResume;
-        
-      
+
+
         public Spiral()
         {
             _checker = RobotVacuum.Vacuum.Checker;
@@ -58,17 +58,17 @@ namespace SeniorCapstoneProject.Algorithms
             */
 
             MoveForward(vacuum);
-            
+
 
             AddPoints(vacuum);
         }
 
         private void MoveForward(RobotVacuum vacuum)
         {
-            if(movesMade == movesUntilTurn)
+            if (movesMade == movesUntilTurn)
             {
                 vacuum.RotateN(vacuum.GetRotation() + 90);
-                if(vacuum.GetRotation() == 360)
+                if (vacuum.GetRotation() == 360)
                 {
                     vacuum.RotateN(0);
                 }
@@ -76,7 +76,7 @@ namespace SeniorCapstoneProject.Algorithms
                 movesMade = 0;
             }
 
-            if(_checker.CollisionOccured(vacuum))
+            if (_checker.CollisionOccured(vacuum))
             {
                 movesMade = 0;
                 movesUntilTurn = 1;
@@ -143,7 +143,7 @@ namespace SeniorCapstoneProject.Algorithms
             else if (vacuum.GetRotation() == 90)
             {
                 vacuum.X -= 5;
-            }       
+            }
 
             else if (vacuum.GetRotation() == 180)
             {
@@ -195,4 +195,5 @@ namespace SeniorCapstoneProject.Algorithms
                 }
             }
         }
+    }
 }

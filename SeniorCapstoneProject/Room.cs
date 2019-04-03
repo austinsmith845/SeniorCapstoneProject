@@ -153,7 +153,7 @@ namespace SeniorCapstoneProject
 
         public int PointsInRoom()
         {
-            int area = 1640 * 800; //this is in the unit of points.
+            int area = 1640 * 797; //this is in the unit of points.
             foreach (IFurniture furn in _furniture)
             {
                 if (!furn.CanPassUnder())

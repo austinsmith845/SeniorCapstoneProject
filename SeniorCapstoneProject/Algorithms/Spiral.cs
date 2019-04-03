@@ -86,7 +86,6 @@ namespace SeniorCapstoneProject.Algorithms
 
                 movesMade = 0;
                 movesUntilTurn = 1;
-                movesUntilResume = 50;
                 Random random = new Random();
                 movesUntilResume = random.Next(50, 151);
 

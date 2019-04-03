@@ -88,6 +88,7 @@ namespace SeniorCapstoneProject.Algorithms
                 movesUntilTurn = 1;
                 movesUntilResume = 50;
                 Random random = new Random();
+                movesUntilResume = random.Next(50, 151);
 
                 int[] rotations = { 0, 90, 180, 270 };
                 vacuum.RotateN(rotations[random.Next(0, rotations.Length)]);

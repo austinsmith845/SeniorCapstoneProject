@@ -21,6 +21,12 @@ namespace SeniorCapstoneProject.Algorithms
         }
 
         #endregion
+
+        private  static int movesUntilTurn = 1;
+        private static int movesMade = 0;
+        private static int movesUntilResume;
+        
+      
         public Spiral()
         {
             _checker = RobotVacuum.Vacuum.Checker;
@@ -52,32 +58,78 @@ namespace SeniorCapstoneProject.Algorithms
             */
 
             MoveForward(vacuum);
-            vacuum.RotateN(vacuum.GetRotation() + 90);
-            count++;
+            
 
             AddPoints(vacuum);
         }
 
         private void MoveForward(RobotVacuum vacuum)
         {
+            if(movesMade == movesUntilTurn)
+            {
+                vacuum.RotateN(vacuum.GetRotation() + 90);
+                if(vacuum.GetRotation() == 360)
+                {
+                    vacuum.RotateN(0);
+                }
+                movesUntilTurn += 3;
+                movesMade = 0;
+            }
+
+            if(_checker.CollisionOccured(vacuum))
+            {
+                movesMade = 0;
+                movesUntilTurn = 1;
+                movesUntilResume = 50;
+
+                if (vacuum.GetRotation() == 0)
+                {
+                    vacuum.RotateN(180);
+                }
+
+                else if (vacuum.GetRotation() == 90)
+                {
+                    vacuum.RotateN(270);
+                }
+
+                else if (vacuum.GetRotation() == 180)
+                {
+                    vacuum.RotateN(0);
+                }
+
+                else if (vacuum.GetRotation() == 270)
+                {
+                    vacuum.RotateN(90);
+                }
+
+            }
             if (vacuum.GetRotation() == 0)
             {
-                vacuum.Y -= count;
+                vacuum.Y -= 5;
             }
 
             else if (vacuum.GetRotation() == 90)
             {
-                vacuum.X += count;
+                vacuum.X += 5;
             }
 
             else if (vacuum.GetRotation() == 180)
             {
-                vacuum.Y += count;
+                vacuum.Y += 5;
             }
 
             else if (vacuum.GetRotation() == 270)
             {
-                vacuum.X -= count;
+                vacuum.X -= 5;
+            }
+
+            if (movesUntilResume == 0)
+            {
+                movesMade += 1;
+            }
+            else
+            {
+                movesUntilResume--;
             }
         }
 

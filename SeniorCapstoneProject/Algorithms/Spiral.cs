@@ -78,6 +78,12 @@ namespace SeniorCapstoneProject.Algorithms
 
             if (_checker.CollisionOccured(vacuum))
             {
+                Reverse(vacuum);
+                Reverse(vacuum);
+                Reverse(vacuum);
+                Reverse(vacuum);
+
+
                 movesMade = 0;
                 movesUntilTurn = 1;
                 movesUntilResume = 50;

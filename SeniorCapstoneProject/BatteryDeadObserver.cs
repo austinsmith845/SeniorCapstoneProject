@@ -31,6 +31,11 @@ namespace SeniorCapstoneProject
             batteryDeadHandler += handler;
         }
 
+        public void DeregisterHandler(BatteryIsDead handler)
+        {
+            batteryDeadHandler -= handler;
+        }
+
         /// <summary>
         /// Call all the methods attached to the handler when the battery dies.
         /// </summary>

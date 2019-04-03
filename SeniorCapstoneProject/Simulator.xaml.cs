@@ -238,23 +238,32 @@ namespace SeniorCapstoneProject
 
         private void BatteryDead()
         {
-            IStatistics stats = new Statistics(time.Secs, (float)coverage, RobotVacuum.Vacuum.Algorithm.Algorithm);
-
-            IsRunning = false;
-            time.Enabled = false; //disables the timer.
-            timer.Abort(); //Stops the timer thread.
-            EndSimulation end;
+            
 
             this.Dispatcher.Invoke(() =>
             {
-               end = new EndSimulation("Battery died.",stats);
-                end.Show();
+                dead.DeregisterHandler(BatteryDead); //Ensures that the battery dead observer does not have two instances of the BatteryDead handler method.
+                IsRunning = false;
+                //time.Enabled = false; //disables the timer.
+                //timer.Abort(); //Stops the timer thread.
+                //timer = null;
+
+                IStatistics stats = new Statistics(time.Secs, (float)coverage, RobotVacuum.Vacuum.Algorithm.Algorithm);
+
+               
                 this.Close();
+                
+                 
+                EndSimulation end;
+                end = new EndSimulation("Battery died.",stats);
+
+                end.Show();
+                //RobotVacuum.Vacuum.AbortThread();
+
             }); //Force this code to run in the UI thread.
 
       
         
-            RobotVacuum.Vacuum.AbortThread();
            
         }
 
@@ -263,7 +272,8 @@ namespace SeniorCapstoneProject
             IsRunning = false;
             time.Enabled = false; //disables the timer.
             timer.Abort(); //Stops the timer thread.
-            RobotVacuum.Vacuum.AbortThread();
+            timer = null;
+            room.Vacuum.AbortThread();
         }
 
         private void ButtonClick(object sender, RoutedEventArgs args)
@@ -281,6 +291,7 @@ namespace SeniorCapstoneProject
         {
 
             IStatistics stats = new Statistics(time.Secs, (float)coverage, RobotVacuum.Vacuum.Algorithm.Algorithm);
+            dead.DeregisterHandler(BatteryDead); //Ensures that the battery dead observer does not have two instances of the BatteryDead handler method.
 
             IsRunning = false;
             time.Enabled = false; //disables the timer.
@@ -296,9 +307,9 @@ namespace SeniorCapstoneProject
                 this.Close();
             }); //Force this code to run in the UI thread.
 
-            room.Vacuum.AbortThread();
+           // room.Vacuum.AbortThread();
 
-            timer.Abort();
+        
 
 
         }

@@ -22,6 +22,7 @@ namespace SeniorCapstoneProject
                 if (_percent <= 0)
                 {
                     observer.BatteryDead(); //call the battery dead handlers.
+                    observer = null;
                 }
             }
 

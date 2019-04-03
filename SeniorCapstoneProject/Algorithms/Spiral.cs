@@ -91,7 +91,7 @@ namespace SeniorCapstoneProject.Algorithms
             else if (vacuum.GetRotation() == 90)
             {
                 vacuum.X -= 5;
-            }
+            }       
 
             else if (vacuum.GetRotation() == 180)
             {

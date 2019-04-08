@@ -35,6 +35,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Images\icon_xIQ_icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -218,6 +221,7 @@
     <Content Include="Images\Dresser.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Images\icon_xIQ_icon.ico" />
     <Content Include="Images\Rug.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

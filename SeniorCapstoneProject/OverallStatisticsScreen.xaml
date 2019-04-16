@@ -16,7 +16,7 @@
                 <ComboBoxItem Tag="Genetic">Genetic</ComboBoxItem>
             </ComboBox>
         </GroupBox>
-        <GroupBox Header="Simultation Statistics overall" HorizontalAlignment="Left" Height="128" Margin="10,248,0,0" VerticalAlignment="Top" Width="774">
+        <GroupBox Header="Simulation Statistics overall" HorizontalAlignment="Left" Height="128" Margin="10,248,0,0" VerticalAlignment="Top" Width="774">
             <Label x:Name="lblOverallStats" FontSize="18" HorizontalAlignment="Left" Height="108" Margin="4,-6,0,0" VerticalAlignment="Top" Width="754"/>
 
         </GroupBox>

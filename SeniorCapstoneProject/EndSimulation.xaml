@@ -8,10 +8,10 @@
         Title="EndSimulation" Height="499.787" Width="828.723" Background="LightGray">
     <Grid>
         <Label x:Name="lblTitle" Content="Simulation Summary:"  HorizontalAlignment="Left" HorizontalContentAlignment="Left"  FontSize="24" Margin="10,29,-0.4,0" VerticalAlignment="Top" Width="784" FontWeight="Normal"/>
-        <GroupBox Header="Simultation Statistics this run" HorizontalAlignment="Left" Height="128" Margin="10,107,0,0" VerticalAlignment="Top" Width="774">
+        <GroupBox Header="Simulation Statistics this run" HorizontalAlignment="Left" Height="128" Margin="10,107,0,0" VerticalAlignment="Top" Width="774">
             <Label x:Name="lblThisRunStats" FontSize="18" HorizontalAlignment="Left" Height="108" Margin="4,-6,0,0" VerticalAlignment="Top" Width="754"/>
         </GroupBox>
-        <GroupBox Header="Simultation Statistics overall" HorizontalAlignment="Left" Height="128" Margin="10,240,0,0" VerticalAlignment="Top" Width="774">
+        <GroupBox Header="Simulation Statistics overall" HorizontalAlignment="Left" Height="128" Margin="10,240,0,0" VerticalAlignment="Top" Width="774">
             <Label x:Name="lblOverallStats" FontSize="18" HorizontalAlignment="Left" Height="108" Margin="4,-6,0,0" VerticalAlignment="Top" Width="754"/>
 
         </GroupBox>

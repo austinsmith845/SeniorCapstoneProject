@@ -57,7 +57,7 @@ namespace SeniorCapstoneProject
 
             int AverageTimeTaken = Statistics.AverageTimeTaken(stats.ToArray<Statistics>());
             float AverageCoverage = Statistics.AverageCoverage(stats.ToArray<Statistics>());
-            this.lblOverallStats.Content = String.Format("Algotrithm: \t\t {0}.\nAverage time taken: \t {1:00}:{2:00}.\nAverage coverage: \t {3:0}%.\nNumber of runs: \t\t {4}.", currentAlgorithm, AverageTimeTaken / 60, AverageTimeTaken % 60, AverageCoverage, stats.Count);
+            this.lblOverallStats.Content = String.Format("Algorithm: \t\t {0}.\nAverage time taken: \t {1:00}:{2:00}.\nAverage coverage: \t {3:0}%.\nNumber of runs: \t\t {4}.", currentAlgorithm, AverageTimeTaken / 60, AverageTimeTaken % 60, AverageCoverage, stats.Count);
 
         }
 

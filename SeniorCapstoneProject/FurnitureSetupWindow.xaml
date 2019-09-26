@@ -1,0 +1,29 @@
+﻿<Window x:Class="SeniorCapstoneProject.FurnitureSetupWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SeniorCapstoneProject"
+        mc:Ignorable="d"
+        Title="Enter Furniture Attribute." Height="404.738" Width="615.517" ResizeMode="NoResize" Background="LightGray" >
+    <Grid Margin="0,0,-0.2,-19.8">
+        <Label Content="Enter the furniture's attributes." FontSize="24" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="98,29,97.8,0" VerticalAlignment="Top" Height="36" Width="413"/>
+        <TextBox x:Name="txtHeight" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Height="31" Margin="353,106,57,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="199"/>
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="248,314,0,0" VerticalAlignment="Top" Width="113" Height="26" Click="SaveClick"/>
+        <Label x:Name="lblHeight" Content="Enter height from ground (cm):" HorizontalAlignment="Left" Height="31" Margin="82,106,0,0" VerticalAlignment="Top" Width="243"/>
+       
+        <TextBox x:Name="txtWidth" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Height="31" Margin="353,155,57,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="199"/>
+        <Label x:Name="lblWidth" Content="Enter width (cm):" HorizontalAlignment="Left" Height="31" Margin="82,156,0,0" VerticalAlignment="Top" Width="243"/>
+        
+        <TextBox x:Name="txtLength" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Height="31" Margin="353,211,57,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="199"/>
+        <Label x:Name="lblLength" Content="Enter length (cm):" HorizontalAlignment="Left" Height="31" Margin="82,211,0,0" VerticalAlignment="Top" Width="243"/>
+        <ComboBox x:Name="cmbRotation" HorizontalAlignment="Left" Height="22" Margin="361,270,0,0" VerticalAlignment="Top" Width="191">
+            <ComboBoxItem Content="0" />
+            <ComboBoxItem Content="90"/>
+            <ComboBoxItem Content= "180"/>
+            <ComboBoxItem Content="270"/>
+        </ComboBox>
+        <Label x:Name="lblLength_Copy" Content="Select rotation:" HorizontalAlignment="Left" Height="31" Margin="82,274,0,0" VerticalAlignment="Top" Width="243"/>
+
+    </Grid>
+</Window>

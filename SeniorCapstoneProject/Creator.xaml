@@ -1,0 +1,41 @@
+﻿<Window x:Class="SeniorCapstoneProject.Creator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SeniorCapstoneProject"
+        mc:Ignorable="d"
+        Title="Creator" Height="525.2" Width="849.6" ResizeMode="NoResize"  KeyDown="Window_KeyDown" Background="LightGray" >
+    <Grid x:Name="Grid" HorizontalAlignment="Left" Height="490" VerticalAlignment="Top" Width="840" ClipToBounds="True" SnapsToDevicePixels="True">
+        <Menu HorizontalAlignment="Right" Height="29" VerticalAlignment="Top" Width="840">
+            <MenuItem x:Name="File" Header="  File">
+                <MenuItem x:Name="Save" Header="Save" Tag="Save" Click="MenuClick"/>
+                <MenuItem x:Name="Load" Header="Load" Tag="Load" Click="MenuClick"/>
+            </MenuItem>
+            <MenuItem x:Name="Insert" Header="Insert">
+                <MenuItem x:Name="Vacuum" Header="Vacuum" Tag="Vacuum" Click="MenuClick"/>
+                <MenuItem x:Name="Bed" Header="Bed" Tag="Bed" Click="MenuClick"/>
+                <MenuItem x:Name="Bed2" Header="Bed2" Tag="Bed2" Click="MenuClick"/>
+                <MenuItem x:Name="BookShelf" Header="BookShelf" Tag="BookShelf" Click="MenuClick"/>
+                <MenuItem x:Name="Couch" Header="Couch" Tag="Couch" Click="MenuClick"/>
+                <MenuItem x:Name="DeskChair" Header="DeskChair" Tag="DeskChair" Click="MenuClick"/>
+                <MenuItem x:Name="Dresser" Header="Dresser" Tag="Dresser" Click="MenuClick"/>
+                <MenuItem x:Name="Recliner" Header="Recliner" Tag="Recliner" Click="MenuClick"/>
+                <MenuItem x:Name="Rug" Header="Rug" Tag="Rug" Click="MenuClick"/>
+                <MenuItem x:Name="Sofa" Header="Sofa" Tag="Sofa" Click="MenuClick"/>
+                <MenuItem x:Name="Stove" Header="Stove" Tag="Stove" Click="MenuClick"/>
+                <MenuItem x:Name="Table" Header="Table" Tag="Table" Click="MenuClick"/>
+                <MenuItem x:Name="TVStand" Header="TVStand" Tag="TVStand" Click="MenuClick"/>
+            </MenuItem>
+            <MenuItem x:Name="Help" Header="Help">
+                <MenuItem x:Name="Controls" Header="Controls" Tag="Controls" Click="MenuClick"/>
+            </MenuItem>
+        </Menu>
+    </Grid>
+
+
+
+
+
+
+</Window>
